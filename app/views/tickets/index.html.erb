@@ -1,0 +1,8 @@
+<h1><strong>Welcome to Livecode</strong></h1>
+<br>
+<p>Solve your coding problem</p>
+<% @tickets.each do |ticket| %>
+  <%= ticket.title %>
+  <%= ticket.content %>
+  <%= ticket.user.email %>
+<% end %>
