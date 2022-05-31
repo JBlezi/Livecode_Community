@@ -12,7 +12,7 @@ class UserInformationsController < ApplicationController
     def update
       @user_information = UserInformation.find(params[:id])
       @user_information.update(user_information_params)
-      redirect_to new_user_session_path
+      redirect_to  tickets_path
       authorize @user_information
     end
 
