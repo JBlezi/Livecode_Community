@@ -2,7 +2,12 @@ class TicketsController < ApplicationController
   before_action :set_tickets, only: [:show, :edit, :update, :destroy]
   
   def index
-    @tickets = policy_scope(Ticket)
+    if params[:query].present?
+      @tickets = policy_scope(Ticket)
+      @tickets = Ticket.search_by_language(params[:query])
+    else
+      @tickets = policy_scope(Ticket)
+    end
   end
 
   def show

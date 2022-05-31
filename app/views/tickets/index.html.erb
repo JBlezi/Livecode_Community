@@ -7,7 +7,12 @@
 <br>
 
 <div>
-  <% @tickets.each do |ticket| %>
+<h3>Search Tickets by</h3>
+
+</div>
+
+<div>
+  <% @tickets.reverse_each do |ticket| %>
     <%= link_to ticket_path(ticket), class: "text-decoration-none link-dark" do %>
       <div>
         <%= ticket.title %>
