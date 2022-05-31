@@ -7,6 +7,6 @@ class ChatPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    user == record.user || user == record.ticket.user
   end
 end
