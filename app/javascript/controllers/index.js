@@ -9,3 +9,6 @@ application.register("chat-subscription", ChatSubscriptionController)
 
 import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
+
+import VideoCallController from "./video_call_controller"
+application.register("video-call", VideoCallController)
