@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:home, :index]
   include Pundit::Authorization
 
   # Pundit: white-list approach
