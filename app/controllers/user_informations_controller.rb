@@ -10,6 +10,7 @@ class UserInformationsController < ApplicationController
     end
 
     def update
-
+        @user_information = UserInformation.find(params[:id])
+        authorize @user_information
     end
 end
