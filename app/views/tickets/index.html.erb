@@ -1,4 +1,4 @@
-<h1><strong>Welcome to Livecode</strong></h1>
+<h1><strong>Tickets</strong></h1>
 <br>
 <p>Solve your coding problem</p>
 <h2>Make a new Ticket</h2>
@@ -6,8 +6,23 @@
 <hr>
 <br>
 
+<div class="search d-flex">
+  <h2 class="page-title"></h2>
+  <%= form_tag tickets_path, method: :get, class: "d-flex search-bar" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "What are you searching for?"
+    %>
+    <%= submit_tag "Search", class: "btn btn-dark" %>
+  <% end %>
+</div>
+
+
+
+
 <div>
-  <% @tickets.each do |ticket| %>
+  <% @tickets.reverse_each do |ticket| %>
     <%= link_to ticket_path(ticket), class: "text-decoration-none link-dark" do %>
       <div>
         <%= ticket.title %>
