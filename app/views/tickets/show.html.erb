@@ -1,0 +1,6 @@
+<h1>Ticket Show Page for Ticket Nr <%= @ticket.id %></h1>
+  <% if policy(@ticket).edit? %>
+    <%= link_to "Edit this ticket", edit_ticket_path(@ticket) %>
+  <% end %>
+  <!-- [...] -->
+  <%= button_to "Destroy this ticket", @ticket, method: :delete if policy(@ticket).destroy? %>
