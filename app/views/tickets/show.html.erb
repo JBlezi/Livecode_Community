@@ -2,5 +2,19 @@
   <% if policy(@ticket).edit? %>
     <%= link_to "Edit this ticket", edit_ticket_path(@ticket) %>
   <% end %>
-  <!-- [...] -->
-  <%= button_to "Destroy this ticket", @ticket, method: :delete if policy(@ticket).destroy? %>
+
+<div>
+      <div>
+        <%= @ticket.title %>
+        <%= @ticket.content %>
+        <%= @ticket.user.email %>
+        <br>
+        <% if policy(@ticket).edit? %>
+        <% end %>
+        <br>
+      </div>
+</div>
+
+
+<%= button_to "Destroy this ticket", @ticket, method: :delete if policy(@ticket).destroy? %>
+<%= link_to "Show all tickets", tickets_path %>
