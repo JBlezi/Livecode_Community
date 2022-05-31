@@ -1,5 +1,6 @@
 class TicketsController < ApplicationController
   before_action :set_tickets, only: [:show, :edit, :update, :destroy]
+  
   def index
     @tickets = policy_scope(Ticket)
   end
@@ -17,7 +18,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(ticket_params)
     authorize @ticket
     @ticket.user = current_user
-    @ticket.save
+    @ticket.save!
     redirect_to tickets_show_path
   end
 

@@ -9,7 +9,7 @@ class TicketPolicy < ApplicationPolicy
   def index?
     true
   end
-
+  
   def show?
     true
   end
@@ -17,6 +17,7 @@ class TicketPolicy < ApplicationPolicy
   def create?
     record.user == user
   end
+
 
   def update?
     record.user == user
