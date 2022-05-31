@@ -2,11 +2,9 @@
 <br>
 <p>Solve your coding problem</p>
 <h2>Make a new Ticket</h2>
-<%= button_to "New Ticket", new_ticket_path %>
+<%= link_to "New Ticket", new_ticket_path %>
 <hr>
 <br>
-
-
 
 <div>
   <% @tickets.each do |ticket| %>
