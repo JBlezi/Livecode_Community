@@ -4,7 +4,7 @@ class TicketsController < ApplicationController
   def index
     if params[:query].present?
       @tickets = policy_scope(Ticket)
-      @tickets = Ticket.search_by_language(params[:query])
+      @tickets = Ticket.search_by_everything(params[:query])
     else
       @tickets = policy_scope(Ticket)
     end
