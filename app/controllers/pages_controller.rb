@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def show
+    # Chat.ticket.user
     @user = User.first
     setup_video_call_token
   end
