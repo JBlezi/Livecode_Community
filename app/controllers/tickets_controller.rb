@@ -19,7 +19,7 @@ class TicketsController < ApplicationController
     authorize @ticket
     @ticket.user = current_user
     @ticket.save!
-    redirect_to tickets_show_path
+    redirect_to ticket_path(@ticket)
   end
 
   def edit

@@ -15,7 +15,7 @@ class TicketPolicy < ApplicationPolicy
   end
 
   def create?
-    record.user == user
+    user
   end
 
 
