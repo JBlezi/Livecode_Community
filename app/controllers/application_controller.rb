@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
   #   redirect_to(root_path)
   # end
 
+  def after_sign_up_path_for(resource)
+    user_information_path(current_user)
+  end
+
 
   private
 
