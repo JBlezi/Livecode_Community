@@ -6,11 +6,7 @@ class ChatsController < ApplicationController
     authorize @chat
 
     # Show method for the video chat
-    if current_user == @chat.ticket.user
-      @user = @chat.user
-    else
-      @user = @chat.user.id
-    end
+    @second_user = current_user == @chat.user ? @chat.ticket.user : @chat.user
     setup_video_call_token
   end
 
@@ -22,10 +18,10 @@ class ChatsController < ApplicationController
 
   def setup_video_call_token
     # No chatting with yourself
-    return if @user == current_user
+    return if @second_user == current_user
 
     twilio = TwilioService.new
-    twilio.generate_token(current_user, @user)
+    twilio.generate_token(current_user, @second_user)
     @twilio_jwt = twilio.jwt
     @room_id = twilio.room_id
   end
