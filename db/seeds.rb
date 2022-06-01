@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "Cleaning DB of previous records"
-
+Chat.destroy_all
 Ticket.destroy_all
 User.destroy_all
 
