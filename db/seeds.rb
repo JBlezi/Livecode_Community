@@ -79,6 +79,4 @@ chat1.save!
 chat2 = Chat.new(user_id: user3.id, ticket_id: ticket2.id)
 chat2.save!
 
-
-
 puts "Finished!...."
