@@ -1,14 +1,16 @@
 <h1>Profile</h1>
 <div class="container">
           <ul class="text-start list-unstyled">
-            <li><h1><%= @user_information.user.email %></h1></li>
-            <li><%= @user_information.first_name %></li>
-            <li><%= @user_information.last_name %></li>
-            <li><%= @user_information.bio %></li>
-            <li><%= link_to "github_url", @user_information.github_url, target: "_blank"%></li>
+            <li>Email: <%= @user_information.user.email %></li>
+            <li>First name: <%= @user_information.first_name %></li>
+            <li>Last name: <%= @user_information.last_name %></li>
+            <li>Bio: <%= @user_information.bio %></li>
+            <li><%= link_to "Github", @user_information.github_url, target: "_blank"%></li>
           </ul>
 </div>
+<% if current_user == @user_information.user %>
 <div class="form-container">
   <h1 class="form-title">Complete your profile</h1>
   <%= render "form", user_information: @user_information %>
 </div>
+<% end %>
