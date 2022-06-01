@@ -40,7 +40,7 @@ class TicketsController < ApplicationController
   def destroy
     authorize @ticket
     @ticket.destroy
-    redirect_to tickets_index_path, status: :see_other
+    redirect_to tickets_path, status: :see_other
   end
 
   private
