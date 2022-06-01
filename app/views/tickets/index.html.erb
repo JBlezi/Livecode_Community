@@ -2,7 +2,7 @@
 <br>
 <p>Solve your coding problem</p>
 <h2>Make a new Ticket</h2>
-<%= link_to "New Ticket", new_ticket_path %>
+<%= link_to "New Ticket", new_ticket_path, class: "standart-button" %>
 <hr>
 <br>
 
@@ -14,7 +14,7 @@
       class: "form-control",
       placeholder: "What are you searching for?"
     %>
-    <%= submit_tag "Search", class: "btn btn-dark" %>
+    <%= submit_tag "Search", class: "standart-button" %>
   <% end %>
 </div>
 
