@@ -1,6 +1,7 @@
 <%= simple_form_for(ticket) do |f| %>
   <%= f.input :title %>
   <%= f.input :content %>
+  <%= f.input :status %>
   <%= f.input :language,
             as: :radio_buttons,
             collection_wrapper_tag: 'div',
