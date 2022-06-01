@@ -1,37 +1,41 @@
-<h1><strong>Tickets</strong></h1>
-<br>
-<p>Solve your coding problem</p>
-<h2>Make a new Ticket</h2>
-<%= link_to "New Ticket", new_ticket_path, class: "standart-button" %>
-<hr>
-<br>
+<div class="container">
+  <h1><strong>Tickets</strong></h1>
+  <br>
+  <p>Solve your coding problem</p>
+  <h2>Make a new Ticket</h2>
+  <%= link_to "New Ticket", new_ticket_path, class: "standart-button" %>
+  <hr>
+  <br>
 
-<div class="search d-flex">
-  <h2 class="page-title"></h2>
-  <%= form_tag tickets_path, method: :get, class: "d-flex search-bar" do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "What are you searching for?"
-    %>
-    <%= submit_tag "Search", class: "standart-button" %>
-  <% end %>
-</div>
+  <div class="search d-flex">
+    <h2 class="page-title"></h2>
+    <%= form_tag tickets_path, method: :get, class: "d-flex search-bar" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "What are you searching for?"
+      %>
+      <%= submit_tag "Search", class: "standart-button" %>
+    <% end %>
+  </div>
 
-<div>
-  <% @tickets.reverse_each do |ticket| %>
-    <%= link_to ticket_path(ticket), class: "text-decoration-none link-dark" do %>
-      <div>
-        <%= ticket.title %>
-        <%= ticket.content %>
-        <%= ticket.user.email %>
-        <br>
-        <% if policy(ticket).edit? %>
-          <%= link_to "Edit this ticket", edit_ticket_path(ticket) %>
-        <% end %>
-        <%= button_to "Destroy this ticket", ticket, method: :delete if policy(ticket).destroy? %>
-        <br>
-      </div>
-    <% end %>  
-  <% end %>
+  <div>
+    <% @tickets.reverse_each do |ticket| %>
+      <%= link_to ticket_path(ticket), class: "text-decoration-none link-dark" do %>
+        <div>
+          <%= ticket.title %>
+          <%= ticket.content %>
+          <%= ticket.user.email %>
+          <br>
+          <% if policy(ticket).edit? %>
+            <%= link_to "Edit this ticket", edit_ticket_path(ticket), class: "outline-button" %>
+          <% end %>
+          <% if policy(ticket).destroy? %>
+          <%= link_to "Fixed it!", tickets_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "outline-button-delete" %>
+          <% end %>
+          <br>
+        </div>
+      <% end %>  
+    <% end %>
+  </div>
 </div>
