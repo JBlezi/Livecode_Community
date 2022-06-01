@@ -1,6 +1,8 @@
 <h1>Ticket Show Page for Ticket Nr <%= @ticket.id %></h1>
   <% if policy(@ticket).edit? %>
     <%= link_to "Edit this ticket", edit_ticket_path(@ticket) %>
+  <% else %>
+    <%= link_to "Seeker profile", user_information_path(@ticket.user_id) %>
   <% end %>
 
 <div>
