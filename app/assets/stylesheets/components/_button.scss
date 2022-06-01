@@ -1,0 +1,25 @@
+standart_button {
+  position: absolute;
+  top:50%;
+  background-color: $first;
+  color: #fff;
+  border:none; 
+  border-radius:10px; 
+  padding:15px;
+  min-height:30px; 
+  min-width: 120px;
+}
+
+disabled_standart_button {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+outline_button {
+
+}
+
+disabled_outline_button {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
