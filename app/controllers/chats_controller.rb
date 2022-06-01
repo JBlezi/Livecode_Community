@@ -6,7 +6,11 @@ class ChatsController < ApplicationController
     authorize @chat
 
     # Show method for the video chat
-    @user = Chat.ticket.user
+    if current_user == @chat.ticket.user
+      @user = @chat.user
+    else
+      @user = @chat.user.id
+    end
     setup_video_call_token
   end
 
