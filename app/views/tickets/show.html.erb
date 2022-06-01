@@ -10,6 +10,7 @@
         <%= @ticket.title %>
         <%= @ticket.content %>
         <%= @ticket.user.email %>
+        <%= @ticket.status %>
         <br>
         <% if policy(@ticket).edit? %>
         <% end %>
