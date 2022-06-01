@@ -4,7 +4,10 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
+import ChatSubscriptionController from "./chat_subscription_controller.js"
+application.register("chat-subscription", ChatSubscriptionController)
+
+import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
 
 import VideoCallController from "./video_call_controller"

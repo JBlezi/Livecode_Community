@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_one :user_information
   has_many :tickets
+  has_many :chats, through: :tickets
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   before_create :add_user_information
