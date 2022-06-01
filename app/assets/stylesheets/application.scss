@@ -11,3 +11,10 @@
 @import "components/index";
 @import "pages/index";
 @import "components/video_call";
+@import "components/category";
+@import "components/button";
+
+body {
+  background-color: black;
+  color: white;
+}
