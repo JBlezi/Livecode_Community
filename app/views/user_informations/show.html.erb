@@ -5,7 +5,7 @@
             <li>First name: <%= @user_information.first_name %></li>
             <li>Last name: <%= @user_information.last_name %></li>
             <li>Bio: <%= @user_information.bio %></li>
-            <li>Github: <%= link_to "", @user_information.github_url, target: "_blank"%></li>
+            <li><%= link_to "Github", @user_information.github_url, target: "_blank"%></li>
           </ul>
 </div>
 <div class="form-container">
