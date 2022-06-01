@@ -8,7 +8,9 @@
             <li><%= link_to "Github", @user_information.github_url, target: "_blank"%></li>
           </ul>
 </div>
+<% if current_user == @user_information.user %>
 <div class="form-container">
   <h1 class="form-title">Complete your profile</h1>
   <%= render "form", user_information: @user_information %>
 </div>
+<% end %>
