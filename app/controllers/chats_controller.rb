@@ -1,5 +1,10 @@
 class ChatsController < ApplicationController
   before_action :set_chats, only: :show
+  def create
+    @chat = Chat.create(ticket_id: params[:ticket_id], user_id: current_user.id)
+    authorize @chat
+    redirect_to chat_path(@chat)
+  end
 
   def show
     @message = Message.new
