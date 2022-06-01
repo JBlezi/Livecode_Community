@@ -10,4 +10,6 @@ class Ticket < ApplicationRecord
   using: {
     tsearch: { prefix: true }
   }
+
+  CATEGORIES = ["Ruby", "HTML", "C", "CSS", "JavaScript", "Python", "Typescript", "Elixir", "Vue"]
 end
