@@ -8,7 +8,7 @@
 <div>
       <ul>
         <li><%= @ticket.title %></li>
-        <li><%= @ticket.user.user_information.first_name %></li>
+        <li><%= @ticket.user.user_information.first_name %> <%= @ticket.user.user_information.last_name %></li>
         <li><%= @ticket.content %></li>
         <li><%= @ticket.user.email %></li>
         <li><h5>Status: <%= @ticket.status %></h5></li>
