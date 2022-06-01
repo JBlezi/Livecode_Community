@@ -9,7 +9,7 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+      <ul class="navbar-nav me-auto" id="navbar-wrapper">
         <% if user_signed_in? %>
           <li class="nav-item active">
             <%= link_to "Tickets", tickets_path, class: "nav-link" %>
