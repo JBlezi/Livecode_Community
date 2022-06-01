@@ -26,6 +26,14 @@ user2 = User.new(
 )
 user2.save!
 
+puts "create first user"
+user3 = User.new(
+  email: "user3@mail.com",
+  password: "123456"
+)
+
+user3.save!
+
 require "open-uri"
 
 puts "creating tickets"
@@ -65,5 +73,12 @@ ticket4 = Ticket.new(
 )
 
 ticket4.save
+
+chat1 = Chat.new(user_id: user1.id, ticket_id: ticket4.id)
+chat1.save!
+chat2 = Chat.new(user_id: user3.id, ticket_id: ticket2.id)
+chat2.save!
+
+
 
 puts "Finished!...."
