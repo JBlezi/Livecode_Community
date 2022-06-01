@@ -12,6 +12,7 @@ class User < ApplicationRecord
 
   def add_user_information
     @user_info = UserInformation.new
+    @user_info.save
     self.user_information = @user_info
   end
 end
