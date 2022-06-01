@@ -12,4 +12,6 @@ class Ticket < ApplicationRecord
   using: {
     tsearch: { prefix: true }
   }
+
+  LANGUAGES = ["Ruby", "HTML", "C", "CSS", "JavaScript", "Python", "Typescript", "Elixir", "Vue"]
 end
