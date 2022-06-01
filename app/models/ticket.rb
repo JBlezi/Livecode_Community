@@ -1,4 +1,5 @@
 class Ticket < ApplicationRecord
+  has_one :chat, dependent: :destroy
   belongs_to :user
   has_one :chat, dependent: :destroy
   validates :title, presence: true
