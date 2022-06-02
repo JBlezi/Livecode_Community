@@ -1,11 +1,13 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: $first;
-  color: $font;
+  color: $font-two;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  background: $first;
+  color: $font-two;
 }
 
 .navbar-lewagon .navbar-brand img {

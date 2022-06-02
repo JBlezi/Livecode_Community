@@ -1,1 +1,38 @@
 // Specific CSS for your home-page
+h1 {
+  margin-top: 24px;
+  border-right: solid 3px $third;
+  white-space: nowrap;
+  overflow: hidden;    
+  color: $font;
+}
+
+.home-container > .home-img > img {
+  border-radius: 50%;
+  margin: 1rem;
+  object-fit: cover;
+  width: 400px;
+  height: 400px;
+}
+
+/* Animation */
+#home-title > h1 {
+  animation: animated-text 4s steps(28,end) 1s 1 normal both,
+             animated-cursor 600ms steps(28,end) infinite;
+}
+
+.outline-button {
+  animation-delay: 2s;
+}
+
+/* text animation */
+@keyframes animated-text{
+  from{width: 0;}
+  to{width: 550px;}
+}
+
+/* cursor animations */
+@keyframes animated-cursor{
+  from{border-right-color: $first;}
+  to{border-right-color: transparent;}
+}

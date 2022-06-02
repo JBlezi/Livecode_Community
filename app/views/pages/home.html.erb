@@ -1,7 +1,19 @@
-<div class="container">
-  <h1>LIVECODE - fix your problem!</h1>
+<div class="home-container">
+  <div id="home-title">
+    <h1>LIVECODE - fix your problem!</h1>
+  </div>
 
-  <%= link_to "Show Tickets", tickets_path, class: "outline-button" %>
-  <%= link_to "Sign Up", new_user_registration_path, class: "outline-button" %>
+  <div>
+    <% if user_signed_in? %>
+      <%= link_to "Show Tickets", tickets_path, class: "btn outline-button", id: "btn1" %>
+    <% else %>
+      <%= link_to "Login", new_user_session_path, class: "btn outline-button" %>
+      <%= link_to "Sign Up", new_user_registration_path, class: "btn outline-button", id: "btn2" %>
+    <% end %>
+  </div>
 
+  <div class="home-img">
+      <img src="https://images.unsplash.com/photo-1580894742597-87bc8789db3d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="cover">
+      <%# https://images.unsplash.com/photo-1531535701800-03b2bec4fbfd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80 %>
+  </div>
 </div>
