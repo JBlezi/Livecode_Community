@@ -8,14 +8,13 @@
   text-decoration: none;
   color: $font;
   border: $second;
-  
+
   &hover {
     text-decoration: none;
   }
 }
 
 .outline-button {
-  margin: 8px;
   background-color: $background;
   border: none;
   border-radius: 4px;
@@ -26,8 +25,11 @@
   color: $font;
   border: 2px solid  $second;
 
-  &hover {
-    text-decoration: none;
+  &:hover {
+    // text-decoration: none;
+    color: $font-contrast;
+    border-color: $font-contrast;
+    transition: 1s;
   }
 }
 
@@ -92,4 +94,16 @@
     color: $third;
     transition: 0.3s;
   }
+}
+
+.form-button {
+  display: block;
+  border: 0;
+  padding: 8px;
+  width: 100%;
+  border-radius: 4px;
+  transition: all ease-in 0.2s;
+  outline: none;
+  cursor: pointer;
+  color: $font-contrast;
 }

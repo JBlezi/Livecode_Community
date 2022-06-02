@@ -1,4 +1,5 @@
 class Ticket < ApplicationRecord
+  enum status: [:open, :in_progress, :closed]
   has_one :chat, dependent: :destroy
   belongs_to :user
   validates :title, presence: true
