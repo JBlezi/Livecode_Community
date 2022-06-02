@@ -1,6 +1,7 @@
+
 .navbar-lewagon {
   justify-content: space-between;
-  background: $first;
+  background: black;
   color: $font;
 }
 
@@ -16,10 +17,11 @@
   color: $font;
 }
 
-.navbar-links {
+.LiveCode-link-navbar {
   color: $navbar-font;
   padding: 5px;
   text-align: center;
   text-decoration: none;
   color: $navbar-font;
+  font-family: 'Share Tech Mono';
 }

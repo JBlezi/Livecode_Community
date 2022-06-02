@@ -11,14 +11,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto" id="navbar-wrapper">
         <% if user_signed_in? %>
-          <li class="navbar-links">
-            <%= link_to "Tickets", tickets_path, class: "navbar-links" %>
+          <li class="LiveCode-link-navbar">
+            <%= link_to "Tickets", tickets_path, class: "LiveCode-link-navbar" %>
           </li>
-          <li class="navbar-links">
-            <%= link_to "Messages", "#", class: "navbar-links" %>
+          <li class="LiveCode-link-navbar">
+            <%= link_to "Messages", "#", class: "LiveCode-link-navbar" %>
           </li>
-          <li class="navbar-links">
-            <%= link_to "Nickname", "#", class: "navbar-links" %>
+          <li class="LiveCode-link-navbar">
+            <%= link_to "Hello #{current_user.email}", user_information_path(current_user.id), class: "LiveCode-link-navbar" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -29,8 +29,8 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <li class="navbar-links">
+            <%= link_to "Login", new_user_session_path, class: "navbar-links" %>
           </li>
         <% end %>
       </ul>
