@@ -7,6 +7,7 @@ class ChatsController < ApplicationController
   end
 
   def show
+    @chat.ticket.status = "in_progress"
     @message = Message.new
     authorize @chat
 

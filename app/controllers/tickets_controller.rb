@@ -24,6 +24,7 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new(ticket_params)
+    @ticket.status = "open"
     authorize @ticket
     @ticket.user = current_user
     @ticket.save!
@@ -49,7 +50,7 @@ class TicketsController < ApplicationController
   private
 
   def ticket_params
-    params.require(:ticket).permit(:title, :content, :language)
+    params.require(:ticket).permit(:title, :content, :language, :status)
   end
 
   def set_tickets

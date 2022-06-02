@@ -11,6 +11,7 @@
         <li><%= @ticket.user.user_information.first_name %></li>
         <li><%= @ticket.content %></li>
         <li><%= @ticket.user.email %></li>
+        <li><%= @ticket.status %></li>
         <% if current_user != @ticket.user %>
           <%= button_to "Accept this ticket", chats_path(ticket_id: @ticket.id), method: :post %>
         <% end %>
