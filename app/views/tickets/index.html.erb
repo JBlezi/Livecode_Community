@@ -24,6 +24,7 @@
   <div class="index-container">
     <% @tickets.reverse_each do |ticket| %>
       <%= link_to ticket_path(ticket), class: "ticket-link" do %>
+
         <div class="ticket">
           <div class="top-area">
             <p><%= ticket.user.email %></p>
@@ -32,6 +33,7 @@
         
           <div class="bottom-area">
               <% if policy(ticket).edit? %>
+                <%= render 'modal', ticket: ticket %>
                 <%= link_to "Edit this ticket", edit_ticket_path(ticket), class: "btn  outline-button" %>
               <% end %>
               <% if policy(ticket).destroy? %>
@@ -43,6 +45,7 @@
           </div>
         </div>
       <% end %>  
+
     <% end %>
   </div>
 </div>
