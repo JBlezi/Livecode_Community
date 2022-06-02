@@ -1,0 +1,30 @@
+<button style="float: right;" class="btn outline-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit</button>
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Your information profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <%= simple_form_for(ticket) do |f| %>
+            <%= f.input :title, class:"form-item"%>
+            <%= f.input :content, class:"form-item" %>
+            <%= f.input :status, class:"form-item" %>
+            <%= f.input :language,
+                    as: :radio_buttons,
+                    collection_wrapper_tag: 'div',
+                    collection_wrapper_class: 'category-wrapper',
+                    item_wrapper_class: 'category-item',
+                    input_html: {class: 'category-selector'},
+                    collection: Ticket::LANGUAGES %>
+            <%= f.submit class:"standart-button form-button" %>
+        <% end %>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    </div>
+    </div>
+</div>
+</div>
