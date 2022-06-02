@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
   before_action :set_tickets, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     if params[:query].present?
       @tickets = policy_scope(Ticket)
@@ -11,6 +11,9 @@ class TicketsController < ApplicationController
   end
 
   def show
+    if Chat.find_by(ticket_id: @ticket.id)
+      @chat = Chat.where(ticket_id: @ticket.id).last
+    end
     authorize @ticket
   end
 
