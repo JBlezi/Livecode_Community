@@ -1,4 +1,6 @@
-<h1>Ticket Show Page for Ticket Nr <%= @ticket.id %></h1>
+<div class="container-sm profile-container">
+<div class="profile-title"><h1><%= @ticket.title %></h1></div>
+<div><p>ticket Nr:<%= @ticket.id %></p></div>
   <% if policy(@ticket).edit? %>
     <%= link_to "Edit this ticket", edit_ticket_path(@ticket) %>
   <% else %>
@@ -20,6 +22,7 @@
         <% end %>
         <br>
       </ul>
+</div>
 </div>
 
 
