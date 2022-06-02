@@ -1,7 +1,15 @@
 import TwilioVideoController from 'stimulus-twilio-video'
 
 export default class extends TwilioVideoController {
-  static targets = ['noCall', 'awaitingBuddy', 'joinCallButton', 'endCallButton']
+  static targets = ['noCall', 'awaitingBuddy', 'joinCallButton', 'endCallButton', 'screenShareButton', 'endScreenShareButton']
+
+  screenShare() {
+    console.log("COUCOU")
+  }
+
+  endShare() {
+    console.log("lalalalala")
+  }
 
   callStarted() {
     this.noCallTarget.classList.add('d-none')
