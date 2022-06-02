@@ -12,9 +12,17 @@ legend ~ div.form-check:first-of-type {
 .form-control {
   background-color: $second;
   border-radius: 4px;
-  padding: 8px;
+  line-height: 0px !important;
 }
 
 .search-bar {
   margin-bottom: 1rem;
+  margin-right: 8px;
+  transition-duration: 300ms;
+}
+
+.search-bar:hover {
+  transition: 300ms;
+  border-radius: 4px;
+  box-shadow: 4px 4px $font;
 }

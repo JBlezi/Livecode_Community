@@ -29,3 +29,9 @@
   min-height: 100vh;
   grid-template-rows: auto 1fr auto;
 }
+
+.font-container {
+  overflow: hidden;
+  align-items: center;
+  margin-left: 16px;
+}
