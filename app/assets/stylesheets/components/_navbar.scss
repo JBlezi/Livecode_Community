@@ -1,12 +1,14 @@
 
 .navbar-lewagon {
   justify-content: space-between;
-  background: black;
-  color: $font;
+  background: $first;
+  color: $font-two;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  background: $first;
+  color: $font-two;
 }
 
 .navbar-lewagon .navbar-brand img {
@@ -17,11 +19,3 @@
   color: $font;
 }
 
-.LiveCode-link-navbar {
-  color: $navbar-font;
-  padding: 5px;
-  text-align: center;
-  text-decoration: none;
-  color: $navbar-font;
-  font-family: 'Share Tech Mono';
-}

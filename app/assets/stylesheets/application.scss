@@ -18,9 +18,18 @@
 @import "components/container";
 @import "components/navbar";
 @import "components/profile";
+@import "components/ticket";
 
 body {
   background-color: $background;
   color: $font;
   caret-color: $second;
+}
+
+input {
+  caret-color: $background;
+}
+
+#form {
+  background-color: $background;
 }

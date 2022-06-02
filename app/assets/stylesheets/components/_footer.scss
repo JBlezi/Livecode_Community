@@ -1,19 +1,19 @@
 .footer {
-  background: black;
+  background: $first;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 70px;
   padding: 0px 50px;
-  color: white;
-  font-family: 'Share Tech Mono';
+  color: $font;
+  font-family: 'Open Sans', sans-serif;
 }
 .footer-links {
   display: flex;
   align-items: center;
 }
 .footer-links a {
-  color: white;
+  color: $font;
   opacity: 0.50;
   text-decoration: none;
   font-size: 24px;
@@ -23,15 +23,5 @@
   opacity: 1;
 }
 .footer .fa-heart {
-  color: #B49738;
-}
-
-.footer-container {
-  margin-top: 150px;
-}
-
-.page-container {
-  display: grid;
-  min-height: 100vh;
-  grid-template-rows: auto 1fr auto;
+  color: $third;
 }
