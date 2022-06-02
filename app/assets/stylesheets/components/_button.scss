@@ -26,8 +26,11 @@
   color: $font;
   border: 2px solid  $second;
 
-  &hover {
-    text-decoration: none;
+  &:hover {
+    // text-decoration: none;
+    color: $font-contrast;
+    border-color: $font-contrast;
+    transition: 1s;
   }
 }
 
