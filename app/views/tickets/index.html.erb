@@ -1,5 +1,5 @@
 <div class="container">
-  <h1><strong>Tickets</strong></h1>
+  <h2><strong>Tickets</strong></h2>
   <br>
   <p>Raise a ticket - kit your code</p>
   <%= link_to "New Ticket", new_ticket_path, class: "btn standart-button" %>
@@ -20,7 +20,7 @@
 
   <div class="index-container">
     <% @tickets.reverse_each do |ticket| %>
-      <%= link_to ticket_path(ticket), class: "text-decoration-none" do %>
+      <%= link_to ticket_path(ticket), class: "ticket-link" do %>
         <div class="ticket text-decoration-none">
           <h2><%= ticket.title %></h2>
           <p><%= ticket.user.email %></p>
