@@ -1,27 +1,30 @@
-<h1>Ticket Show Page for Ticket Nr <%= @ticket.id %></h1>
-  <% if policy(@ticket).edit? %>
-    <%= link_to "Edit this ticket", edit_ticket_path(@ticket) %>
-  <% else %>
-    <%= link_to "Seeker profile", user_information_path(@ticket.user_id) %>
-  <% end %>
+<div class="container-sm profile-container">
+<div class="profile-title"><h1><%= @ticket.title %></h1></div>
+<div><p>ticket Nr:<%= @ticket.id %></p></div>
 
 <div>
       <ul>
-        <li><%= @ticket.title %></li>
-        <li><%= @ticket.user.user_information.first_name %> <%= @ticket.user.user_information.last_name %></li>
-        <li><%= @ticket.content %></li>
-        <li><%= @ticket.user.email %></li>
-        <li><h5>Status: <%= @ticket.status %></h5></li>
+        <li><strong>Title: </strong><%= @ticket.title %></li>
+        <li><strong>User: </strong><%= @ticket.user.user_information.first_name %> <%= @ticket.user.user_information.last_name %></li>
+        <li><strong>Email: </strong><%= @ticket.user.email %></li>
+        <li><strong>Status: </strong><%= @ticket.status %></li> 
+        <br>
+        <li><strong>Description:</strong></li>
+        <div><p><%= @ticket.content %></p></div>
+      </ul>
         <% if current_user != @ticket.user %>
-          <%= button_to "Accept this ticket", chats_path(ticket_id: @ticket.id), method: :post %>
+          <%= button_to "Accept this ticket", chats_path(ticket_id: @ticket.id), class:"profile-button m-1", method: :post %>
         <% end %>
         <br>
         <% if policy(@ticket).edit? %>
         <% end %>
-        <br>
-      </ul>
+        <%= button_to "Destroy this ticket", @ticket, class:"profile-button", method: :delete if policy(@ticket).destroy?%>
+        <%= link_to "Show all tickets", tickets_path, class:"profile-button m-1", style:"float: right;" %>
+        <% if policy(@ticket).edit? %>
+          <%= link_to "Edit this ticket", edit_ticket_path(@ticket), class:"profile-button m-1", style:"float: right;" %>
+        <% else %>
+          <%= link_to "Seeker profile", user_information_path(@ticket.user_id), class:"profile-button m-1", style:"float: right;" %>
+        <% end %>
+</div>
 </div>
 
-
-<%= button_to "Destroy this ticket", @ticket, method: :delete if policy(@ticket).destroy? %>
-<%= link_to "Show all tickets", tickets_path %>

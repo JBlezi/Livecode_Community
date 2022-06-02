@@ -6,6 +6,7 @@
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oxanium:wght@200&family=Share+Tech+Mono&display=swap');
 
 // Your CSS partials
 @import "components/index";
@@ -15,10 +16,24 @@
 @import "components/footer";
 @import "components/button";
 @import "components/container";
+<<<<<<< HEAD
 @import "components/form";
+=======
+@import "components/navbar";
+@import "components/profile";
+@import "components/ticket";
+>>>>>>> master
 
 body {
   background-color: $background;
   color: $font;
   caret-color: $second;
+}
+
+input {
+  caret-color: $background;
+}
+
+#form {
+  background-color: $background;
 }

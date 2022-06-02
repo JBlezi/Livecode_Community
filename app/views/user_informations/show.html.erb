@@ -1,33 +1,36 @@
-<h1>Profile</h1>
-<div class="container">
-          <ul class="text-start list-unstyled">
-            <li>Email: <%= @user_information.user.email %></li>
-            <li>First name: <%= @user_information.first_name %></li>
-            <li>Last name: <%= @user_information.last_name %></li>
-            <li>Bio: <%= @user_information.bio %></li>
-            <li><%= link_to "Github", @user_information.github_url, target: "_blank"%></li>
-          </ul>
-</div>
-<% if current_user == @user_information.user %>
-<div class="form-container">
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit</button>
 
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-          <%= render "form", user_information: @user_information %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+<div class="container-sm profile-container">
+<div class="profile-title"><h1>Profile</h1></div>
+ 
+
+  <ul class="text-start list-unstyled">
+    <li><strong>Email: </strong><%= @user_information.user.email %></li>
+    <li><strong>First name: </strong><%= @user_information.first_name %></li>
+    <li><strong>Last name: </strong><%= @user_information.last_name %></li>
+    <br>
+    <li><strong>Bio:</strong></li>
+    <div><p><%= @user_information.bio %></p></div>
+    <li><%= link_to "Github", @user_information.github_url, target: "_blank"%></li>
+  </ul>
+
+  <% if current_user == @user_information.user %>
+    <button style="float: right;" class="profile-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit</button>
+
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Your information profile</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <%= render "form", user_information: @user_information %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>
-</div>
-<% end %>
-

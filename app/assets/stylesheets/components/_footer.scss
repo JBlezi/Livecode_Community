@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 70px;
   padding: 0px 50px;
   color: $font;
   font-family: 'Open Sans', sans-serif;
@@ -24,6 +24,7 @@
 }
 .footer .fa-heart {
   color: $third;
+<<<<<<< HEAD
 }
 
 .footer-container {
@@ -34,4 +35,6 @@
   display: grid;
   min-height: 100vh;
   grid-template-rows: auto 1fr auto;
+=======
+>>>>>>> master
 }
