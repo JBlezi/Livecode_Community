@@ -1,12 +1,10 @@
 <div class="container-sm profile-container">
-<div class="profile-title"><h1><%= @ticket.title %></h1></div>
-<div>
-  <div>
+  <div class="profile-title"><h1><%= @ticket.title %></h1></div>
     <ul class="show-ticket-list">
       <li><strong>Language: </strong><%= @ticket.language %></li>
       <li><strong>User: </strong><%= @ticket.user.user_information.first_name %><%= @ticket.user.user_information.last_name %></li>
       <li><strong>Email: </strong><%= @ticket.user.email %></li>
-      <li><strong>Status: </strong><%= @ticket.status %></li> 
+      <li><strong>Status: </strong><%= @ticket.status %></li>
       <br>
       <li><strong>Description:</strong></li>
       <div><p><%= @ticket.content %></p></div>
@@ -15,9 +13,10 @@
         <%= button_to "Accept this ticket", chats_path(ticket_id: @ticket.id), class:"btn outline-button m-1", method: :post %>
       <% end %>
       <br>
-      <% if policy(@ticket).edit? %>
+      <% if @chat && @chat.ticket.user %>
+        <%= link_to "Enter chat", chat_path(@chat) %>
       <% end %>
-      <%= button_to "Show all tickets", tickets_path, class:"btn outline-button m-1", style:"float: right;" %>        
+      <%= button_to "Show all tickets", tickets_path, class:"btn outline-button m-1", style:"float: right;" %>
       <%= button_to "Destroy this ticket", @ticket, class:"btn outline-button m-1", style:"float: right;", method: :delete if policy(@ticket).destroy?%>
       <% if policy(@ticket).edit? %>
         <%= link_to "Edit this ticket", edit_ticket_path(@ticket), class:"btn outline-button m-1"%>
@@ -26,4 +25,3 @@
       <% end %>
   </div>
 </div>
-
