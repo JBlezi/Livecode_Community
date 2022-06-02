@@ -6,6 +6,10 @@ class ChatPolicy < ApplicationPolicy
     end
   end
 
+  def create?
+    true
+  end
+
   def show?
     user == record.user || user == record.ticket.user
   end

@@ -1,7 +1,6 @@
 class Ticket < ApplicationRecord
   has_one :chat, dependent: :destroy
   belongs_to :user
-  has_one :chat, dependent: :destroy
   validates :title, presence: true
   validates :content, presence: true
   validates :language, presence: true, inclusion: { in: %w(Ruby HTML C CSS JavaScript Python TypeScript Elixir Vue) }

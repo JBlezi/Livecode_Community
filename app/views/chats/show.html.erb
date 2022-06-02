@@ -1,46 +1,64 @@
-<div class="container chatroom" data-controller="chat-subscription" data-chat-subscription-chat-id-value="<%= @chat.id %>">
-  <h1>This is your chat with User Nr: <%= @chat.user == current_user ? @chat.ticket.user.id : @chat.user.id %></h1>
+<div class="container">
+  <div class="container chatroom" data-controller="chat-subscription" data-chat-subscription-chat-id-value="<%= @chat.id %>">
+    <h1>This is your chat with User Nr: <%= @chat.user == current_user ? @chat.ticket.user.id : @chat.user.id %></h1>
 
-<div class="messages" data-chat-subscription-target="messages">
-  <% @chat.messages.each do |message| %>
-    <%= render "messages/message", message: message %>
-  <% end %>
-</div>
-
-  <div>
-    <%= simple_form_for [@chat, @message], html: { data: { action: "turbo:submit-end->chat-subscription#resetForm" }, class: "d-flex"} do |f| %>
-      <%= f.input :content, label: false, placeholder: "Message for Chat Nr: #{@chat.id}", wrapper_html: {class: "flex-grow-1"} %>
-      <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <div class="messages" data-chat-subscription-target="messages">
+    <% @chat.messages.each do |message| %>
+      <%= render "messages/message", message: message %>
     <% end %>
   </div>
-</div>
 
-<div class="container">
-  <h1><%= @user %></h1>
-
-  <div class="video-call"
-       data-controller="video-call"
-       data-video-call-access-token-value="<%= @twilio_jwt %>"
-       data-video-call-room-id-value="<%= @room_id %>"
-       data-video-call-buddy-video-width-value="200"
-       >
-    <div class="call-video-views">
-      <div id="remote-video" data-video-call-target="buddyVideo">
-        <div class="no-call" data-video-call-target="noCall">
-          No call in progress. Click 'Call' to connect!
-        </div>
-        <div class="waiting-for-buddy d-none"
-             data-video-call-target="awaitingBuddy">
-          Waiting for <%= @user %> to join...
-        </div>
-      </div>
-      <div id="local-video" data-video-call-target="localVideo"></div>
+    <div>
+      <%= simple_form_for [@chat, @message], html: { data: { action: "turbo:submit-end->chat-subscription#resetForm" }, class: "d-flex"} do |f| %>
+        <%= f.input :content, label: false, placeholder: "Message for Chat Nr: #{@chat.id}", wrapper_html: {class: "flex-grow-1"} %>
+        <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+      <% end %>
     </div>
+<<<<<<< HEAD
     <div class="call-buttons">
       <div data-video-call-target="joinCallButton" class="call-button btn-call-start" data-action="click->video-call#joinCall"><i class="fas fa-phone"></i>Call</div>
       <div data-video-call-target="endCallButton" class="call-button btn-call-end" data-action="click->video-call#endCall"><i class="fas fa-phone-slash"></i>End call</div>
       <div data-video-call-target="screenShareButton" class="call-button btn-call-start" data-action="click->video-call#screenShare">Share Screen</div>
       <div data-video-call-target="endScreenShareButton" class="call-button btn-call-end" data-action="click->video-call#endShare">End Share</div>
+=======
+  </div>
+
+  <div class="container">
+    <h1><%= @user %></h1>
+
+    <div class="video-call"
+        data-controller="video-call"
+        data-video-call-access-token-value="<%= @twilio_jwt %>"
+        data-video-call-room-id-value="<%= @room_id %>"
+        data-video-call-buddy-video-width-value="200"
+        >
+      <div class="call-video-views">
+        <div id="remote-video" data-video-call-target="buddyVideo">
+          <div class="no-call" data-video-call-target="noCall">
+            No call in progress. Click 'Call' to connect!
+          </div>
+          <div class="waiting-for-buddy d-none"
+              data-video-call-target="awaitingBuddy">
+            Waiting for <%= @user %> to join...
+          </div>
+        </div>
+        <div id="local-video" data-video-call-target="localVideo"></div>
+      </div>
+      <div class="call-buttons">
+
+        <%# <i class="fas fa-phone"></i> Call %>
+        <%# <i class="fas fa-phone-slash"></i> End %>
+
+<<<<<<< HEAD
+        <div data-video-call-target="joinCallButton" class=" call-button btn-call-start" data-action="click->video-call#joinCall">Call</div>
+        <div data-video-call-target="endCallButton" class="call-button btn-call-end" data-action="click->video-call#endCall">End call</div>
+=======
+      <div data-video-call-target="joinCallButton" class=" call-button btn-call-start" data-action="click->video-call#joinCall"><i class="fas fa-phone"></i>Call</div>
+      <div data-video-call-target="endCallButton" class="call-button btn-call-end" data-action="click->video-call#endCall"><i class="fas fa-phone-slash"></i>End call</div>
+>>>>>>> master
+
+      </div>
+>>>>>>> master
     </div>
   </div>
 </div>

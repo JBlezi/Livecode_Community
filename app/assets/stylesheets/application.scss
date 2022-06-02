@@ -14,8 +14,15 @@
 @import "components/category";
 @import "components/footer";
 @import "components/button";
+@import "components/container";
 
 body {
+<<<<<<< HEAD
   background-color: white;
   color: black;
+=======
+  background-color: $background;
+  color: $font;
+  caret-color: $second;
+>>>>>>> master
 }

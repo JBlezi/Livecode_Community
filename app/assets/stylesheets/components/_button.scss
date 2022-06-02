@@ -48,6 +48,23 @@
   }
 }
 
+.outline-button-delete {
+  background-color: $background;
+  border: none;
+  border-radius: 4px;
+  padding: 14px;
+  min-height: 30px;
+  min-width: 130px;
+  text-decoration: none;
+  color: $font;
+  border: $second;
+
+  &hover {
+    text-decoration: none;
+    border-color: orangered;
+  }
+}
+
 .disabled-outline-button {
   background-color: $background;
   border: none;
