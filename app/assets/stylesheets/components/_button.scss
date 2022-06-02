@@ -73,16 +73,18 @@
   background-color: black;
   color: white;
   text-align: right;
-  box-shadow: 3px 2px 10px 1px rgba(0, 0, 0, 5);
 }
 
 .profile-button:hover{
   transform: scale(1.1);
-  transition: 800ms;
+  transition: 300ms;
+  box-shadow: 3px 2px 10px 1px rgba(0, 0, 0, 5);
 }
+
 .profile-button:active{
-  transform: scale(0.98);
+  transform: scale(0.80);
 }
+
 .nav-button {
   color: $font;
 

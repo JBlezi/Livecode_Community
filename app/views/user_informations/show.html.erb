@@ -14,13 +14,13 @@
   </ul>
 
   <% if current_user == @user_information.user %>
-    <button style="float: right;" class="profile-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit</button>
+    <button style="float: right;" class="btn outline-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit</button>
 
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+            <h5 class="modal-title" id="staticBackdropLabel">Your information profile</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -33,7 +33,4 @@
       </div>
     </div>
   <% end %>
-
 </div>
-
-
