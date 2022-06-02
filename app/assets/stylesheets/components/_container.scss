@@ -30,6 +30,11 @@
   grid-template-rows: auto 1fr auto;
 }
 
+.font-container {
+  overflow: hidden;
+  align-items: center;
+  margin-left: 16px;
+
 .container-chat {
   display: flex;
   margin: 32px;
