@@ -27,7 +27,7 @@
 }
 
 .category-selector:checked + label {
-  color: $font !important;
+  border: 1px solid $font;
 }
 
 

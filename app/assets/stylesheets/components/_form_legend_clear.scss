@@ -10,9 +10,18 @@ legend ~ div.form-check:first-of-type {
 }
 
 .form-control {
-  background-color: $second;
+  background-color: $second !important;
+  border-color: $first;
   border-radius: 4px;
   padding: 8px;
+  border: 1px solid $second;
+  color: $font;
+}
+
+.form-control:focus {
+  border-color: $font;
+  box-shadow: none;
+  color: $font;
 }
 
 .search-bar {
