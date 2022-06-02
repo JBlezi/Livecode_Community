@@ -45,7 +45,7 @@
   margin-inline-end: 0px;
 }
 
-.form-content {
+.form-content modal-body {
     display: block;
     margin-top: 0em;
     color: $font;
@@ -63,13 +63,20 @@
   color: $font;
 }
 
-.form-button {
-  display: block;
-  border: 0;
-  padding: 8px;
-  width: 100%;
+.modal-content {
+  flex: 1;
+  min-height: 300px;
+  padding: 32px;
+  background-color: $first;
   border-radius: 4px;
-  transition: all ease-in 0.2s;
-  outline: none;
-  cursor: pointer;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.modal-title {
+  font-size: 24px;
+  margin: 8px;
+  color: $font;
+  font-weight: 500;
+  font-size: 1.5em;
 }

@@ -29,3 +29,20 @@
   min-height: 100vh;
   grid-template-rows: auto 1fr auto;
 }
+
+.container-chat {
+  display: flex;
+  margin: 32px;
+}
+
+#chat-title {
+  padding-bottom: 16px;
+}
+
+.chatroom {
+  width: 700px;
+  padding-right: 24px;
+}
+.video-call {
+  flex: 1;
+}

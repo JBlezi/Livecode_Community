@@ -1,7 +1,7 @@
 <%= simple_form_for(user_information) do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :bio %>
-  <%= f.input :github_url %>
-  <%= f.submit class:"btn btn-dark" %>
+  <%= f.input :first_name, class:"form-item"%>
+  <%= f.input :last_name, class:"form-item" %>
+  <%= f.input :bio, class:"form-item" %>
+  <%= f.input :github_url, class:"form-item" %>
+  <%= f.submit class:"standart-button form-button" %>
 <% end %>
