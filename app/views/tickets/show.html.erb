@@ -13,17 +13,17 @@
         <div><p><%= @ticket.content %></p></div>
       </ul>
         <% if current_user != @ticket.user %>
-          <%= button_to "Accept this ticket", chats_path(ticket_id: @ticket.id), class:"profile-button m-1", method: :post %>
+          <%= button_to "Accept this ticket", chats_path(ticket_id: @ticket.id), class:"btn outline-button m-1", method: :post %>
         <% end %>
         <br>
         <% if policy(@ticket).edit? %>
         <% end %>
-        <%= button_to "Destroy this ticket", @ticket, class:"profile-button", method: :delete if policy(@ticket).destroy?%>
-        <%= link_to "Show all tickets", tickets_path, class:"profile-button m-1", style:"float: right;" %>
+        <%= button_to "Show all tickets", tickets_path, class:"btn outline-button m-1", style:"float: right;" %>        
+        <%= button_to "Destroy this ticket", @ticket, class:"btn outline-button m-1", style:"float: right;", method: :delete if policy(@ticket).destroy?%>
         <% if policy(@ticket).edit? %>
-          <%= link_to "Edit this ticket", edit_ticket_path(@ticket), class:"profile-button m-1", style:"float: right;" %>
+          <%= link_to "Edit this ticket", edit_ticket_path(@ticket), class:"btn outline-button m-1"%>
         <% else %>
-          <%= link_to "Seeker profile", user_information_path(@ticket.user_id), class:"profile-button m-1", style:"float: right;" %>
+          <%= link_to "Seeker profile", user_information_path(@ticket.user_id), class:"btn outline-button m-1", style:"float: right;" %>
         <% end %>
 </div>
 </div>
