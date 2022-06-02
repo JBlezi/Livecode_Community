@@ -8,3 +8,13 @@
 legend ~ div.form-check:first-of-type {
   clear: left;
 }
+
+.form-control {
+  background-color: $second;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.search-bar {
+  margin-bottom: 1rem;
+}
