@@ -1,9 +1,20 @@
 // Define variables for your color scheme
-$background: #ffffff; // background-color
-$first: #213046;      // cards and vavbar
-$second: #6b665c;     // borders and stuff
+
+// Color scheme idea #1
+// $background: #ffffff; // background-color
+// $first: #213046;      // cards and vavbar
+// $second: #6b665c;     // borders and stuff
+// $third: #e79805;      // highlight-color for buttons and stuff
+// $font: #111110;       // everything you want to write
+
+// Color scheme Github dark mode
+$background: #0D1117; // background-color
+$first: #161B22;      // cards and vavbar
+$second: #21262D;     // borders and stuff
 $third: #e79805;      // highlight-color for buttons and stuff
-$font: #111110;       // everything you want to write
+$fourth: #58A6FF;
+$font: #C9D1D9;       // everything you want to write
+$font-secondary: black;
 
 // For example:
 $red: #FD1015;

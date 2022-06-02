@@ -1,0 +1,75 @@
+.form-container {
+  flex: 1;
+  min-height: 300px;
+  padding: 32px;
+  background-color: $first;
+  border-radius: 4px;
+  max-width: 420px;
+  margin: 0 auto;
+  box-shadow: 0 0 18px 2px black;
+}
+
+.container-form {
+  display: flex;
+  align-items: center;
+  max-width: 1120px;
+  margin: 16px auto;
+  padding: 32px
+}
+
+.card_header {
+    text-align: center;
+    margin-bottom: 16px;
+    display: block;
+    align-items: center;
+    text-align: center;
+}
+
+
+.card-header-title {
+  font-size: 24px;
+  margin: 8px;
+  color: $font;
+  font-weight: 500;
+  font-size: 1.5em;
+}
+
+.card-header-description {
+  font-size: 16px;
+  color: $font;
+  margin-bottom: 16px;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.form-content {
+    display: block;
+    margin-top: 0em;
+    color: $font;
+}
+
+.form-item {
+  background-color: $first;
+  border: 0;
+  width: 100%;
+  margin: 8px;
+  padding: 16px;
+  border-radius: 4px;
+  transition: all ease-in 0.2s;
+  outline: none;
+  color: $font;
+}
+
+.form-button {
+  display: block;
+  border: 0;
+  padding: 8px;
+  width: 100%;
+  border-radius: 4px;
+  transition: all ease-in 0.2s;
+  outline: none;
+  cursor: pointer;
+}
