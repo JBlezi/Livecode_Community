@@ -66,6 +66,23 @@
   }
 }
 
+.profile-button{
+  font-size: 13px;
+  padding: 2px 70px;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  text-align: right;
+  box-shadow: 3px 2px 10px 1px rgba(0, 0, 0, 5);
+}
+
+.profile-button:hover{
+  transform: scale(1.1);
+  transition: 800ms;
+}
+.profile-button:active{
+  transform: scale(0.98);
+}
 .nav-button {
   color: $font;
 
