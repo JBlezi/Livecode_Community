@@ -1,7 +1,6 @@
-<div class="container-chat">
-
-  <div class="chatroom" data-controller="chat-subscription" data-chat-subscription-chat-id-value="<%= @chat.id %>">
-    <h1 id="chat-title">This is your chat with User Nr:
+<div class="container-chat row">
+  <div class="chatroom row align-items-start" data-controller="chat-subscription" data-chat-subscription-chat-id-value="<%= @chat.id %>">
+    <h1 id="chat-title">Start chatting
       <%# if @chat.user.first_name.nil? || @chat.ticket.user.first_name.nil? %>
         <%#= @chat.user == current_user ? @chat.ticket.user.id : @chat.user.id %>
       <%# else %>
@@ -9,7 +8,7 @@
       <%# end %>
     </h1>
 
-    <div class="messages" data-chat-subscription-target="messages">
+    <div class="messages row align-items-end" data-chat-subscription-target="messages">
       <% @chat.messages.each do |message| %>
         <%= render "messages/message", message: message %>
       <% end %>
@@ -22,7 +21,6 @@
       <% end %>
     </div>
   </div>
-
 
   <div class="video-call"
     data-controller="video-call"
@@ -47,8 +45,8 @@
 
       <div data-video-call-target="joinCallButton" class="outline-button btn-call-start" data-action="click->video-call#joinCall"><i class="fas fa-phone"></i>  Call</div>
       <div data-video-call-target="endCallButton" class="outline-button btn-call-end" data-action="click->video-call#endCall"><i class="fas fa-phone-slash"></i>  End call</div>
-      <div data-video-call-target="screenShareButton" class="outline-button btn-call-start" data-action="click->video-call#screenShare">Share Screen</div>
-      <div data-video-call-target="endScreenShareButton" class="outline-button btn-call-end" data-action="click->video-call#endShare">End Share</div>
+      <%# <div data-video-call-target="screenShareButton" class="outline-button btn-call-start" data-action="click->video-call#screenShare">Share Screen</div> %>
+      <%# <div data-video-call-target="endScreenShareButton" class="outline-button btn-call-end" data-action="click->video-call#endShare">End Share</div> %>
 
     </div>
 
