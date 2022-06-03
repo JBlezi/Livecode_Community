@@ -22,15 +22,15 @@
   border-radius: 50%;
   width: 24px;
   height: 24px;
-  object-fit: cover;
-  text-decoration: none;
   color: $font;
   border: $second;
+  align-items: center;
+  object-fit: cover;
 }
 
 .tiny-button i {
   align-items: center;
-  
+  object-fit: cover;
 }
 
 .outline-button {
