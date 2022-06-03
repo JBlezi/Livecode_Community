@@ -45,13 +45,20 @@
   color: $font;
 }
 
-.bottom-area {
+.bottom-left {
   position: absolute;
   bottom: 4px;
-  right: 24px
+  left: 4px;
 }
 
-.bottom-area p {
+.bottom-right {
+  color: $third;
+  position: absolute;
+  bottom: 4px;
+  right: 24px;
+}
+
+.bottom-right p {
   color: $third;
 }
 

@@ -23,7 +23,7 @@
 
   <div class="index-container">
     <% @tickets.reverse_each do |ticket| %>
-  <div class="ticket-link">
+    <div class="ticket-link">
       <%= link_to ticket_path(ticket) do %>
 
         <div class="ticket">
@@ -32,22 +32,23 @@
             <h2><%= ticket.title %></h2>
           </div>
 
-      <% end %>
-          <div class="bottom-area">
+          <div class="bottom-left">
               <% if policy(ticket).edit? %>
                 <%= render 'modal', ticket: ticket %>
                 <%# <%= link_to "Edit this ticket", edit_ticket_path(ticket), class: "btn  outline-button" %>
               <% end %>
               <% if policy(ticket).destroy? %>
-              <%= link_to "Fixed it!", tickets_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "outline-button-delete" %>
+              <%= link_to tickets_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn tiny-button" %>
               <% end %>
-            <div class="right">
-              <p><%= ticket.language %></p>
-            </div>
           </div>
-        </div>
 
-  </div>
+          <div class="bottom-right">
+            <p><%= ticket.language %></p>
+          </div>
+
+        </div>
+       <% end %>
+    </div>
     <% end %>
   </div>
 </div>
