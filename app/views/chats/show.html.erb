@@ -1,13 +1,7 @@
 <div class="container-chat">
 
   <div class="chatroom" data-controller="chat-subscription" data-chat-subscription-chat-id-value="<%= @chat.id %>">
-    <h1 id="chat-title">This is your chat with User Nr:
-      <%# if @chat.user.first_name.nil? || @chat.ticket.user.first_name.nil? %>
-        <%#= @chat.user == current_user ? @chat.ticket.user.id : @chat.user.id %>
-      <%# else %>
-        <%#= @chat.user == current_user ? @chat.ticket.user.first_name : @chat.user.first_name %>
-      <%# end %>
-    </h1>
+    <h1 id="chat-title">This is your chat with User Nr: <%= @chat.user == current_user ? @chat.ticket.user.id : @chat.user.id %></h1>
 
     <div class="messages" data-chat-subscription-target="messages">
       <% @chat.messages.each do |message| %>
@@ -16,7 +10,7 @@
     </div>
 
     <div>
-      <%= simple_form_for [@chat, @message], html: { data: { action: "turbo:submit-end->chat-subscription#resetForm" }, class: "d-flex align-items-md-start"} do |f| %>
+      <%= simple_form_for [@chat, @message], html: { data: { action: "turbo:submit-end->chat-subscription#resetForm" }, class: "d-flex align-items-md-start dummy"} do |f| %>
         <%= f.input :content, label: false, placeholder: "Message for Chat Nr: #{@chat.id}", wrapper_html: {class: "flex-grow-1"} %>
         <%= f.submit "Send", class: "outline-button" %>
       <% end %>
