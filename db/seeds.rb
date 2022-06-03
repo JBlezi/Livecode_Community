@@ -18,18 +18,36 @@ user1 = User.new(
   password: "123456"
 )
 user1.save!
+user1_profile = UserInformation.last
+user1_profile.first_name = "Peter"
+user1_profile.last_name = "Capusotto"
+user1_profile.bio = "Peter has starred in almost every game in the Peter series as well as three cartoons series, various TV adverts including McDonalds, milk for schools and lots of general Nintendo ads - he was also in a feature film called Super Peter Capusotto."
+user1_profile.github_url = "https://github.com/"
+user1_profile.save!
 
 user2 = User.new(
   email: "user2@mail.com",
   password: "123456"
 )
 user2.save!
+user2_profile = UserInformation.last
+user2_profile.first_name = "Carlos"
+user2_profile.last_name = "Williams"
+user2_profile.bio = "Carlos Williams was born Robert Peter Williams on February 13, 1974, in Stoke-on-Trent, England. When he was 3 years old, his mother Janet divorced his father (entertainer Pete Conway). Growing up with his mother and stepsister, Sally, Williams rarely stayed out of trouble in school"
+user2_profile.github_url = "https://github.com/"
+user2_profile.save!
 
 user3 = User.new(
   email: "user3@mail.com",
   password: "123456"
 )
 user3.save!
+user3_profile = UserInformation.last
+user3_profile.first_name = "Mario"
+user3_profile.last_name = "Calleja"
+user3_profile.bio = "Mario has starred in almost every game in the Mario series as well as three cartoons series, various TV adverts including McDonalds, milk for schools and lots of general Nintendo ads - he was also in a feature film called Super Mario Bros."
+user3_profile.github_url = "https://github.com/"
+user3_profile.save!
 
 require "open-uri"
 

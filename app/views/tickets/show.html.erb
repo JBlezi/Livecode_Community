@@ -2,7 +2,7 @@
   <div class="profile-title"><h1><%= @ticket.title %></h1></div>
     <ul class="show-ticket-list">
       <li><strong>Language: </strong><%= @ticket.language %></li>
-      <li><strong>User: </strong><%= @ticket.user.user_information.first_name %><%= @ticket.user.user_information.last_name %></li>
+      <li><p><strong>User: </strong><%= @ticket.user.user_information.first_name %> <%= @ticket.user.user_information.last_name %></p></li>
       <li><strong>Email: </strong><%= @ticket.user.email %></li>
       <li><strong>Status: </strong><%= @ticket.status %></li>
       <br>
