@@ -8,7 +8,7 @@
     <br>
   </div>
 
-  <div class="search d-flex m-0">
+  <div class="search d-flex">
     <div>
       <%= form_tag tickets_path, method: :get, class: "d-flex search-bar" do %>
         <%= text_field_tag :query,
@@ -23,7 +23,7 @@
 
   <div class="index-container">
     <% @tickets.reverse_each do |ticket| %>
-  <div class="ticket-link">
+    <div class="ticket-link">
       <%= link_to ticket_path(ticket) do %>
 
         <div class="ticket">
@@ -32,22 +32,25 @@
             <h2><%= ticket.title %></h2>
           </div>
 
-      <% end %>
-          <div class="bottom-area">
+       <% end %>
+          <div class="bottom-left">
               <% if policy(ticket).edit? %>
                 <%= render 'modal', ticket: ticket %>
                 <%# <%= link_to "Edit this ticket", edit_ticket_path(ticket), class: "btn  outline-button" %>
               <% end %>
               <% if policy(ticket).destroy? %>
-              <%= link_to "Fixed it!", tickets_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "outline-button-delete" %>
+                <%= link_to tickets_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn tiny-button" do %>
+                  <i class="fa-solid fa-trash"></i>
+                <% end %>
               <% end %>
-            <div class="right">
-              <p><%= ticket.language %></p>
-            </div>
           </div>
-        </div>
 
-  </div>
+          <div class="bottom-right">
+            <p><%= ticket.language %></p>
+          </div>
+
+        </div>
+    </div>
     <% end %>
   </div>
 </div>

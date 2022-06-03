@@ -45,14 +45,30 @@
   color: $font;
 }
 
-.bottom-area {
+.bottom-left {
   position: absolute;
   bottom: 4px;
-  right: 24px
+  left: 4px;
 }
 
-.bottom-area p {
+.bottom-right {
   color: $third;
+  position: absolute;
+  bottom: 4px;
+  right: 24px;
+}
+
+.bottom-right p {
+  color: $third;
+}
+
+.bottom-right a {
+  border: 1px solid $first;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  color: $font;
+  border: $second;
 }
 
 .show-ticket-list{

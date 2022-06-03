@@ -1,5 +1,6 @@
 <div class="container-chat">
   <div class="chatroom" data-controller="chat-subscription" data-chat-subscription-chat-id-value="<%= @chat.id %>">
+
     <h1 id="chat-title">Start chatting
       <%# if @chat.user.first_name.nil? || @chat.ticket.user.first_name.nil? %>
         <%#= @chat.user == current_user ? @chat.ticket.user.id : @chat.user.id %>
@@ -9,6 +10,7 @@
     </h1>
 
     <div>
+
       <div class="messages" data-chat-subscription-target="messages">
         <% @chat.messages.each do |message| %>
           <%= render "messages/message", message: message %>
@@ -20,6 +22,7 @@
           <%= f.input :content, label: false, placeholder: "Message for Chat Nr: #{@chat.id}", wrapper_html: {class: "flex-grow-1"} %>
           <%= f.submit "Send", class: "outline-button" %>
         <% end %>
+
     </div>
   </div>
 
