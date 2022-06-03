@@ -13,7 +13,7 @@ legend ~ div.form-check:first-of-type {
   background-color: $second !important;
   border-color: $first;
   border-radius: 4px;
-  line-height: 0px !important;
+  // line-height: 0px !important;
   padding: 8px;
   border: 1px solid $second;
   color: $font;
@@ -33,6 +33,7 @@ legend ~ div.form-check:first-of-type {
 .search-bar {
   margin-bottom: 1rem;
   margin-right: 8px;
+  width: 50vw;
   transition-duration: 300ms;
 }
 
