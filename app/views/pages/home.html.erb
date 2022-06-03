@@ -3,7 +3,7 @@
     <h1>LIVECODE - fix your problem!</h1>
   </div>
 
-  <div>
+  <div id="home-button">
     <% if user_signed_in? %>
       <%= link_to "Show Tickets", tickets_path, class: "btn outline-button", id: "btn1" %>
     <% else %>

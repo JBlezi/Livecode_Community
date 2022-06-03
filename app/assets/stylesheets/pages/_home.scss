@@ -19,6 +19,8 @@ h1 {
 #home-title > h1 {
   animation: animated-text 4s steps(28,end) 1s 1 normal both,
              animated-cursor 600ms steps(28,end) infinite;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 32px;
 }
 
 .outline-button {
@@ -35,4 +37,10 @@ h1 {
 @keyframes animated-cursor{
   from{border-right-color: $first;}
   to{border-right-color: transparent;}
+}
+
+#home-title {
+  font-family: 'JetBrains Mono', monospace;
+  margin: 16px;
+  padding: 16px;
 }
