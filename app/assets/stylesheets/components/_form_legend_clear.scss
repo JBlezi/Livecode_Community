@@ -22,8 +22,13 @@ legend ~ div.form-check:first-of-type {
 .form-control:focus {
   border-color: $font;
   box-shadow: none;
-  color: $font;
+  color: $font
 }
+
+// .was-validated .form-control:valid, .form-control.is-valid {
+//   background-image: none;
+//   border-color: none;
+// }
 
 .search-bar {
   margin-bottom: 1rem;

@@ -10,11 +10,12 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
   <style>@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');</style>
-  
+
   </head>
 
   <body>
   <div class="page-container">
+
     <div class="navbar-container"><%= render "shared/navbar" %></div>
     <%= render "shared/flashes" %>
 
@@ -22,7 +23,9 @@
       <%= yield %>
     </div>
 
-    <div class="footer-container"><%= render "shared/footer" %></div>
   </div>
+
+  <div class="footer-container"><%= render "shared/footer" %></div>
+
   </body>
 </html>
