@@ -21,7 +21,7 @@
 }
 
 .footer-container {
-  margin-top: 150px;
+  margin-top: 16px;
 }
 
 .page-container {
@@ -48,6 +48,9 @@
 .chatroom {
   width: 700px;
   padding-right: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .video-call {
   flex: 1;
