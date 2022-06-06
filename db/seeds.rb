@@ -57,9 +57,17 @@ ticket1 = Ticket.new(
   title: ".each and map",
   content: "I dont really know what map does and each reacts to it.. Also i have issues knowing what the {|x| } means.",
   language: "Ruby",
+  status: "closed",
   user: user1
 )
-ticket1.save
+ticket1.save!
+
+review1 = Review.new(
+  score: 5,
+  comment: "perfect help, thanks so much!",
+  ticket_id: ticket1
+)
+review1.save!
 
 ticket2 = Ticket.new(
   title: "color of a-tag",
