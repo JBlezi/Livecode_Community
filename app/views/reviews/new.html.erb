@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-4">
-      <%= simple_form_for @review do |f| %>
-        <%= f.input :content %>
+      <%= simple_form_for @review, url:ticket_reviews_path do |f| %>
+        <%= f.input :comment %>
         <%= f.input :score, collection: (1..5).to_a, label: "Rate your experience" %>
         <%= f.submit "Send your review" %>
       <% end %>

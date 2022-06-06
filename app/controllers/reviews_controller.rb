@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     @review.ticket = @ticket
     @review.ticket.user = current_user
     authorize @review
-    if @review.save
+    if @review.save!
       redirect_to tickets_path
     else
       flash[:alert] = "Something went wrong."
@@ -30,10 +30,10 @@ class ReviewsController < ApplicationController
   private
 
   def set_ticket
-    @ticket = ticket.find(params[:ticket_id])
+    @ticket = Ticket.find(params[:ticket_id])
   end
 
   def review_params
-    params.require(:review).permit(:content, :score)
+    params.require(:review).permit(:comment, :score)
   end
 end
