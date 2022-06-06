@@ -10,5 +10,8 @@ application.register("chat-subscription", ChatSubscriptionController)
 import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
 
+import SendOnEnterController from "./send_on_enter_controller.js"
+application.register("send-on-enter", SendOnEnterController)
+
 import VideoCallController from "./video_call_controller.js"
 application.register("video-call", VideoCallController)
