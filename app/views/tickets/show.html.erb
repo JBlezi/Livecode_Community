@@ -16,12 +16,14 @@
       <% if @chat && @chat.ticket.user %>
         <%= link_to "Enter chat", chat_path(@chat) %>
       <% end %>
-      <%= button_to "Show all tickets", tickets_path, class:"btn outline-button m-1", style:"float: right;" %>
+      <%= link_to "Show all tickets", tickets_path, class:"btn outline-button m-1", style:"float: right;" %>
       <%= button_to "Destroy this ticket", @ticket, class:"btn outline-button m-1", style:"float: right;", method: :delete if policy(@ticket).destroy?%>
      
       <% if policy(@ticket).edit? %>
        <div style="float: left;">
         <%= render 'modal', ticket: @ticket %>
+        <a style="float: right;" class="btn outline-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit</i></a>
+
        </div>
       <% else %>
         <%= link_to "Seeker profile", user_information_path(@ticket.user_id), class:"btn outline-button m-1", style:"float: right;" %>

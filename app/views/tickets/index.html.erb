@@ -36,10 +36,14 @@
             <div class="bottom-left">
               <% if policy(ticket).edit? %>
                 <%= render 'modal', ticket: ticket %>
+                <a style="float: right;" class="btn tiny-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-pen-to-square"></i></a>
+
                 <%# <%= link_to "Edit this ticket", edit_ticket_path(ticket), class: "btn  outline-button" %>
               <% end %>
               <% if policy(ticket).destroy? %>
-                <%= link_to "Fixed it!", tickets_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "outline-button-delete" %>
+                <%= link_to tickets_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn tiny-button" do %>
+                  <i class="fa-solid fa-trash"></i>
+                <% end %>
               <% end %>
             </div>
 
@@ -48,7 +52,6 @@
             </div>
           </div>
         </div>
-
       </div>
     <% end %>
   </div>
