@@ -44,13 +44,15 @@
     </div>
 
     <div id="local-video" data-video-call-target="localVideo"></div>
+
   </div>
     <div class="call-buttons">
 
+
     <div data-video-call-target="joinCallButton" class="outline-button btn-call-start" data-action="click->video-call#joinCall"><i class="fas fa-phone"></i>  Call</div>
     <div data-video-call-target="endCallButton" class="outline-button btn-call-end" data-action="click->video-call#endCall"><i class="fas fa-phone-slash"></i>  End call</div>
-    <%# <div data-video-call-target="screenShareButton" class="outline-button btn-call-start" data-action="click->video-call#screenShare">Share Screen</div> %>
-    <%# <div data-video-call-target="endScreenShareButton" class="outline-button btn-call-end" data-action="click->video-call#endShare">End Share</div> %>
+    <div data-video-call-target="shareScreen" class="outline-button btn-call-start" data-action="click->video-call#shareScreenHandler">Share Screen</div>
+    <%# <div data-video-call-target="endCall" class="outline-button btn-call-start" data-action="click->video-call#endCall">End sharing</div> %>
 
     </div>
 
