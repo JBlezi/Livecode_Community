@@ -1,11 +1,21 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-4">
+<<<<<<< HEAD
       <%= simple_form_for @review, url:ticket_reviews_path do |f| %>
         <%= f.input :comment %>
         <%= f.input :score, collection: (1..5).to_a, label: "Rate your experience" %>
+=======
+      <%= simple_form_for @review, url: ticket_reviews_path do |f| %>
+        <%= f.input :comment %>
+        <%= f.input :score %>
+>>>>>>> 5e3b7d1011d5ddc15e281a5c86f041e797f9812d
         <%= f.submit "Send your review" %>
       <% end %>
     </div>
   </div>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> 5e3b7d1011d5ddc15e281a5c86f041e797f9812d
