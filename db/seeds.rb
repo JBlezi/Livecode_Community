@@ -59,7 +59,14 @@ ticket1 = Ticket.new(
   language: "Ruby",
   user: user1
 )
-ticket1.save
+ticket1.save!
+
+review1 = Review.new(
+  score: 5,
+  comment: "perfect help, thanks so much!",
+  ticket_id: ticket1.id
+)
+review1.save!
 
 ticket2 = Ticket.new(
   title: "color of a-tag",
@@ -67,7 +74,7 @@ ticket2 = Ticket.new(
   language: "CSS",
   user: user1
 )
-ticket2.save
+ticket2.save!
 
 ticket3 = Ticket.new(
   title: "Animation issues",
@@ -97,7 +104,7 @@ ticket3 = Ticket.new(
   language: "CSS",
   user: user2
 )
-ticket3.save
+ticket3.save!
 
 ticket4 = Ticket.new(
   title: "Heroku doesn't like my Javascript",
@@ -105,7 +112,7 @@ ticket4 = Ticket.new(
   language: "JavaScript",
   user: user2
 )
-ticket4.save
+ticket4.save!
 
 ticket5 = Ticket.new(
   title: "I need help with variables",
@@ -113,7 +120,7 @@ ticket5 = Ticket.new(
   language: "Python",
   user: user2
 )
-ticket5.save
+ticket5.save!
 
 ticket6 = Ticket.new(
   title: "JS advanced debugging",
@@ -121,7 +128,7 @@ ticket6 = Ticket.new(
   language: "JavaScript",
   user: user1
 )
-ticket6.save
+ticket6.save!
 
 ticket7 = Ticket.new(
   title: "Print a hash without {}",
@@ -129,31 +136,31 @@ ticket7 = Ticket.new(
   language: "Ruby",
   user: user3
 )
-ticket7.save
+ticket7.save!
 
 ticket8 = Ticket.new(
   title: "Place my boxes where I need",
   content: "I'm just want stuck my boxes in the middle of the screen but they always go to the left part",
-  language: "css",
+  language: "CSS",
   user: user2
 )
-ticket8.save
+ticket8.save!
 
 ticket9 = Ticket.new(
   title: "Raspberry pi",
   content: "The data in the server is different  from the data I'm sending",
-  language: "C++",
+  language: "C",
   user: user1
 )
-ticket9.save
+ticket9.save!
 
 ticket10 = Ticket.new(
   title: "mapbox doesn't work",
   content: "I'm trying to add marging progressive after add the new address but always bringme to another part of the planet",
-  language: "javascript",
+  language: "JavaScript",
   user: user2
 )
-ticket10.save
+ticket10.save!
 
 puts "creating tickets"
 

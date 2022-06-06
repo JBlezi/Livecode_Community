@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.ticket = @ticket
     authorize @review
-    if @review.save
+    if @review.save!
      redirect_to tickets_path
     else
      render :new, status: :unprocessable_entity ### remember the new!!!!!
@@ -30,10 +30,10 @@ class ReviewsController < ApplicationController
   private
 
   def set_ticket
-    @ticket = ticket.find(params[:ticket_id])
+    @ticket = Ticket.find(params[:ticket_id])
   end
 
   def review_params
-        params.require(:review).permit(:content)
+        params.require(:review).permit(:comment, :score)
   end
 end
