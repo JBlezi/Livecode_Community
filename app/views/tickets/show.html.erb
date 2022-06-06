@@ -10,13 +10,13 @@
       <div><p><%= @ticket.content %></p></div>
     </ul>
       <% if current_user != @ticket.user %>
-        <%= button_to "Accept this ticket", chats_path(ticket_id: @ticket.id), class:"btn outline-button m-1", method: :post %>
+        <%= link_to "Accept this ticket", chats_path(ticket_id: @ticket.id), class:"btn outline-button m-1", method: :post %>
       <% end %>
       <br>
       <% if @chat && @chat.ticket.user %>
         <%= link_to "Enter chat", chat_path(@chat) %>
       <% end %>
-      <%= button_to "Show all tickets", tickets_path, class:"btn outline-button m-1", style:"float: right;" %>
+      <%= link_to "Show all tickets", tickets_path, class:"btn outline-button m-1", style:"float: right;" %>
       <%= button_to "Destroy this ticket", @ticket, class:"btn outline-button m-1", style:"float: right;", method: :delete if policy(@ticket).destroy?%>
      
       <% if policy(@ticket).edit? %>
