@@ -4,11 +4,10 @@ class ReviewsController < ApplicationController
   def index
     policy_scope(Review)
     @review = Review.new
-    @ticket = Ticket.find(params[:carehome_id])
+    @ticket = Ticket.find(params[:ticket_id])
   end
 
   def show
-    @ratings = {score: @tickets.reviews.average(:rating).to_f.round(1)}
   end
 
   def new
