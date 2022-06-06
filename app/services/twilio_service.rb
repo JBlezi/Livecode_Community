@@ -5,11 +5,11 @@ class TwilioService
 
   def initialize
     # Required for any Twilio Access Token
-    @account_sid = ENV['TWILIO_ACCOUNT_SID']
+    @account_sid = ENV['AC081e09bf752d266edb067058787a45d4']
     # To create an API key & secret for your app, go to
     #  https://www.twilio.com/console/project/api-keys
-    @api_key = ENV['TWILIO_API_KEY']
-    @api_secret = ENV['TWILIO_API_SECRET']
+    @api_key = ENV['TSK4329b16bfebec45f69c88523bb646c30']
+    @api_secret = ENV["QTDD11JEeoR7s8rZAJ0thXp2Q0eJTDX9"]
   end
 
   # Generate a token for user1 to chat to user2
@@ -47,3 +47,8 @@ class TwilioService
     )
   end
 end
+
+
+# TWILIO_ACCOUNT_SID=AC081e09bf752d266edb067058787a45d4
+# TWILIO_API_KEY=SK4329b16bfebec45f69c88523bb646c30
+# TWILIO_API_SECRET=QTDD11JEeoR7s8rZAJ0thXp2Q0eJTDX9
