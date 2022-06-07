@@ -19,3 +19,27 @@
   color: $font;
 }
 
+#notification {
+    background-color: #555;
+    color: white;
+    text-decoration: none;
+    padding: 15px 26px;
+    position: relative;
+    display: inline-block;
+    border-radius: 2px;
+
+
+  &:hover {
+    background: red;
+  }
+}
+
+.badge {
+  position: absolute;
+  top: 14px;
+  right: 52px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  background: red;
+  color: red;
+}

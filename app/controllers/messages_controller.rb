@@ -1,4 +1,9 @@
 class MessagesController < ApplicationController
+  def index
+    @messages = policy_scope(Message)
+    @chats = policy_scope(Chat)
+  end
+
   def create
     @chat = Chat.find(params[:chat_id])
     @message = Message.new(message_params)
@@ -9,6 +14,10 @@ class MessagesController < ApplicationController
       ChatChannel.broadcast_to(
         @chat,
         render_to_string(partial: "message", locals: { message: @message })
+      )
+      NotificationChannel.broadcast_to(
+        "navbar-notification",
+        current_user.id.to_s
       )
       head :ok
     else

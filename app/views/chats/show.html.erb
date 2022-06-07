@@ -33,33 +33,34 @@
     data-video-call-buddy-video-width-value="200"
     >
   <div class="call-video-views">
-    <div id="remote-video" data-video-call-target="buddyVideo">
+    <div class="remote-video" data-video-call-target="buddyVideo">
       <div class="no-call" data-video-call-target="noCall">
         Start the call!
       </div>
       <div class="waiting-for-buddy d-none"
         data-video-call-target="awaitingBuddy">
-          Waiting for <%= @user %> to join...
       </div>
     </div>
 
     <div id="local-video" data-video-call-target="localVideo"></div>
+
   </div>
 
 
 
     <div class="call-buttons">
+
       <div data-video-call-target="joinCallButton" class="outline-button btn-call-start" data-action="click->video-call#joinCall"><i class="fas fa-phone"></i>  Call</div>
       <div data-video-call-target="endCallButton" class="outline-button btn-call-end" data-action="click->video-call#endCall"><i class="fas fa-phone-slash"></i>  End call</div>
-      <%# <div data-video-call-target="screenShareButton" class="outline-button btn-call-start" data-action="click->video-call#screenShare">Share Screen</div> %>
-      <%# <div data-video-call-target="endScreenShareButton" class="outline-button btn-call-end" data-action="click->video-call#endShare">End Share</div> %>
+      <div data-video-call-target="screenShareButton" class="outline-button btn-call-start" data-action="click->video-call#shareScreenHandler">Share Screen</div>
+
     </div>
 
     <% if current_user == @chat.ticket.user %>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Launch demo modal
-    </button>
-    <%= render 'status_modal', ticket: @chat.ticket %>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Launch demo modal
+      </button>
+      <%= render 'status_modal', ticket: @chat.ticket %>
     <% else %>
       <%= link_to "All Tickets", tickets_path, class:"btn outline-button" %>
     <% end %>

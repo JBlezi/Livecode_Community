@@ -1,0 +1,13 @@
+<div class="container"><h1>Messsages</h1>
+
+  <% @messages.reverse_each do |message| %>
+    <% if message.user != current_user %>
+    <%= link_to chat_path(message.chat) do%>
+      <%= message.user.user_information.first_name %><br>
+      <%= message.content %><br>
+      <%= message.chat.id %><br>
+      <br>
+    <% end %>
+    <% end %>
+  <% end %>
+</div>
