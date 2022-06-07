@@ -10,8 +10,6 @@ export default class extends TwilioVideoController {
   shareScreenHandler() {
     let screenTrack
 
-    console.log('click on share screen')
-
     event.preventDefault();
 
     if (!screenTrack) {
@@ -19,7 +17,11 @@ export default class extends TwilioVideoController {
         .then( stream => {
           screenTrack = LocalVideoTrack(stream.getTracks()[0]);
             this.room.localParticipant.publishTrack(screenTrack.mediaStreamTrack);
-            this.innerHTML = 'Stop sharing';
+            // this.screenShareButtonTarget.innerHTML = 'Stop sharing';
+            // this.screenShareButtonTarget.classList.add("d-none")
+            // this.buddyVideoTarget.hidden = true;
+            this.screenSharingTarget.classList.add("screen-share");
+            this.buddyVideoTarget.classList.add("remote-video-screenshare");
             screenTrack.mediaStreamTrack.onended = () => { shareScreenHandler() };
         });
         // .catch(() => {
@@ -30,7 +32,7 @@ export default class extends TwilioVideoController {
         this.room.localParticipant.unpublishTrack(screenTrack.mediaStreamTrack);
         screenTrack.stop();
         screenTrack = null;
-        this.innerHTML = 'Share screen';
+        // this.screenShareButtonTarget.innerHTML = 'Share screen';
     }
   };
 };

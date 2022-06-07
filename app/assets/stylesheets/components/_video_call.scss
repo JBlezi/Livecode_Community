@@ -1,5 +1,5 @@
 .video-call {
-  width: 600px;
+  flex-grow: 2;
   height: 580px;
   margin: 0 auto;
   display: flex;
@@ -71,7 +71,7 @@
   }
 }
 
-#remote-video {
+.remote-video {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,5 +81,30 @@
     background: black;
     width: 600px;
     height: 580px;
+  }
+}
+
+.screen-share {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  video {
+    background: black;
+    width: 600px;
+    height: 580px;
+  }
+}
+
+.remote-video-screenshare {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+
+  video {
+    background: transparent;
+    width: 150px;
+    height: 150px;
   }
 }
