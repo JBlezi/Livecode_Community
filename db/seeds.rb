@@ -177,9 +177,6 @@ ticket7.save
 
 
 
-
-
-
 puts "creating chats"
 
 chat1 = Chat.new(user_id: user1.id, ticket_id: ticket4.id)

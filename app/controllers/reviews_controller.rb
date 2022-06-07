@@ -3,8 +3,8 @@ class ReviewsController < ApplicationController
 
   def index
     policy_scope(Review)
-    @review = Review.new
     @ticket = Ticket.find(params[:ticket_id])
+    @review = Review.new
   end
 
   def show
@@ -14,10 +14,9 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.ticket = Ticket.find(params[:ticket_id])
     @review.ticket.user = current_user
-    @review.save!
     authorize @review
-    if @review.save!
-      redirect_to tickets_path
+    if @review.save
+      redirect_to root_path
     else
       flash[:alert] = "Something went wrong."
       render :new, status: :unprocessable_entity ### remember the new!!!!!
@@ -33,9 +32,9 @@ class ReviewsController < ApplicationController
 
   private
 
-  def set_ticket
-    @ticket = Ticket.find(params[:ticket_id])
-  end
+  # def set_ticket
+  #   @ticket = Ticket.find(params[:ticket_id])
+  # end
 
   def review_params
     params.require(:review).permit(:comment, :score)
