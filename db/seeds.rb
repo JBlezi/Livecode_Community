@@ -158,7 +158,7 @@ ticket10 = Ticket.new(
 )
 ticket10.save
 
-puts "creating tickets"
+puts "creating chats"
 
 chat1 = Chat.new(user_id: user1.id, ticket_id: ticket4.id)
 chat1.save
