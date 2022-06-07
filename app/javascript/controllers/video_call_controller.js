@@ -3,7 +3,7 @@ import TwilioVideoController from 'stimulus-twilio-video'
 import { connect, createLocalVideoTrack } from 'twilio-video'
 
 export default class extends TwilioVideoController {
-  static targets = ['noCall', 'awaitingBuddy', 'joinCallButton', 'endCallButton', 'screenShareButton', 'endScreenShareButton']
+  static targets = ['noCall', 'awaitingBuddy', 'joinCallButton', 'endCallButton', 'screenShareButton', 'endScreenShareButton', 'screenSharing']
 
 
   shareScreenHandler() {
@@ -14,15 +14,20 @@ export default class extends TwilioVideoController {
     event.preventDefault();
 
     if (!screenTrack) {
-        navigator.mediaDevices.getDisplayMedia().then(stream => {
-
+        navigator.mediaDevices.getDisplayMedia()
+        .then( stream => {
           screenTrack = createLocalVideoTrack(stream.getTracks()[0]);
-            console.log(screenTrack);
-            room_id.localParticipant.publishTrack(screenTrack);
-            console.log(screenTrack)
+            console.log(stream.getTracks());
+            screenTrack.then(track => {
+            // room_id.localParticipant.publishTrack(screenTrack);
+            let trackElement = track.attach();
+            // trackElement addEventListener('click', () => { zoomTrack(trackElement); });
+            this.screenSharingTarget.appendChild(trackElement);
+
+            console.log(track)
             this.innerHTML = 'Stop sharing';
-            screenTrack.mediaStreamTrack.onended = () => { shareScreenHandler() };
-        })
+            // screenTrack.mediaStreamTrack.onended = () => { shareScreenHandler() };
+        })});
         // .catch(() => {
         //     alert('Could not share the screen.');
         // });

@@ -1133,6 +1133,16 @@ twilio-video@^2.18.1:
     ws "^7.4.6"
     xmlhttprequest "^1.8.0"
 
+twilio-video@^2.21.2:
+  version "2.21.2"
+  resolved "https://registry.yarnpkg.com/twilio-video/-/twilio-video-2.21.2.tgz#8e90c4cb10a082cc85042d76a6b31f3a5283cd1b"
+  integrity sha512-ARLaXI8A7M+g7Zi9vdVU6q2sVrQD5WfKrFPRTNp6Hf/eCldlk7WiqORPK/cEDRTCQ1hZse6KwXje7ya8WfXCPw==
+  dependencies:
+    events "^3.3.0"
+    util "^0.12.4"
+    ws "^7.4.6"
+    xmlhttprequest "^1.8.0"
+
 unbox-primitive@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/unbox-primitive/-/unbox-primitive-1.0.2.tgz#29032021057d5e6cdbd08c5129c226dff8ed6f9e"
