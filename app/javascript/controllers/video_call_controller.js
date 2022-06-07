@@ -3,14 +3,22 @@ import TwilioVideoController from 'stimulus-twilio-video'
 import { connect, createLocalVideoTrack, LocalVideoTrack } from 'twilio-video'
 
 export default class extends TwilioVideoController {
-  static targets = ['noCall', 'awaitingBuddy', 'joinCallButton', 'endCallButton', 'screenShareButton', 'endScreenShareButton', 'screenSharing']
+  static targets = ['noCall', 'awaitingBuddy', 'joinCallButton', 'endCallButton', 'screenShareButton', 'endScreenShareButton']
 
-
+  initialize() {
+    const observer = new MutationObserver((mutations) => { // callback
+      if (mutations[0].addedNodes[0].tagName === "VIDEO") {
+        const videoTags = this.buddyVideoTarget.querySelectorAll("video")
+        if (videoTags.length === 2) {
+          videoTags[0].remove()
+        }
+      }
+    });
+    observer.observe(this.buddyVideoTarget, {childList: true, subtree: true})
+  }
 
   shareScreenHandler() {
     let screenTrack
-
-    console.log('click on share screen')
 
     event.preventDefault();
 
@@ -18,19 +26,20 @@ export default class extends TwilioVideoController {
         navigator.mediaDevices.getDisplayMedia()
         .then( stream => {
           screenTrack = LocalVideoTrack(stream.getTracks()[0]);
-            this.room.localParticipant.publishTrack(screenTrack.mediaStreamTrack);
-            this.innerHTML = 'Stop sharing';
+          console.log(this.room.localParticipant);
+            this.room.localParticipant.publishTrack(screenTrack.mediaStreamTrack)
+            .then((track) => {
+              console.log(track)
+            });
+            this.screenShareButtonTarget.classList.add("d-none")
             screenTrack.mediaStreamTrack.onended = () => { shareScreenHandler() };
         });
-        // .catch(() => {
-        //     alert('Could not share the screen.');
-        // });
+
     }
     else {
         this.room.localParticipant.unpublishTrack(screenTrack.mediaStreamTrack);
         screenTrack.stop();
         screenTrack = null;
-        this.innerHTML = 'Share screen';
     }
   };
 };
