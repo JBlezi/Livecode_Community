@@ -7,6 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "Cleaning DB of previous records"
+UserInformation.destroy_all
+Review.destroy_all
 Chat.destroy_all
 Ticket.destroy_all
 User.destroy_all
@@ -17,25 +19,25 @@ user1 = User.new(
   email: "user@mail.com",
   password: "123456"
 )
-user1.save!
+user1.save
 user1_profile = UserInformation.last
 user1_profile.first_name = "Peter"
 user1_profile.last_name = "Capusotto"
 user1_profile.bio = "Starred in almost every game in the Peter series as well as three cartoons series, various TV adverts including McDonalds, milk for schools and lots of general Nintendo ads - he was also in a feature film called Super Peter Capusotto."
 user1_profile.github_url = "https://github.com/"
-user1_profile.save!
+user1_profile.save
 
 user2 = User.new(
   email: "user2@mail.com",
   password: "123456"
 )
-user2.save!
+user2.save
 user2_profile = UserInformation.last
 user2_profile.first_name = "Carlos"
 user2_profile.last_name = "Williams"
 user2_profile.bio = "Born on February 13, 1974, in Stoke-on-Trent, England. When he was 3 years old, his mother Janet divorced his father (entertainer Pete Conway). Growing up with his mother and stepsister, Sally, Williams rarely stayed out of trouble in school"
 user2_profile.github_url = "https://github.com/"
-user2_profile.save!
+user2_profile.save
 
 user3 = User.new(
   email: "user3@mail.com",
@@ -47,7 +49,7 @@ user3_profile.first_name = "Mario"
 user3_profile.last_name = "Calleja"
 user3_profile.bio = "Refined contemporary R&B artist Mario debuted in his mid-teens with the Top Ten pop hit Just a Friend 2002. The deeply impassioned (and on-key) update of Biz Markie's humorous 1989 hit ignited a career highlighted by a string of high-performing albums for Clive Davis' J label."
 user3_profile.github_url = "https://github.com/"
-user3_profile.save!
+user3_profile.save
 
 require "open-uri"
 
@@ -60,14 +62,14 @@ ticket1 = Ticket.new(
   status: "closed",
   user: user1
 )
-ticket1.save!
+ticket1.save
 
-review1 = Review.new(
-  score: 5,
-  comment: "perfect help, thanks so much!",
-  ticket_id: ticket1.id
-)
-review1.save!
+# review1 = Review.new(
+#   score: 5,
+#   comment: "perfect help, thanks so much!",
+#   ticket_id: ticket1.id
+# )
+# review1.save!
 
 ticket2 = Ticket.new(
   title: "color of a-tag",
@@ -75,7 +77,7 @@ ticket2 = Ticket.new(
   language: "CSS",
   user: user1
 )
-ticket2.save!
+ticket2.save
 
 ticket3 = Ticket.new(
   title: "Animation issues",
@@ -105,7 +107,7 @@ ticket3 = Ticket.new(
   language: "CSS",
   user: user2
 )
-ticket3.save!
+ticket3.save
 
 ticket4 = Ticket.new(
   title: "Heroku doesn't like my Javascript",
@@ -113,7 +115,7 @@ ticket4 = Ticket.new(
   language: "JavaScript",
   user: user2
 )
-ticket4.save!
+ticket4.save
 
 ticket5 = Ticket.new(
   title: "I need help with variables",
@@ -121,7 +123,7 @@ ticket5 = Ticket.new(
   language: "Python",
   user: user2
 )
-ticket5.save!
+ticket5.save
 
 ticket6 = Ticket.new(
   title: "JS advanced debugging",
@@ -129,7 +131,7 @@ ticket6 = Ticket.new(
   language: "JavaScript",
   user: user1
 )
-ticket6.save!
+ticket6.save
 
 ticket7 = Ticket.new(
   title: "Print a hash without {}",
@@ -137,7 +139,7 @@ ticket7 = Ticket.new(
   language: "Ruby",
   user: user3
 )
-ticket7.save!
+ticket7.save
 
 ticket8 = Ticket.new(
   title: "Place my boxes where I need",
@@ -145,7 +147,7 @@ ticket8 = Ticket.new(
   language: "CSS",
   user: user2
 )
-ticket8.save!
+ticket8.save
 
 ticket9 = Ticket.new(
   title: "Raspberry pi",
@@ -153,7 +155,7 @@ ticket9 = Ticket.new(
   language: "C",
   user: user1
 )
-ticket9.save!
+ticket9.save
 
 ticket10 = Ticket.new(
   title: "mapbox doesn't work",
@@ -161,13 +163,13 @@ ticket10 = Ticket.new(
   language: "JavaScript",
   user: user2
 )
-ticket10.save!
+ticket10.save
 
 puts "creating tickets"
 
 chat1 = Chat.new(user_id: user1.id, ticket_id: ticket4.id)
-chat1.save!
+chat1.save
 chat2 = Chat.new(user_id: user3.id, ticket_id: ticket2.id)
-chat2.save!
+chat2.save
 
 puts "Finished!...."

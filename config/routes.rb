@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :tickets do 
     resources :reviews, except: [:destroy]
   end
-  resources :reviews, only: :destroy
+  resources :reviews, only: [:destroy, :edit, :update]
   
   resources :chats, only: [:show, :create] do
     resources :messages, only: :create

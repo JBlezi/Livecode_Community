@@ -31,11 +31,30 @@
 
 
     <%# ADD LATER TO CHAT SHOW PAGE %>
-    <% if @ticket.status == "closed" %>
-      <%= link_to "Add Review", new_ticket_review_path(@ticket), class:"btn outline-button m-1", style:"float: right;" %>
-    <% end %>
+    <%# <% if @ticket.status == "open" %>
+      <%= link_to "Add Review", new_ticket_review_path(@ticket), class:"btn outline-button m-1", data: {bs_toggle: "modal", bs_target: "#exampleModal"}, style:"float: right;" %>
+      <%= simple_form_for [@ticket, @review] do |f| %>
+                <%= f.input :comment %>
+                <%= f.input :score, collection: (1..5).to_a, label: "Rate your experience" %>
+                <%= f.submit %>
+              <% end %>
+    <!-- Modal -->
+
+    <%# <% end %>
       <%# ------ %>
 
 
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-4">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

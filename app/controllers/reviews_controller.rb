@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_ticket, only: [:new, :create]
+  # before_action :set_ticket, only: [:new, :create]
 
   def index
     policy_scope(Review)
@@ -10,15 +10,17 @@ class ReviewsController < ApplicationController
   def show
   end
 
-  def new
-    # We need @ticket in our `simple_form_for`
-    @review = Review.new
-    authorize @review
-  end
+  # def new
+  #   # We need @ticket in our `simple_form_for`
+  #   @review = Review.new
+  #   authorize @review
+  # end
     
   def create
+    # raise
     @review = Review.new(review_params)
-    @review.ticket = @ticket
+    @review.ticket = Ticket.find(params[:ticket_id])
+    # raise
     @review.ticket.user = current_user
     authorize @review
     if @review.save!
