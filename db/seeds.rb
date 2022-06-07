@@ -83,6 +83,7 @@ ticket6 = Ticket.new(
   title: "JS advanced debugging",
   content: "So I lauched a postgresql with rails and all referring stuff, but suddelny my animations doesn't work anymore. Please help",
   language: "JavaScript",
+  status: "closed",
   user: user1
 )
 ticket6.save
@@ -91,6 +92,7 @@ ticket9 = Ticket.new(
   title: "Raspberry pi",
   content: "The data in the server is different  from the data I'm sending",
   language: "C",
+  status: "open",
   user: user1
   )
   ticket9.save
@@ -127,6 +129,7 @@ ticket3 = Ticket.new(
   }
   ",
   language: "CSS",
+  status: "open",
   user: user2
 )
 ticket3.save
@@ -135,6 +138,7 @@ ticket4 = Ticket.new(
   title: "Heroku doesn't like my Javascript",
   content: "When I open heroku server I lost all the animation page, only work in my computer",
   language: "JavaScript",
+  status: "open",
   user: user2
 )
 ticket4.save
@@ -143,6 +147,7 @@ ticket5 = Ticket.new(
   title: "I need help with variables",
   content: ".I want to convert my integer variable to a string and I can't find a easy solution",
   language: "Python",
+  status: "open",
   user: user2
 )
 ticket5.save
@@ -151,6 +156,7 @@ ticket5.save
     title: "Place my boxes where I need",
     content: "I'm just want stuck my boxes in the middle of the screen but they always go to the left part",
     language: "CSS",
+    status: "open",
     user: user2
   )
   ticket8.save
@@ -159,6 +165,7 @@ ticket10 = Ticket.new(
   title: "mapbox doesn't work",
   content: "I'm trying to add marging progressive after add the new address but always bringme to another part of the planet",
   language: "JavaScript",
+  status: "open",
   user: user2
 )
 ticket10.save
@@ -171,6 +178,7 @@ ticket7 = Ticket.new(
   title: "Print a hash without {}",
   content: "I want to print a clear value of my hashes but always apears the full hash in my screen and looks so bad",
   language: "Ruby",
+  status: "open",
   user: user3
 )
 ticket7.save

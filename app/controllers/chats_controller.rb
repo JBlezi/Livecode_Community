@@ -5,7 +5,7 @@ class ChatsController < ApplicationController
     @chat = Chat.create(ticket_id: params[:ticket_id], user_id: current_user.id)
     authorize @chat
     @ticket = Ticket.find(params[:ticket_id])
-    @ticket.status = 1
+    @ticket.status = "in_progress"
     @ticket.save
     redirect_to chat_path(@chat)
   end
