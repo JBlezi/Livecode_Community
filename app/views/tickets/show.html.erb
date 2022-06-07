@@ -17,7 +17,7 @@
         <%= link_to "Enter chat", chat_path(@chat), class: "btn standart-button" %>
       <% end %>
       <%= link_to "Show all tickets", tickets_path, class:"btn outline-button m-1", style:"float: right;" %>
-      <%= button_to "Destroy this ticket", @ticket, class:"btn outline-button m-1", style:"float: right;", method: :delete if policy(@ticket).destroy?%>
+      <%= link_to "Destroy this ticket", @ticket, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"btn outline-button m-1", style:"float: right;", method: :delete if policy(@ticket).destroy?%>
      
       <% if policy(@ticket).edit? %>
        <div style="float: left;">
@@ -29,9 +29,10 @@
       <% end %>
 
       <!-- Button trigger modal -->
-      <% if current_user == @ticket.user %>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Add Review
+
+      <% if current_user == @ticket.user && @ticket.status == "in_progress" %>
+        <button type="button" class="btn standart-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Rate your Eperience
         </button>
       <% end %>
   </div>
@@ -60,9 +61,4 @@
   </div>
 </div>
 
-
-
-
-<% if current_user == @ticket.user %>
-  <%= render 'status-modal', ticket: @ticket %>
-<% end %>
+<%= render 'status_modal', ticket: @ticket %>

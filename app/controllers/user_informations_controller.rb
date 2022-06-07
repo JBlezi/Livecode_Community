@@ -3,9 +3,7 @@ class UserInformationsController < ApplicationController
     def show
         @user_information = UserInformation.find(params[:id])
         authorize @user_information
-        #@user = User.find(@user_information.user_id)
         @tickets = Ticket.where(user_id: @user_information.user_id)
-        # @reviews = @tickets.each 
     end
 
     def edit

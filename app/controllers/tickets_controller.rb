@@ -45,11 +45,6 @@ class TicketsController < ApplicationController
     redirect_to ticket_path(@ticket)
   end
 
-  # def update_status
-  #   authorize @ticket
-  #   @ticket.status = 2
-  # end
-
   def destroy
     authorize @ticket
     @ticket.destroy

@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-  # before_action :set_ticket, only: [:new, :create]
 
   def index
     policy_scope(Review)
@@ -31,10 +30,6 @@ class ReviewsController < ApplicationController
   end
 
   private
-
-  # def set_ticket
-  #   @ticket = Ticket.find(params[:ticket_id])
-  # end
 
   def review_params
     params.require(:review).permit(:comment, :score)
