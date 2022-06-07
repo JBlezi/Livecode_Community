@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-
-  root to: "pages#home"
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   devise_for :users, :controllers => {:registrations => "users/registrations"}
+
     resources :user_informations, only: [:show, :edit, :update]
     resources :messages, only: :index
 
@@ -13,10 +13,11 @@ Rails.application.routes.draw do
   resources :tickets do
     resources :reviews, except: [:destroy]
   end
-  resources :reviews, only: :destroy
-
+  resources :reviews, only: [:destroy, :edit, :update]
+  
   resources :chats, only: [:show, :create] do
     resources :messages, only: :create
   end
-
+  
+  root to: "pages#home"
 end

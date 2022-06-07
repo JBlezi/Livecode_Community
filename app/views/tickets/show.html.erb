@@ -7,6 +7,10 @@
       <li><strong>Status: </strong><%= @ticket.status %></li>
       <br>
       <li><strong>Description:</strong></li>
+      <% if @ticket.review %>
+      <li><strong>Score:</strong><%= @ticket.review.score %></li>
+      <li><strong>Comment:</strong><%= @ticket.review.comment %></li>
+      <% end %>
       <div><p><%= @ticket.content %></p></div>
     </ul>
       <% if current_user != @ticket.user %>
@@ -14,20 +18,26 @@
       <% end %>
       <br>
       <% if @chat && @chat.ticket.user %>
-        <%= link_to "Enter chat", chat_path(@chat) %>
+        <%= link_to "Enter chat", chat_path(@chat), class: "btn standart-button" %>
       <% end %>
       <%= link_to "Show all tickets", tickets_path, class:"btn outline-button m-1", style:"float: right;" %>
-      <%= button_to "Destroy this ticket", @ticket, class:"btn outline-button m-1", style:"float: right;", method: :delete if policy(@ticket).destroy?%>
+      <%= link_to "Destroy this ticket", @ticket, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"btn outline-button m-1", style:"float: right;", method: :delete if policy(@ticket).destroy?%>
      
       <% if policy(@ticket).edit? %>
        <div style="float: left;">
         <%= render 'modal', ticket: @ticket %>
         <a style="float: right;" class="btn outline-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit</i></a>
-
        </div>
       <% else %>
-        <%= link_to "Seeker profile", user_information_path(@ticket.user_id), class:"btn outline-button m-1", style:"float: right;" %>
+        <%= link_to "Seeker profile", user_information_path(@ticket.user_id), class:"btn outline-button" %>
       <% end %>
-      
+
+      <!-- Button trigger modal -->
+      <% if current_user == @ticket.user && @ticket.status == "closed" %>
+        <button type="button" class="btn standart-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Rate your Eperience
+        </button>
+        <%= render 'review_modal', ticket: @ticket, review: @review %>
+      <% end %>
   </div>
 </div>

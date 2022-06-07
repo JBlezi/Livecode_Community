@@ -17,4 +17,8 @@ class ReviewPolicy < ApplicationPolicy
   def destroy?
     true
   end
+
+  def show?
+    true
+  end
 end

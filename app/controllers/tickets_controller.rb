@@ -11,6 +11,10 @@ class TicketsController < ApplicationController
   end
 
   def show
+    @reviews = Review.find_by(ticket_id: @ticket.id)
+    @review = Review.new
+    authorize @review
+    # raise
     if Chat.find_by(ticket_id: @ticket.id)
       @chat = Chat.where(ticket_id: @ticket.id).last
     end

@@ -1,22 +1,24 @@
 class ReviewsController < ApplicationController
 
-  before_action :set_ticket, only: %i[new create]
-
-  def new
-    # We need @ticket in our `simple_form_for`
+  def index
+    policy_scope(Review)
     @ticket = Ticket.find(params[:ticket_id])
     @review = Review.new
-    authorize @review
+  end
+
+  def show
   end
     
   def create
     @review = Review.new(review_params)
-    @review.ticket = @ticket
+    @review.ticket = Ticket.find(params[:ticket_id])
+    @review.ticket.user = current_user
     authorize @review
-    if @review.save!
-     redirect_to tickets_path
+    if @review.save
+      redirect_to ticket_path(@review.ticket)
     else
-     render :new, status: :unprocessable_entity ### remember the new!!!!!
+      flash[:alert] = "Something went wrong."
+      render :new, status: :unprocessable_entity ### remember the new!!!!!
     end
   end
 
@@ -29,11 +31,7 @@ class ReviewsController < ApplicationController
 
   private
 
-  def set_ticket
-    @ticket = Ticket.find(params[:ticket_id])
-  end
-
   def review_params
-        params.require(:review).permit(:comment, :score)
+    params.require(:review).permit(:comment, :score)
   end
 end
