@@ -10,5 +10,8 @@ application.register("chat-subscription", ChatSubscriptionController)
 import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
 
+import NavbarSubscriptionController from "./navbar_subscription_controller.js"
+application.register("navbar-subscription", NavbarSubscriptionController)
+
 import VideoCallController from "./video_call_controller.js"
 application.register("video-call", VideoCallController)
