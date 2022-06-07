@@ -3,21 +3,18 @@ import TwilioVideoController from 'stimulus-twilio-video'
 import { connect, createLocalVideoTrack, LocalVideoTrack } from 'twilio-video'
 
 export default class extends TwilioVideoController {
-  static targets = ['noCall', 'awaitingBuddy', 'joinCallButton', 'endCallButton', 'screenShareButton', 'endScreenShareButton', 'screenSharing']
+  static targets = ['noCall', 'awaitingBuddy', 'joinCallButton', 'endCallButton', 'screenShareButton', 'endScreenShareButton']
 
   initialize() {
     const observer = new MutationObserver((mutations) => { // callback
-      console.log(mutations[0].addedNodes[0].tagName)
       if (mutations[0].addedNodes[0].tagName === "VIDEO") {
         const videoTags = this.buddyVideoTarget.querySelectorAll("video")
-        console.log(videoTags.length)
         if (videoTags.length === 2) {
           videoTags[0].remove()
         }
       }
     });
     observer.observe(this.buddyVideoTarget, {childList: true, subtree: true})
-    console.log("9 try")
   }
 
   shareScreenHandler() {
@@ -34,25 +31,15 @@ export default class extends TwilioVideoController {
             .then((track) => {
               console.log(track)
             });
-            // this.screenShareButtonTarget.innerHTML = 'Stop sharing';
-            // this.screenShareButtonTarget.classList.add("d-none")
-            this.buddyVideoTarget.style.display = "none";
-
-            // this.screenSharingTarget.classList.add("screen-share");
-            // this.buddyVideoTarget.classList.add("remote-video-screenshare");
-            console.log(screenTrack.mediaStreamTrack)
-            screenTrack.mediaStreamTrack.onstart = (x) => { console.log(x) };
+            this.screenShareButtonTarget.classList.add("d-none")
             screenTrack.mediaStreamTrack.onended = () => { shareScreenHandler() };
         });
-        // .catch(() => {
-        //     alert('Could not share the screen.');
-        // });
+
     }
     else {
         this.room.localParticipant.unpublishTrack(screenTrack.mediaStreamTrack);
         screenTrack.stop();
         screenTrack = null;
-        // this.screenShareButtonTarget.innerHTML = 'Share screen';
     }
   };
 };
