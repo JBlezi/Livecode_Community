@@ -29,8 +29,13 @@
         <%= link_to "Seeker profile", user_information_path(@ticket.user_id), class:"btn outline-button m-1", style:"float: right;" %>
       <% end %>
 
-      <%= link_to "Add Review", new_ticket_review_path(@ticket), class:"btn outline-button m-1", style:"float: right;" %>
 
-      
+    <%# ADD LATER TO CHAT SHOW PAGE %>
+    <% if @ticket.status == "closed" %>
+      <%= link_to "Add Review", new_ticket_review_path(@ticket), class:"btn outline-button m-1", style:"float: right;" %>
+    <% end %>
+      <%# ------ %>
+
+
   </div>
 </div>
