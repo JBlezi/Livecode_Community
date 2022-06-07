@@ -64,13 +64,6 @@ ticket1 = Ticket.new(
 )
 ticket1.save
 
-# review1 = Review.new(
-#   score: 5,
-#   comment: "perfect help, thanks so much!",
-#   ticket_id: ticket1.id
-# )
-# review1.save!
-
 ticket2 = Ticket.new(
   title: "color of a-tag",
   content: "cant seem to change the color of the a tag in css. I tried text-decoration-none, but nothing works, pls help :D",
