@@ -55,8 +55,12 @@
       <%# <div data-video-call-target="endScreenShareButton" class="outline-button btn-call-end" data-action="click->video-call#endShare">End Share</div> %>
     </div>
 
+    <% if current_user == @chat.ticket.user %>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Launch demo modal
     </button>
     <%= render 'status_modal', ticket: @chat.ticket %>
+    <% else %>
+      <%= link_to "All Tickets", tickets_path, class:"btn outline-button" %>
+    <% end %>
 </div>

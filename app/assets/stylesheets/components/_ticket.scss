@@ -2,13 +2,24 @@
   border-radius: 4px;
   display: flex;
   flex-direction: column;
-  border: 1px solid $font;
   overflow: hidden;
   width: 300px;
   height: 200px;
   padding-left: 1rem;
   padding-top: 1rem;
   position: relative;
+}
+
+#open {
+  border: 1px solid rgb(105, 219, 89);
+}
+
+#in_progress {
+  border: 1px solid rgb(230, 191, 65);
+}
+
+#closed {
+  border: 1px solid $font;
 }
 
 .ticket-link {
