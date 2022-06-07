@@ -1,0 +1,37 @@
+<div class="modal fade" id="ticket-modal-<%=ticket.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><%= ticket.title %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <ul class="show-ticket-list">
+        <li><strong>Language: </strong><%= ticket.language %></li>
+        <li><p><strong>User: </strong><%= ticket.user.user_information.first_name %> <%= ticket.user.user_information.last_name %></p></li>
+        <li><strong>Email: </strong><%= ticket.user.email %></li>
+        <li><strong>Status: </strong><%= ticket.status %></li>
+        <br>
+        <li><strong>Description:</strong></li>
+        <div><p><%= ticket.content %></p></div>
+       </ul>
+      <% if current_user != ticket.user %>
+        <%= button_to "Accept this ticket", chats_path(ticket_id: ticket.id), class:"btn outline-button m-1", method: :post %>
+      <% end %>
+      <br>
+      <% if @chat && @chat.ticket.user %>
+        <%= link_to "Enter chat", chat_path(chat) %>
+      <% end %>
+      <%= button_to "Destroy this ticket", ticket, class:"btn outline-button m-1", style:"float: right;", method: :delete if policy(ticket).destroy?%>
+     
+ 
+        <%= link_to "Seeker profile", user_information_path(ticket.user_id), class:"btn outline-button m-1", style:"float: right;" %>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <%#button type="button" class="btn btn-primary">Save changes</button>/%>
+      </div>
+    </div>
+  </div>
+</div> 
