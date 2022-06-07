@@ -2,6 +2,6 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
-import { initStarRating } from '../plugins/init_star_rating';
+// import { initStarRating } from '../plugins/init_star_rating';
 
 initStarRating();
