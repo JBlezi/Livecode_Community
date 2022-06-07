@@ -23,7 +23,6 @@
        <div style="float: left;">
         <%= render 'modal', ticket: @ticket %>
         <a style="float: right;" class="btn outline-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit</i></a>
-
        </div>
       <% else %>
         <%= link_to "Seeker profile", user_information_path(@ticket.user_id), class:"btn outline-button m-1", style:"float: right;" %>
