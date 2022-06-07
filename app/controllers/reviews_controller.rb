@@ -9,19 +9,12 @@ class ReviewsController < ApplicationController
 
   def show
   end
-
-  # def new
-  #   # We need @ticket in our `simple_form_for`
-  #   @review = Review.new
-  #   authorize @review
-  # end
     
   def create
-    # raise
     @review = Review.new(review_params)
     @review.ticket = Ticket.find(params[:ticket_id])
-    # raise
     @review.ticket.user = current_user
+    @review.save!
     authorize @review
     if @review.save!
       redirect_to tickets_path

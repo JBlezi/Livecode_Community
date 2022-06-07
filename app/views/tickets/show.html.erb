@@ -23,37 +23,41 @@
        <div style="float: left;">
         <%= render 'modal', ticket: @ticket %>
         <a style="float: right;" class="btn outline-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit</i></a>
-
        </div>
       <% else %>
         <%= link_to "Seeker profile", user_information_path(@ticket.user_id), class:"btn outline-button m-1", style:"float: right;" %>
       <% end %>
 
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Add Review
+      </button>
+
 
     <%# ADD LATER TO CHAT SHOW PAGE %>
     <%# <% if @ticket.status == "open" %>
-      <%= link_to "Add Review", new_ticket_review_path(@ticket), class:"btn outline-button m-1", data: {bs_toggle: "modal", bs_target: "#exampleModal"}, style:"float: right;" %>
-      <%= simple_form_for [@ticket, @review] do |f| %>
-                <%= f.input :comment %>
-                <%= f.input :score, collection: (1..5).to_a, label: "Rate your experience" %>
-                <%= f.submit %>
-              <% end %>
-    <!-- Modal -->
-
-    <%# <% end %>
-      <%# ------ %>
+  </div>
+</div>
 
 
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-4">
-
-            </div>
-          </div>
-        </div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            <%= simple_form_for [@ticket, @review] do |f| %>
+              <%= f.input :comment %>
+              <%= f.input :score, collection: (1..5).to_a, label: "Rate your experience" %>
+              <%= f.submit %>
+            <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
