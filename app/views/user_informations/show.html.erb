@@ -43,9 +43,10 @@
   <% end %>
 
   <% @tickets.each do |ticket| %>
-    <% @review = Review.find_by(ticket_id: ticket) %>
-    <%= @review.comment %>
-    <%= @review.score %>
+    <% ticket.review = Review.find_by(ticket_id: ticket) %>
+    <% raise %>
+      <%= ticket.review.comment %>
+      <%= ticket.review.score %>
   <% end %>
 
 </div>

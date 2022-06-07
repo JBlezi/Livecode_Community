@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require "open-uri"
+
+
 
 puts "Cleaning DB of previous records"
 UserInformation.destroy_all
@@ -12,6 +15,8 @@ Review.destroy_all
 Chat.destroy_all
 Ticket.destroy_all
 User.destroy_all
+
+
 
 puts "creating users"
 
@@ -39,6 +44,7 @@ user2_profile.bio = "Born on February 13, 1974, in Stoke-on-Trent, England. When
 user2_profile.github_url = "https://github.com/"
 user2_profile.save
 
+
 user3 = User.new(
   email: "user3@mail.com",
   password: "123456"
@@ -51,9 +57,10 @@ user3_profile.bio = "Refined contemporary R&B artist Mario debuted in his mid-te
 user3_profile.github_url = "https://github.com/"
 user3_profile.save
 
-require "open-uri"
 
-puts "creating tickets"
+
+
+puts "creating tickets for user 1"
 
 ticket1 = Ticket.new(
   title: ".each and map",
@@ -71,6 +78,28 @@ ticket2 = Ticket.new(
   user: user1
 )
 ticket2.save
+
+ticket6 = Ticket.new(
+  title: "JS advanced debugging",
+  content: "So I lauched a postgresql with rails and all referring stuff, but suddelny my animations doesn't work anymore. Please help",
+  language: "JavaScript",
+  user: user1
+)
+ticket6.save
+
+ticket9 = Ticket.new(
+  title: "Raspberry pi",
+  content: "The data in the server is different  from the data I'm sending",
+  language: "C",
+  user: user1
+  )
+  ticket9.save
+
+
+
+
+puts "tickets for user2"
+
 
 ticket3 = Ticket.new(
   title: "Animation issues",
@@ -117,14 +146,26 @@ ticket5 = Ticket.new(
   user: user2
 )
 ticket5.save
+  
+  ticket8 = Ticket.new(
+    title: "Place my boxes where I need",
+    content: "I'm just want stuck my boxes in the middle of the screen but they always go to the left part",
+    language: "CSS",
+    user: user2
+  )
+  ticket8.save
 
-ticket6 = Ticket.new(
-  title: "JS advanced debugging",
-  content: "So I lauched a postgresql with rails and all referring stuff, but suddelny my animations doesn't work anymore. Please help",
+ticket10 = Ticket.new(
+  title: "mapbox doesn't work",
+  content: "I'm trying to add marging progressive after add the new address but always bringme to another part of the planet",
   language: "JavaScript",
-  user: user1
+  user: user2
 )
-ticket6.save
+ticket10.save
+
+
+
+puts "tickets for user3"
 
 ticket7 = Ticket.new(
   title: "Print a hash without {}",
@@ -134,29 +175,10 @@ ticket7 = Ticket.new(
 )
 ticket7.save
 
-ticket8 = Ticket.new(
-  title: "Place my boxes where I need",
-  content: "I'm just want stuck my boxes in the middle of the screen but they always go to the left part",
-  language: "CSS",
-  user: user2
-)
-ticket8.save
 
-ticket9 = Ticket.new(
-  title: "Raspberry pi",
-  content: "The data in the server is different  from the data I'm sending",
-  language: "C",
-  user: user1
-)
-ticket9.save
 
-ticket10 = Ticket.new(
-  title: "mapbox doesn't work",
-  content: "I'm trying to add marging progressive after add the new address but always bringme to another part of the planet",
-  language: "JavaScript",
-  user: user2
-)
-ticket10.save
+
+
 
 puts "creating chats"
 
