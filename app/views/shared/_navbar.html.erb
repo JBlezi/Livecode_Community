@@ -15,7 +15,7 @@
             <%= link_to "Tickets", tickets_path, class: "btn nav-button" %>
           </li>
           <li class="nav-item" data-controller="navbar-subscription" data-navbar-subscription-user-id-value="<%= current_user.id %>">
-            <%= link_to "Messages", "#", class: "btn nav-button", data: {action: "click->navbar-subscription#hideDot"} %>
+            <%= link_to "Messages", messages_path, class: "btn nav-button", data: {action: "click->navbar-subscription#hideDot"} %>
             <span class="badge" data-navbar-subscription-target="dot"></span>
           </li>
           <%# <li class="nav-item"> %>

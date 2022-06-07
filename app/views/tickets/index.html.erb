@@ -27,7 +27,7 @@
         <div class="ticket">
           <div class="top-area">
             <%= link_to ticket_path(ticket), style: "text-decoration: none;" do %>
-              <p><%= ticket.user.email %></p>
+              <p>Posted by: <%= ticket.user.user_information.first_name %></p>
               <h2><%= ticket.title %></h2>
             <% end %>
           </div>

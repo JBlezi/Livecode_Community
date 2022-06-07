@@ -1,4 +1,9 @@
 class MessagesController < ApplicationController
+  def index
+    @messages = policy_scope(Message)
+    @chats = policy_scope(Chat)
+  end
+
   def create
     @chat = Chat.find(params[:chat_id])
     @message = Message.new(message_params)
