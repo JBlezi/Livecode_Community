@@ -10,6 +10,10 @@ class MessagesController < ApplicationController
         @chat,
         render_to_string(partial: "message", locals: { message: @message })
       )
+      NotificationChannel.broadcast_to(
+        "navbar-notification",
+        current_user.id.to_s
+      )
       head :ok
     else
       render "chatrooms/show", status: :unprocessable_entity
