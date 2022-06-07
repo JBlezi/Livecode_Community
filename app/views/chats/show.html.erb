@@ -18,10 +18,10 @@
       </div>
 
 
-        <%= simple_form_for [@chat, @message], html: { data: { action: "turbo:submit-end->chat-subscription#resetForm" }, class: "d-flex align-items-md-start"} do |f| %>
-          <%= f.input :content, as: :string, label: false, placeholder: "Message for Chat Nr: #{@chat.id}", wrapper_html: {class: "flex-grow-1"} %>
-          <%= f.submit "Send", class: "outline-button" %>
-        <% end %>
+      <%= simple_form_for [@chat, @message], html: { data: { action: "turbo:submit-end->chat-subscription#resetForm" }, class: "d-flex align-items-md-start"} do |f| %>
+        <%= f.input :content, as: :string, label: false, placeholder: "Message for Chat Nr: #{@chat.id}", wrapper_html: {class: "flex-grow-1"} %>
+        <%= f.submit "Send", class: "outline-button" %>
+      <% end %>
 
     </div>
   </div>
@@ -45,12 +45,18 @@
 
     <div id="local-video" data-video-call-target="localVideo"></div>
   </div>
+
+
+
     <div class="call-buttons">
-
-    <div data-video-call-target="joinCallButton" class="outline-button btn-call-start" data-action="click->video-call#joinCall"><i class="fas fa-phone"></i>  Call</div>
-    <div data-video-call-target="endCallButton" class="outline-button btn-call-end" data-action="click->video-call#endCall"><i class="fas fa-phone-slash"></i>  End call</div>
-    <%# <div data-video-call-target="screenShareButton" class="outline-button btn-call-start" data-action="click->video-call#screenShare">Share Screen</div> %>
-    <%# <div data-video-call-target="endScreenShareButton" class="outline-button btn-call-end" data-action="click->video-call#endShare">End Share</div> %>
-
+      <div data-video-call-target="joinCallButton" class="outline-button btn-call-start" data-action="click->video-call#joinCall"><i class="fas fa-phone"></i>  Call</div>
+      <div data-video-call-target="endCallButton" class="outline-button btn-call-end" data-action="click->video-call#endCall"><i class="fas fa-phone-slash"></i>  End call</div>
+      <%# <div data-video-call-target="screenShareButton" class="outline-button btn-call-start" data-action="click->video-call#screenShare">Share Screen</div> %>
+      <%# <div data-video-call-target="endScreenShareButton" class="outline-button btn-call-end" data-action="click->video-call#endShare">End Share</div> %>
     </div>
+
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Launch demo modal
+    </button>
+    <%= render 'status_modal', ticket: @chat.ticket %>
 </div>

@@ -7,6 +7,10 @@
       <li><strong>Status: </strong><%= @ticket.status %></li>
       <br>
       <li><strong>Description:</strong></li>
+      <% if @ticket.review %>
+      <li><strong>Score:</strong><%= @ticket.review.score %></li>
+      <li><strong>Comment:</strong><%= @ticket.review.comment %></li>
+      <% end %>
       <div><p><%= @ticket.content %></p></div>
     </ul>
       <% if current_user != @ticket.user %>
@@ -25,40 +29,15 @@
         <a style="float: right;" class="btn outline-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit</i></a>
        </div>
       <% else %>
-        <%= link_to "Seeker profile", user_information_path(@ticket.user_id), class:"btn outline-button m-1", style:"float: right;" %>
+        <%= link_to "Seeker profile", user_information_path(@ticket.user_id), class:"btn outline-button" %>
       <% end %>
 
       <!-- Button trigger modal -->
-
-      <% if current_user == @ticket.user && @ticket.status == "in_progress" %>
+      <% if current_user == @ticket.user && @ticket.status == "closed" %>
         <button type="button" class="btn standart-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
           Rate your Eperience
         </button>
+        <%= render 'review_modal', ticket: @ticket, review: @review %>
       <% end %>
   </div>
 </div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-            <%= simple_form_for [@ticket, @review] do |f| %>
-              <%= f.input :comment %>
-              <%= f.input :score, collection: (1..5).to_a, label: "Rate your experience" %>
-              <%= f.submit %>
-            <% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<%= render 'status_modal', ticket: @ticket %>

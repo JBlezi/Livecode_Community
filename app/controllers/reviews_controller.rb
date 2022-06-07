@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
     @review.ticket.user = current_user
     authorize @review
     if @review.save
-      redirect_to root_path
+      redirect_to ticket_path(@review.ticket)
     else
       flash[:alert] = "Something went wrong."
       render :new, status: :unprocessable_entity ### remember the new!!!!!
