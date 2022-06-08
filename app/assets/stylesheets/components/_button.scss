@@ -105,11 +105,11 @@
 
 .nav-button {
   color: $font;
-}
 
-.nav-button:hover {
-  color: $font-contrast;
-  transition: 0.3s;
+  &:hover {
+    color: $font-contrast;
+    transition: 0.3s;
+  }
 }
 
 .form-button {
