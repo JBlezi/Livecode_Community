@@ -115,7 +115,7 @@
   height: 600px;
   width: 1000px ;
   background-color: black;
-  opacity: 80% !important;
+  // opacity: 80% !important;
   border: 1px solid white;
   border-radius: 10px;
 }
@@ -132,8 +132,9 @@
 
 .modalcard-element-size{
   //height: 20% !important;
-  width: 100% !important; 
-=======
+  width: 100% !important;
+}
+
 #username-index {
   color: $font;
   padding-bottom: 3px;

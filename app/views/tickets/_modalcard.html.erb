@@ -1,4 +1,4 @@
-<div class="modal fade" id="ticket-modal-<%=ticket.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal" id="ticket-modal-<%=ticket.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog d-flex">
     <div class="modal-content modalcard-edit">
       <div class="modal-header modalcard-element-size h-15">
@@ -33,17 +33,17 @@
           <% if ticket.status == "in_progress" && current_user == ticket.user %>
             <%= link_to "Enter chat", chat_path(ticket.chat), class: "btn standart-button" %>
           <% end %>
-          </div> 
+          </div>
           <div>
           <%= button_to "Destroy this ticket", ticket, class:"btn outline-button m-1", style:"float: right;", method: :delete if policy(ticket).destroy?%>
-        
+
           <% if current_user != ticket.user %>
           <%#= link_to "Visit #{ticket.user.user_information.first_name} profile", user_information_path(ticket.user_id), class:"btn outline-button m-1", style:"float: right;" %>
           <% end %>
-          </div> 
+          </div>
             <%#button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button%>
         </div>
                   <%#***************************************************************************** %>
     </div>
   </div>
-</div> 
+</div>
