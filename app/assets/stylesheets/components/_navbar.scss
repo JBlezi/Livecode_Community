@@ -47,7 +47,7 @@
 .dropdown-menu {
   background-color: $second;
   border-radius: 4px;
-  border-radius: 1px;
+  border: 1px solid $font;
   transition-delay: 300ms;
 
   &:hover {
