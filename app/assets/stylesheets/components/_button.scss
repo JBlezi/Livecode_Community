@@ -8,6 +8,7 @@
   color: $font-contrast;
   border: $second;
   transition: 1s;
+  max-width: 140px;
 
   &:hover {
     text-decoration: none;
@@ -43,6 +44,7 @@
   text-decoration: none;
   color: $font;
   border: 2px solid  $second;
+  max-width: 140px;
 
   &:hover {
     // text-decoration: none;
@@ -133,4 +135,8 @@
 
 .chat-button {
   margin-left: 8px;
+}
+
+#chat-standard-button {
+  margin-bottom: 24px;
 }

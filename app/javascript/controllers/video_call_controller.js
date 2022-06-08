@@ -3,13 +3,14 @@ import TwilioVideoController from 'stimulus-twilio-video'
 import { connect, createLocalVideoTrack, LocalVideoTrack } from 'twilio-video'
 
 export default class extends TwilioVideoController {
-  static targets = ['noCall', 'awaitingBuddy', 'joinCallButton', 'endCallButton', 'screenShareButton', 'endScreenShareButton']
+  static targets = ['noCall', 'awaitingBuddy', 'joinCallButton', 'endCallButton', 'screenShareButton', 'endScreenShareButton', 'callView']
 
   initialize() {
-    console.log("hello 2")
+    console.log("hello Geza")
     const observer = new MutationObserver((mutations) => { // callback
       if (mutations[0].addedNodes[0].tagName === "VIDEO") {
         const videoTags = this.buddyVideoTarget.querySelectorAll("video")
+        // this.callViewTarget.classList.add("call-video-views-incall")
         if (videoTags.length === 2) {
           videoTags[0].remove()
         }
