@@ -1,8 +1,8 @@
 <div class="container"><h1>Messages</h1>
 <br>
   <% @messages.reverse_each do |message| %>
-    <div class="message-container">
-      <% if message.user != current_user %>
+    <% if message.user != current_user %>
+      <div class="message-container">
         <div class="d-flex justify-content-between">
           <div >
             <ul>
