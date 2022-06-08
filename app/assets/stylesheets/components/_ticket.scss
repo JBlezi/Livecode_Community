@@ -113,10 +113,37 @@
 
 .modalcard-edit{
   height: 600px;
-  width: 1000px ;
+  width: 1400px ;
   background-color: black;
   // opacity: 80% !important;
   border: 1px solid white;
+  border-radius: 10px;
+}
+
+.modalcard-edit-open {
+  height: 600px;
+  width: 1400px ;
+  background-color: $gray;
+  // opacity: 80% !important;
+  border: 1px solid $green;
+  border-radius: 10px;
+}
+
+.modalcard-edit-in_progress {
+  height: 600px;
+  width: 1400px ;
+  background-color: $gray;
+  // opacity: 80% !important;
+  border: 1px solid $orange;
+  border-radius: 10px;
+}
+
+.modalcard-edit-closed {
+  height: 600px;
+  width: 1400px ;
+  background-color: $gray;
+  // opacity: 80% !important;
+  border: 1px solid $font;
   border-radius: 10px;
 }
 
@@ -125,14 +152,15 @@
 }
 
 .modal-content{
-  max-width: 500px;
+  max-width: 83vw;
+  max-height: 60vh;
   overflow-y: scroll;
 }
 
 
 .modalcard-element-size{
   //height: 20% !important;
-  width: 100% !important;
+  width: 100%;
 }
 
 #username-index {
@@ -172,4 +200,34 @@
   top: -10px;
   right: 50px;
   color: $font !important;
+}
+
+#exampleModalLabel {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.modal-header {
+  border: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.modal-footer {
+  border: 0;
+}
+
+.ticket-modal-status-open {
+  color: $green;
+}
+
+.ticket-modal-status-in_progress {
+  color: $orange;
+}
+
+.ticket-modal-status-closed {
+  color: $font;
+}
+
+.tital-modal-creator {
+  color: $yellow;
 }
