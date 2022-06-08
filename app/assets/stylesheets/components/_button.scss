@@ -1,16 +1,19 @@
 .standart-button {
   background-color: $third;
-  border: none;
   border-radius: 4px;
   padding: 14px;
   min-height: 30px;
   min-width: 130px;
-  text-decoration: none;
-  color: $font;
+  // text-decoration: none;
+  color: $font-contrast;
   border: $second;
+  transition: 1s;
 
-  &hover {
+  &:hover {
     text-decoration: none;
+    color: $font-contrast;
+    background: linear-gradient(315deg, #da9003, #d8a443);
+    transition: 1s;
   }
 }
 
