@@ -58,7 +58,7 @@
 
     <% if current_user == @chat.ticket.user %>
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Launch demo modal
+        Mark Ticket status
       </button>
       <%= render 'status_modal', ticket: @chat.ticket %>
     <% else %>
