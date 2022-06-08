@@ -31,6 +31,9 @@
           <div class="ticket">
             <div class="top-area">
 
+              <%= render 'modalcard', ticket: ticket %>
+              <a style="float: right;" data-bs-toggle="modal" data-bs-target="#ticket-modal-<%=ticket.id%>">
+
               <%= link_to ticket_path(ticket), style: "text-decoration: none;" do %>
 
                 <div class="d-flex justify-content-between ticket-status">
@@ -39,20 +42,19 @@
                 </div>
 
                 <h2><%= ticket.title %></h2>
-
-              <% end %>
+              </a>
             </div>
             <div class="bottom-area">
 
               <div class="bottom-left">
                 <% if policy(ticket).edit? %>
                   <%= render 'modal', ticket: ticket %>
-                  <a style="float: right;" class="btn tiny-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-pen-to-square"></i></a>
+                  <a style="float: right;" class="btn tiny-button" data-bs-toggle="modal" data-bs-target="#ticket-modal-edit-<%=ticket.id%>"><i class="fa-solid fa-pen-to-square"></i></a>
 
                   <%# <%= link_to "Edit this ticket", edit_ticket_path(ticket), class: "btn  outline-button" %>
                 <% end %>
                 <% if policy(ticket).destroy? %>
-                  <%= link_to tickets_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn tiny-button" do %>
+                  <%= link_to ticket_path(ticket), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn tiny-button" do %>
                     <i class="fa-solid fa-trash"></i>
                   <% end %>
                 <% end %>
@@ -69,6 +71,10 @@
         <div class="ticket-link ticket-link-in_progress" id="in_progress">
           <div class="ticket">
             <div class="top-area">
+
+              <%= render 'modalcard', ticket: ticket %>
+              <a style="float: right;" data-bs-toggle="modal" data-bs-target="#ticket-modal-<%=ticket.id%>">
+                
               <%= link_to ticket_path(ticket), style: "text-decoration: none;" do %>
 
                 <div class="d-flex justify-content-between ticket-status">
@@ -77,20 +83,22 @@
                 </div>
 
                 <h2><%= ticket.title %></h2>
-
-              <% end %>
+              </a>
             </div>
+            
             <div class="bottom-area">
-
               <div class="bottom-left">
+                <% if @chat && @chat.ticket.user %>
+                  <%= link_to "Enter chat", chat_path(@chat), class: "btn standart-button" %>
+                <% end %>
                 <% if policy(ticket).edit? %>
                   <%= render 'modal', ticket: ticket %>
-                  <a style="float: right;" class="btn tiny-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-pen-to-square"></i></a>
+                  <a style="float: right;" class="btn tiny-button" data-bs-toggle="modal" data-bs-target="#ticket-modal-edit-<%=ticket.id%>"><i class="fa-solid fa-pen-to-square"></i></a>
 
                   <%# <%= link_to "Edit this ticket", edit_ticket_path(ticket), class: "btn  outline-button" %>
                 <% end %>
                 <% if policy(ticket).destroy? %>
-                  <%= link_to tickets_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn tiny-button" do %>
+                  <%= link_to ticket_path(ticket), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn tiny-button" do %>
                     <i class="fa-solid fa-trash"></i>
                   <% end %>
                 <% end %>
@@ -107,27 +115,31 @@
         <div class="ticket-link ticket-link-closed" id="closed">
           <div class="ticket">
             <div class="top-area">
+
+              <%= render 'modalcard', ticket: ticket %>
+              <a style="float: right;" data-bs-toggle="modal" data-bs-target="#ticket-modal-<%=ticket.id%>">
+
               <%= link_to ticket_path(ticket), style: "text-decoration: none;" do %>
 
                 <div class="d-flex justify-content-between ticket-status">
                   <p id="username-index"><%= ticket.user.user_information.first_name %></p>
                   <p class="status-closed-alignment">closed<strong class="status-dot">&#8226;</strong></p>
                 </div>
+                
                 <h2><%= ticket.title %></h2>
-
-              <% end %>
+              </a>
             </div>
             <div class="bottom-area">
 
               <div class="bottom-left">
                 <% if policy(ticket).edit? %>
                   <%= render 'modal', ticket: ticket %>
-                  <a style="float: right;" class="btn tiny-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-pen-to-square"></i></a>
+                  <a style="float: right;" class="btn tiny-button" data-bs-toggle="modal" data-bs-target="#ticket-modal-edit-<%=ticket.id%>"><i class="fa-solid fa-pen-to-square"></i></a>
 
                   <%# <%= link_to "Edit this ticket", edit_ticket_path(ticket), class: "btn  outline-button" %>
                 <% end %>
                 <% if policy(ticket).destroy? %>
-                  <%= link_to tickets_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn tiny-button" do %>
+                  <%= link_to ticket_path(ticket), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn tiny-button" do %>
                     <i class="fa-solid fa-trash"></i>
                   <% end %>
                 <% end %>
