@@ -8,6 +8,10 @@
   padding-left: 1rem;
   padding-top: 1rem;
   position: relative;
+
+  a {
+  cursor: pointer;
+  }
 }
 
 #open {
@@ -74,6 +78,7 @@
 .top-area p {
   margin-bottom: 0 !important;
   color: $font;
+  cursor: pointer;
 }
 
 .bottom-left {
