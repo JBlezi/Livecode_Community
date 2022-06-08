@@ -4,6 +4,7 @@
   padding: 14px;
   min-height: 30px;
   min-width: 130px;
+
   // text-decoration: none;
   color: $font-contrast;
   border: $second;
@@ -14,6 +15,7 @@
     text-decoration: none;
     color: $font-contrast;
     background: linear-gradient(315deg, #da9003, #d8a443);
+
     transition: 1s;
   }
 }
@@ -45,6 +47,7 @@
   color: $font;
   border: 2px solid  $second;
   max-width: 140px;
+  transition: 1s;
 
   &:hover {
     // text-decoration: none;
@@ -65,7 +68,7 @@
   color: $font;
   border: $second;
 
-  &hover {
+  &:hover {
     text-decoration: none;
     border-color: orangered;
   }
@@ -84,7 +87,7 @@
   opacity: 0.6;
   cursor: not-allowed;
 
-  &hover {
+  &:hover {
     text-decoration: none;
   }
 }
@@ -129,8 +132,8 @@
   color: $font-contrast;
 }
 
-#home-button {
-  margin-bottom: 24px;
+.search-button {
+  
 }
 
 .chat-button {

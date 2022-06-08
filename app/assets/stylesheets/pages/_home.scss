@@ -23,9 +23,6 @@ h1 {
   font-size: 32px;
 }
 
-.outline-button {
-  animation-delay: 2s;
-}
 
 /* text animation */
 @keyframes animated-text{
@@ -43,4 +40,13 @@ h1 {
   font-family: 'JetBrains Mono', monospace;
   margin: 16px;
   padding: 16px;
+}
+
+#home-button {
+  margin-bottom: 24px;
+}
+
+#home-button:hover {
+  transition: 300ms;
+  box-shadow: 8px 8px $font;
 }
