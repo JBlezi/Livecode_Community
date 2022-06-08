@@ -3,12 +3,14 @@ import TwilioVideoController from 'stimulus-twilio-video'
 import { connect, createLocalVideoTrack, LocalVideoTrack } from 'twilio-video'
 
 export default class extends TwilioVideoController {
-  static targets = ['noCall', 'awaitingBuddy', 'joinCallButton', 'endCallButton', 'screenShareButton', 'endScreenShareButton']
+  static targets = ['noCall', 'awaitingBuddy', 'joinCallButton', 'endCallButton', 'screenShareButton', 'endScreenShareButton', 'callView']
 
   initialize() {
+    console.log("hello Geza")
     const observer = new MutationObserver((mutations) => { // callback
       if (mutations[0].addedNodes[0].tagName === "VIDEO") {
         const videoTags = this.buddyVideoTarget.querySelectorAll("video")
+        // this.callViewTarget.classList.add("call-video-views-incall")
         if (videoTags.length === 2) {
           videoTags[0].remove()
         }
@@ -42,28 +44,29 @@ export default class extends TwilioVideoController {
         screenTrack = null;
     }
   };
+
+  callStarted() {
+    this.noCallTarget.classList.add('d-none')
+    this.awaitingBuddyTarget.classList.remove('d-none')
+    this.joinCallButtonTarget.classList.add('d-none')
+    this.endCallButtonTarget.classList.remove('d-none')
+  }
+
+  callEnded() {
+    console.log('Call ended!')
+    this.noCallTarget.classList.remove('d-none')
+    this.awaitingBuddyTarget.classList.add('d-none')
+    this.joinCallButtonTarget.classList.remove('d-none')
+    this.endCallButtonTarget.classList.add('d-none')
+  }
+
+  buddyJoined() {
+    console.log('Buddy has joined')
+    this.awaitingBuddyTarget.classList.add('d-none')
+  }
+
+  buddyLeft() {
+    console.log('Buddy has left')
+  }
+
 };
-
-// callStarted() {
-  //   this.noCallTarget.classList.add('d-none')
-  //   this.awaitingBuddyTarget.classList.remove('d-none')
-  //   this.joinCallButtonTarget.classList.add('d-none')
-  //   this.endCallButtonTarget.classList.remove('d-none')
-  // }
-
-  // callEnded() {
-  //   console.log('Call ended!')
-  //   this.noCallTarget.classList.remove('d-none')
-  //   this.awaitingBuddyTarget.classList.add('d-none')
-  //   this.joinCallButtonTarget.classList.remove('d-none')
-  //   this.endCallButtonTarget.classList.add('d-none')
-  // }
-
-  // buddyJoined() {
-  //   console.log('Buddy has joined')
-  //   this.awaitingBuddyTarget.classList.add('d-none')
-  // }
-
-  // buddyLeft() {
-  //   console.log('Buddy has left')
-  // }
