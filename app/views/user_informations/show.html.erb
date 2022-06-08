@@ -25,10 +25,20 @@
             <% @review = Review.find_by(ticket_id: ticket) %>
             <% unless @review.nil? %>
               <div class="rating">
-                <p><i class="fa-solid fa-star"></i><%= @review.score %>/5</p> 
+                <% if @review.score == 1 %>
+                  <p><i class="fa-solid fa-star"></i></p> 
+                <% elsif @review.score == 2 %>
+                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
+                <% elsif @review.score == 3 %>
+                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
+                <% elsif @review.score == 4 %>
+                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
+                <% elsif @review.score == 5 %>
+                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
+                <% end %>
               </div>
               <div class="comment">
-                <p><%= @review.comment %></p>
+                <p><%= @review.comment.capitalize %></p>
               </div>
             <% end %>
           <% end %>

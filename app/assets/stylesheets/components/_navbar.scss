@@ -43,3 +43,28 @@
   background: red;
   color: red;
 }
+
+.dropdown-menu {
+  background-color: $second;
+  border-radius: 4px;
+  border-radius: 1px;
+  transition-delay: 300ms;
+
+  &:hover {
+    background-color: $second;
+    transition: 300ms;
+  }
+}
+
+.dropdown-item {
+  background-color: $second;
+  border-radius: 4px;
+  color: $font-contrast;
+  transition: 300ms;
+
+  &:hover {
+    background-color: $second;
+    transition: 300ms;
+    color: $first;
+  }
+}
