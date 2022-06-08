@@ -1,49 +1,68 @@
 <div class="container">
+
   <div>
-    <h1><strong>Tickets</strong></h1>
-    <br>
-    <p>Raise a ticket - kit your code</p>
-    <%= link_to "Raise Ticket", new_ticket_path, class: "btn standart-button" %>
-    <hr>
+    <h1>Raise a ticket and find your personal Livecoder</h1>
+    <%# <h3>Raise a ticket and find your personal Livecoder</h3> %>
     <br>
   </div>
 
-  <div class="search d-flex m-0">
-    <div>
-      <%= form_tag tickets_path, method: :get, class: "d-flex search-bar" do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Search Tickets"
-        %>
-        <%= submit_tag "Search", class: "btn outline-button" %>
-      <% end %>
+  <div class="d-flex justify-content-between">
+
+    <div class="search d-flex m-0">
+      <div>
+        <%= form_tag tickets_path, method: :get, class: "d-flex search-bar" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search Tickets"
+          %>
+          <%= submit_tag "Search", class: "btn search-button"%>
+        <% end %>
+        <br>
+      </div>
     </div>
+
+    <div class="px-5">
+      <%= link_to "Raise Ticket", new_ticket_path, class: "btn standart-button" %>
+    </div>
+
   </div>
 
   <div class="index-container">
+
     <% @tickets.reverse_each do |ticket| %>
+
       <% if ticket.status == "open" %>
-        <div class="ticket-link" id="open">
+        <%= render 'modalcard', ticket: ticket %>
+
+        <div class="ticket-link-open ticket-link" id="open">
           <div class="ticket">
             <div class="top-area">
-              <%= link_to ticket_path(ticket), style: "text-decoration: none;" do %>
-                <p><%= ticket.user.email %></p>
+              <a style="float: right;" data-bs-toggle="modal" data-bs-target="#ticket-modal-<%=ticket.id%>">
+
+              <%#= link_to ticket_path(ticket), style: "text-decoration: none;" do %>
+
+                <div class="d-flex justify-content-between ticket-status">
+                  <p id="username-index"><%= ticket.user.user_information.first_name %></p>
+                  <p class="status-open-alignment"><%= ticket.status %><strong class="status-dot">&#8226;</strong></p>
+                </div>
+
                 <h2><%= ticket.title %></h2>
 
-              <% end %>
+              </a>
             </div>
+
             <div class="bottom-area">
 
               <div class="bottom-left">
                 <% if policy(ticket).edit? %>
                   <%= render 'modal', ticket: ticket %>
-                  <a style="float: right;" class="btn tiny-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-pen-to-square"></i></a>
-
+                  <a style="float: right;" class="btn tiny-button" data-bs-toggle="modal" data-bs-target="#ticket-modal-edit-<%=ticket.id%>"><i class="fa-solid fa-pen-to-square"></i></a>
                   <%# <%= link_to "Edit this ticket", edit_ticket_path(ticket), class: "btn  outline-button" %>
                 <% end %>
+
                 <% if policy(ticket).destroy? %>
-                  <%= link_to tickets_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn tiny-button" do %>
+                  <%= link_to ticket_path(ticket), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn tiny-button" do %>
                     <i class="fa-solid fa-trash"></i>
                   <% end %>
                 <% end %>
@@ -53,30 +72,45 @@
                 <p><%= ticket.language %></p>
               </div>
             </div>
+
           </div>
         </div>
 
       <% elsif ticket.status == "in_progress" %>
-        <div class="ticket-link" id="in_progress">
+        <%= render 'modalcard', ticket: ticket %>
+        <div class="ticket-link ticket-link-in_progress" id="in_progress">
           <div class="ticket">
             <div class="top-area">
-              <%= link_to ticket_path(ticket), style: "text-decoration: none;" do %>
-                <p><%= ticket.user.email %></p>
-                <h2><%= ticket.title %></h2>
 
-              <% end %>
+
+              <a style="float: right;" data-bs-toggle="modal" data-bs-target="#ticket-modal-<%=ticket.id%>">
+
+              <%#= link_to ticket_path(ticket), style: "text-decoration: none;" do %>
+
+                <div class="d-flex justify-content-between ticket-status">
+                  <p id="username-index"><%= ticket.user.user_information.first_name %></p>
+                  <p class="status-in_progress-alignment">in progress<strong class="status-dot">&#8226;</strong></p>
+                </div>
+
+                <h2><%= ticket.title %></h2>
+              </a>
             </div>
+
             <div class="bottom-area">
 
               <div class="bottom-left">
+                <% if @chat && @chat.ticket.user %>
+                  <%= link_to "Enter chat", chat_path(@chat), class: "btn standart-button" %>
+                <% end %>
+
                 <% if policy(ticket).edit? %>
                   <%= render 'modal', ticket: ticket %>
-                  <a style="float: right;" class="btn tiny-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-pen-to-square"></i></a>
-
+                  <a style="float: right;" class="btn tiny-button" data-bs-toggle="modal" data-bs-target="#ticket-modal-edit-<%=ticket.id%>"><i class="fa-solid fa-pen-to-square"></i></a>
                   <%# <%= link_to "Edit this ticket", edit_ticket_path(ticket), class: "btn  outline-button" %>
                 <% end %>
+
                 <% if policy(ticket).destroy? %>
-                  <%= link_to tickets_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn tiny-button" do %>
+                  <%= link_to ticket_path(ticket), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn tiny-button" do %>
                     <i class="fa-solid fa-trash"></i>
                   <% end %>
                 <% end %>
@@ -85,31 +119,45 @@
               <div class="bottom-right">
                 <p><%= ticket.language %></p>
               </div>
+
             </div>
           </div>
         </div>
 
       <% else %>
-        <div class="ticket-link" id="closed">
+
+        <%= render 'modalcard', ticket: ticket %>
+        <div class="ticket-link ticket-link-closed" id="closed">
+
           <div class="ticket">
             <div class="top-area">
-              <%= link_to ticket_path(ticket), style: "text-decoration: none;" do %>
-                <p><%= ticket.user.email %></p>
-                <h2><%= ticket.title %></h2>
 
-              <% end %>
+
+              <a style="float: right;" data-bs-toggle="modal" data-bs-target="#ticket-modal-<%=ticket.id%>">
+
+              <%#= link_to ticket_path(ticket), style: "text-decoration: none;" do %>
+
+                <div class="d-flex justify-content-between ticket-status">
+                  <p id="username-index"><%= ticket.user.user_information.first_name %></p>
+                  <p class="status-closed-alignment">closed<strong class="status-dot">&#8226;</strong></p>
+                </div>
+
+                <h2><%= ticket.title %></h2>
+              </a>
+
             </div>
+
             <div class="bottom-area">
 
               <div class="bottom-left">
                 <% if policy(ticket).edit? %>
                   <%= render 'modal', ticket: ticket %>
-                  <a style="float: right;" class="btn tiny-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-pen-to-square"></i></a>
-
+                  <a style="float: right;" class="btn tiny-button" data-bs-toggle="modal" data-bs-target="#ticket-modal-edit-<%=ticket.id%>"><i class="fa-solid fa-pen-to-square"></i></a>
                   <%# <%= link_to "Edit this ticket", edit_ticket_path(ticket), class: "btn  outline-button" %>
                 <% end %>
+
                 <% if policy(ticket).destroy? %>
-                  <%= link_to tickets_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn tiny-button" do %>
+                  <%= link_to ticket_path(ticket), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn tiny-button" do %>
                     <i class="fa-solid fa-trash"></i>
                   <% end %>
                 <% end %>
@@ -118,9 +166,12 @@
               <div class="bottom-right">
                 <p><%= ticket.language %></p>
               </div>
+
             </div>
+
           </div>
         </div>
+
       <% end %>
     <% end %>
   </div>

@@ -1,16 +1,22 @@
 .standart-button {
   background-color: $third;
-  border: none;
   border-radius: 4px;
   padding: 14px;
   min-height: 30px;
   min-width: 130px;
-  text-decoration: none;
-  color: $font;
-  border: $second;
 
-  &hover {
+  // text-decoration: none;
+  color: $font-contrast;
+  border: $second;
+  transition: 1s;
+  max-width: 140px;
+
+  &:hover {
     text-decoration: none;
+    color: $font-contrast;
+    background: linear-gradient(315deg, #da9003, #d8a443);
+
+    transition: 1s;
   }
 }
 
@@ -40,6 +46,8 @@
   text-decoration: none;
   color: $font;
   border: 2px solid  $second;
+  max-width: 140px;
+  transition: 1s;
 
   &:hover {
     // text-decoration: none;
@@ -60,7 +68,7 @@
   color: $font;
   border: $second;
 
-  &hover {
+  &:hover {
     text-decoration: none;
     border-color: orangered;
   }
@@ -79,7 +87,7 @@
   opacity: 0.6;
   cursor: not-allowed;
 
-  &hover {
+  &:hover {
     text-decoration: none;
   }
 }
@@ -124,6 +132,14 @@
   color: $font-contrast;
 }
 
-#home-button {
+.search-button {
+  
+}
+
+.chat-button {
+  margin-left: 8px;
+}
+
+#chat-standard-button {
   margin-bottom: 24px;
 }

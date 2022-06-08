@@ -17,51 +17,46 @@
         <% end %>
       </div>
 
-
       <%= simple_form_for [@chat, @message], html: { data: { action: "turbo:submit-end->chat-subscription#resetForm" }, class: "d-flex align-items-md-start"} do |f| %>
         <%= f.input :content, as: :string, label: false, placeholder: "Message for Chat Nr: #{@chat.id}", wrapper_html: {class: "flex-grow-1"} %>
-        <%= f.submit "Send", class: "outline-button" %>
+        <%= f.submit "Send", class: "outline-button chat-button" %>
       <% end %>
 
     </div>
+
   </div>
 
   <div class="video-call"
     data-controller="video-call"
     data-video-call-access-token-value="<%= @twilio_jwt %>"
     data-video-call-room-id-value="<%= @room_id %>"
-    data-video-call-buddy-video-width-value="200"
-    >
-  <div class="call-video-views">
-    <div class="remote-video" data-video-call-target="buddyVideo">
-      <div class="no-call" data-video-call-target="noCall">
-        Start the call!
+    data-video-call-buddy-video-width-value="200">
+
+    <div id="chat-standard-button ">
+      <% if current_user == @chat.ticket.user %>
+        <div class="btn standart-button" id="chat-standard-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Leave the chat
+        </div>
+        <%= render 'status_modal', ticket: @chat.ticket %>
+      <% else %>
+        <%= link_to "All Tickets", tickets_path, class:"btn standart-button", id:"chat-standard-button" %>
+      <% end %>
+    </div>
+
+    <div data-video-call-target="callView" class="call-video-views-default">
+      <div class="remote-video" data-video-call-target="buddyVideo">
+        <div class="no-call" data-video-call-target="noCall">Start the call!</div>
       </div>
       <div class="waiting-for-buddy d-none"
         data-video-call-target="awaitingBuddy">
       </div>
+      <div id="local-video" data-video-call-target="localVideo"></div>
     </div>
 
-    <div id="local-video" data-video-call-target="localVideo"></div>
-
-  </div>
-
-
-
     <div class="call-buttons">
-
       <div data-video-call-target="joinCallButton" class="outline-button btn-call-start" data-action="click->video-call#joinCall"><i class="fas fa-phone"></i>  Call</div>
       <div data-video-call-target="endCallButton" class="outline-button btn-call-end" data-action="click->video-call#endCall"><i class="fas fa-phone-slash"></i>  End call</div>
       <div data-video-call-target="screenShareButton" class="outline-button btn-call-start" data-action="click->video-call#shareScreenHandler">Share Screen</div>
-
     </div>
-
-    <% if current_user == @chat.ticket.user %>
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Launch demo modal
-      </button>
-      <%= render 'status_modal', ticket: @chat.ticket %>
-    <% else %>
-      <%= link_to "All Tickets", tickets_path, class:"btn outline-button" %>
-    <% end %>
+  </div>
 </div>
