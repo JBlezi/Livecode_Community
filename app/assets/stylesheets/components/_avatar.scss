@@ -14,6 +14,7 @@
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
 }
+
 .avatar-square {
   width: 40px;
   height: 40px;
@@ -21,4 +22,13 @@
   border-radius: 0px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
+}
+
+.avatar-round-extralarge {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 1px 1px 4px $font (0,0,0,0.3);
+  border: $first 1px solid;
 }
