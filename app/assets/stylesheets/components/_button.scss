@@ -6,11 +6,17 @@
   min-height: 30px;
   min-width: 130px;
   text-decoration: none;
-  color: $font;
+  color: $font-contrast;
   border: $second;
+  background: linear-gradient(315deg, #f7a305, #d08905);
+  font-weight: 500;
+  transition: 1s;
 
-  &hover {
-    text-decoration: none;
+  &:hover {
+    // text-decoration: none;
+    color: $font-contrast;
+    font-weight: bold;
+    transition: 1s;
   }
 }
 
@@ -40,6 +46,7 @@
   text-decoration: none;
   color: $font;
   border: 2px solid  $second;
+  transition: 1s;
 
   &:hover {
     // text-decoration: none;
@@ -60,7 +67,7 @@
   color: $font;
   border: $second;
 
-  &hover {
+  &:hover {
     text-decoration: none;
     border-color: orangered;
   }
@@ -79,7 +86,7 @@
   opacity: 0.6;
   cursor: not-allowed;
 
-  &hover {
+  &:hover {
     text-decoration: none;
   }
 }
@@ -124,6 +131,6 @@
   color: $font-contrast;
 }
 
-#home-button {
-  margin-bottom: 24px;
+.search-button {
+  
 }
