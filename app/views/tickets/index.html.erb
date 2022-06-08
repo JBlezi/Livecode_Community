@@ -66,9 +66,12 @@
                 <h2><%= ticket.title %></h2>
               </a>
             </div>
+            
             <div class="bottom-area">
-
               <div class="bottom-left">
+                <% if @chat && @chat.ticket.user %>
+                  <%= link_to "Enter chat", chat_path(@chat), class: "btn standart-button" %>
+                <% end %>
                 <% if policy(ticket).edit? %>
                   <%= render 'modal', ticket: ticket %>
                   <a style="float: right;" class="btn tiny-button" data-bs-toggle="modal" data-bs-target="#ticket-modal-edit-<%=ticket.id%>"><i class="fa-solid fa-pen-to-square"></i></a>
