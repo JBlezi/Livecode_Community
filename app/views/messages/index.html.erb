@@ -1,13 +1,25 @@
-<div class="container"><h1>Messsages</h1>
-
+<div class="container"><h1>Messages</h1>
+<br>
   <% @messages.reverse_each do |message| %>
     <% if message.user != current_user %>
-    <%= link_to chat_path(message.chat) do%>
-      <%= message.user.user_information.first_name %><br>
-      <%= message.content %><br>
-      <%= message.chat.id %><br>
-      <br>
-    <% end %>
-    <% end %>
+      <div class="message-container">
+        <div class="d-flex justify-content-between">
+          <div >
+            <ul>
+              <%= link_to chat_path(message.chat), class:"message-link" do%>
+                <li><strong>Message from: <%= message.user.user_information.first_name %></strong></li>
+                <li><i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i></li>
+                <li><br></li>
+                <li><%= message.content %></li>
+              <% end %>
+            </ul>
+          </div>
+          <div>
+            <%= link_to "See Profile", user_information_path(message.user.user_information), class:"outline-button mx-3" %>
+            <%= image_tag(src="https://www.aljazeera.com/wp-content/uploads/2017/11/adec9c20bb774260ac8d667ca8703617_18.jpeg?fit=1000%2C559", class: "avatar-message") %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   <% end %>
 </div>

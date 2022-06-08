@@ -1,35 +1,46 @@
 <div class="container">
   <div>
-    <h1><strong>Tickets</strong></h1>
-    <br>
-    <p>Raise a ticket - kit your code</p>
-    <%= link_to "Raise Ticket", new_ticket_path, class: "btn standart-button" %>
-    <hr>
+    <h1>Raise a ticket and find your personal Livecoder</h1>
+    <%# <h3>Raise a ticket and find your personal Livecoder</h3> %>
+
     <br>
   </div>
-
-  <div class="search d-flex m-0">
-    <div>
-      <%= form_tag tickets_path, method: :get, class: "d-flex search-bar" do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Search Tickets"
-        %>
-        <%= submit_tag "Search", class: "btn outline-button" %>
-      <% end %>
+  <div class="d-flex justify-content-between">
+    <div class="search d-flex m-0">
+      <div>
+        <%= form_tag tickets_path, method: :get, class: "d-flex search-bar" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search Tickets"
+          %>
+          <%= submit_tag "Search", class: "btn search-button"%>
+        <% end %>
+        <br>
+      </div>
+    </div>
+    <div class="px-5">
+      <%= link_to "Raise Ticket", new_ticket_path, class: "btn standart-button" %>
     </div>
   </div>
 
   <div class="index-container">
     <% @tickets.reverse_each do |ticket| %>
       <% if ticket.status == "open" %>
-        <div class="ticket-link" id="open">
+        <div class="ticket-link-open ticket-link" id="open">
           <div class="ticket">
             <div class="top-area">
+
               <%= render 'modalcard', ticket: ticket %>
               <a style="float: right;" data-bs-toggle="modal" data-bs-target="#ticket-modal-<%=ticket.id%>">
-                <p><%= ticket.user.email %></p>
+
+              <%= link_to ticket_path(ticket), style: "text-decoration: none;" do %>
+
+                <div class="d-flex justify-content-between ticket-status">
+                  <p id="username-index"><%= ticket.user.user_information.first_name %></p>
+                  <p class="status-open-alignment"><%= ticket.status %><strong class="status-dot">&#8226;</strong></p>
+                </div>
+
                 <h2><%= ticket.title %></h2>
               </a>
             </div>
@@ -57,12 +68,20 @@
         </div>
 
       <% elsif ticket.status == "in_progress" %>
-        <div class="ticket-link" id="in_progress">
+        <div class="ticket-link ticket-link-in_progress" id="in_progress">
           <div class="ticket">
             <div class="top-area">
+
               <%= render 'modalcard', ticket: ticket %>
               <a style="float: right;" data-bs-toggle="modal" data-bs-target="#ticket-modal-<%=ticket.id%>">
-                <p><%= ticket.user.email %></p>
+                
+              <%= link_to ticket_path(ticket), style: "text-decoration: none;" do %>
+
+                <div class="d-flex justify-content-between ticket-status">
+                  <p id="username-index"><%= ticket.user.user_information.first_name %></p>
+                  <p class="status-in_progress-alignment">in progress<strong class="status-dot">&#8226;</strong></p>
+                </div>
+
                 <h2><%= ticket.title %></h2>
               </a>
             </div>
@@ -93,12 +112,20 @@
         </div>
 
         <% else %>
-        <div class="ticket-link" id="closed">
+        <div class="ticket-link ticket-link-closed" id="closed">
           <div class="ticket">
             <div class="top-area">
+
               <%= render 'modalcard', ticket: ticket %>
               <a style="float: right;" data-bs-toggle="modal" data-bs-target="#ticket-modal-<%=ticket.id%>">
-                <p><%= ticket.user.email %></p>
+
+              <%= link_to ticket_path(ticket), style: "text-decoration: none;" do %>
+
+                <div class="d-flex justify-content-between ticket-status">
+                  <p id="username-index"><%= ticket.user.user_information.first_name %></p>
+                  <p class="status-closed-alignment">closed<strong class="status-dot">&#8226;</strong></p>
+                </div>
+                
                 <h2><%= ticket.title %></h2>
               </a>
             </div>

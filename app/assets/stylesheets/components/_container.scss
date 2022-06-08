@@ -39,6 +39,7 @@
 .container-chat {
   display: flex;
   margin: 32px;
+  height: 100vh;
 }
 
 #chat-title {
@@ -55,4 +56,29 @@
 }
 .video-call {
   flex: 1;
+}
+
+.message-container {
+  width: 100%;
+  border: 1px solid $font;
+  border-radius: 5px;
+  padding: 20px 20px 10px 0;
+  margin-bottom: 30px;
+
+  &:hover {
+      transition: 300ms;
+      box-shadow: 8px 8px $font;
+  }
+}
+
+.message-container {
+  li {
+    list-style: none;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.message-link {
+  text-decoration: none;
 }
