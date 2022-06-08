@@ -2,8 +2,16 @@
   max-width: 900px;
 }
 
+.whole-page-container {
+  display: flex;
+  width: 100vw;
+  flex-wrap:wrap;
+  text-align: start;
+}
+
 .profile-container {
   display: flex;
+  max-width: 10 0vw;
   overflow: hidden;
   justify-content: space-evenly;
   align-items: center;
