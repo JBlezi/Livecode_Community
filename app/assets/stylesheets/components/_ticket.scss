@@ -11,7 +11,7 @@
 }
 
 #open {
-  border: 1px solid rgb(105, 219, 89);
+  border: 1px solid $green;
 }
 
 #in_progress {
@@ -114,9 +114,9 @@
 .modalcard-edit{
   height: 600px;
   width: 1000px ;
-  background-color: black;
+  background-color: $first;
   // opacity: 80% !important;
-  border: 1px solid white;
+  border: 1px solid $font-contrast;
   border-radius: 10px;
 }
 
