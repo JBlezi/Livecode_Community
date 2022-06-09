@@ -49,9 +49,9 @@
             </div>
           <% end %>
         </div>
-      
+
       <%# this is where the problem might be %>
-        
+
       <% end %>
 
       </div>
@@ -61,19 +61,19 @@
 
     <div class="image-part">
 
-      <% if current_user.email == "chloe@mail.com" %>
+      <% if @user_information.first_name == "Chloe" %>
         <%= image_tag "https://avatars.githubusercontent.com/u/101401180?v=4" %>
-      <% elsif current_user.email == "luciano@mail.com" %>
+      <% elsif @user_information.first_name == "Luciano" %>
         <%= image_tag "https://avatars.githubusercontent.com/u/99960138?v=4" %>
-      <% elsif current_user.email == "julius@mail.com" %>
+      <% elsif @user_information.first_name == "Julius" %>
         <%= image_tag "https://avatars.githubusercontent.com/u/101468948?v=4" %>
       <% else %>
         <%= image_tag "https://www.aljazeera.com/wp-content/uploads/2017/11/adec9c20bb774260ac8d667ca8703617_18.jpeg?fit=1000%2C559", style: "float" %>
       <% end %>
-      
+
     <%# EDITBUTTON + MODAL START %>
       <div>
-        
+
         <%# this is where the 2nd problem might be %>
 
       <div class="d-flex justify-content-end">
