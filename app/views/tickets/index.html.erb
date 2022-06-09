@@ -71,7 +71,6 @@
       <% elsif ticket.status == "in_progress" %>
         <div class="ticket-link ticket-link-in_progress" id="in_progress">
           <div class="ticket">
-
             <a class="top-area" data-bs-toggle="modal" data-bs-target="#ticket-modal-<%=ticket.id%>">
               <div class="d-flex justify-content-between ticket-status">
                 <p id="username-index"><%= ticket.user.user_information.first_name %></p>
