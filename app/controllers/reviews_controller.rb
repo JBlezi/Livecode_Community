@@ -13,6 +13,8 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.ticket = Ticket.find(params[:ticket_id])
     @review.ticket.user = current_user
+    @review.ticket.status = "closed"
+    @review.ticket.save
     authorize @review
     if @review.save
       redirect_to tickets_path

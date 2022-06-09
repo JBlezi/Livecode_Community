@@ -2,7 +2,7 @@
   <div class="profile-container">
     <div class="text-part">
       <div class="profile-title">
-        <h1>Profile of <%= @user_information.first_name %> <%= @user_information.last_name %></h1>
+        <h1><%= @user_information.first_name %> <%= @user_information.last_name %></h1>
         <p><%= @user_information.user.email %></p>
       </div>
 
@@ -11,11 +11,11 @@
       <a type="button" class="btn btn-outline-secondary" target="_blank" href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
       <a type="button" class="btn btn-outline-secondary" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
       <a type="button" class="btn btn-outline-secondary" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i></a>
-      
+
       <div class="my-3">
         <p><%= @user_information.bio %></p>
       </div>
-    
+
 
       <br>
       <h3>My Reviews</h3>
@@ -26,39 +26,57 @@
               <img class="avatar" src="https://i.ytimg.com/vi/NJkrzKpwJaw/maxresdefault.jpg" alt="not found">
             </div>
         <% else %>
-          <% @reviews.each do |review| %>
-  
-            <div class="review">
+          <% @reviews.last(5).each do |review| %>
+
+            <div class="review mx-1">
               <div class="rating">
                 <% if review.score == 1 %>
-                  <p><i class="fa-solid fa-star"></i></p> 
+                  <p><i class="fa-solid fa-star"></i></p>
                 <% elsif review.score == 2 %>
-                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
+                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
                 <% elsif review.score == 3 %>
-                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
+                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
                 <% elsif review.score == 4 %>
-                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
+                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
                 <% elsif review.score == 5 %>
-                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
+                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
                 <% end %>
               </div>
-              
+
               <div class="comment">
-                <p><%= review.comment.capitalize %></p>
+                <p><%= review.comment %></p>
               </div>
             </div>
           <% end %>
-        <% end %>
+        </div>
+
+      <%# this is where the problem might be %>
+
+      <% end %>
 
       </div>
-    
+
     </div> <%# end of div text-part %>
 
 
     <div class="image-part">
-      <%= image_tag "https://www.aljazeera.com/wp-content/uploads/2017/11/adec9c20bb774260ac8d667ca8703617_18.jpeg?fit=1000%2C559", style: "float", class: "avatar-extra-large" %>
-      
-      <%# EDITBUTTON + MODAL START %>
+
+
+      <% if @user_information.first_name == "Chloe" %>
+        <%= image_tag "https://avatars.githubusercontent.com/u/101401180?v=4" %>
+      <% elsif @user_information.first_name == "Luciano" %>
+        <%= image_tag "https://avatars.githubusercontent.com/u/99960138?v=4" %>
+      <% elsif @user_information.first_name == "Julius" %>
+        <%= image_tag "https://avatars.githubusercontent.com/u/101468948?v=4" %>
+      <% else %>
+        <%= image_tag "https://www.aljazeera.com/wp-content/uploads/2017/11/adec9c20bb774260ac8d667ca8703617_18.jpeg?fit=1000%2C559", style: "float" %>
+      <% end %>
+
+    <%# EDITBUTTON + MODAL START %>
+      <div>
+
+        <%# this is where the 2nd problem might be %>
+
       <div class="d-flex justify-content-end">
         <% if current_user == @user_information.user %>
           <button class="btn nav-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -86,8 +104,6 @@
         <% end %>
       <%# EDITBUTTON + MODAL END %>
     </div>
-    
+
   </div>
 </div>
-
-   
