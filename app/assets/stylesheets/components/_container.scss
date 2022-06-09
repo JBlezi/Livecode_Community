@@ -42,6 +42,7 @@
 #chat-title {
   padding-bottom: 16px;
   margin-top: initial;
+  padding-bottom: 40px;
 }
 
 .chatroom {
@@ -67,12 +68,17 @@
   border-color: $second;
 }
 
+.message-field {
+  overflow-y: scroll;
+}
+
 .message-container {
   width: 100%;
   border: 1px solid $font;
   border-radius: 5px;
   padding: 20px 20px 10px 0;
   margin-bottom: 30px;
+
 
   &:hover {
       transition: 300ms;
