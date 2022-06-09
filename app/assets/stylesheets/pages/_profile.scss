@@ -3,11 +3,28 @@
   justify-content: space-between;
   max-width: 100vw;
   overflow: hidden;
+  position: relative;
 }
 
 .text-part {
   margin: 20px 0;
   max-width: 800px;
+}
+
+.image-part {
+  position: absolute;
+  top: 5rem;
+  right: 2rem;
+  img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 1px 1px 4px $font (0,0,0,0.3);
+    border: $first 1px solid;
+    margin: 30px 20px;
+    top: 1rem;
+  }
 }
 
 .review-container {
@@ -22,7 +39,7 @@
   border-radius: 4px;
   overflow: hidden;
   width: 300px;
-  max-height: 200px;
+  height: 85px;
   padding-left: 1rem;
   padding-top: 1rem;
   margin-bottom: 10px;
@@ -36,8 +53,14 @@
 
 .comment {
   margin: 10px;
+  overflow: hidden;
+  width: 190px;
+  margin-right: 20px;
 }
 
 .rating {
   margin: 10px;
+  width: 90px;
+  height: 20px;
+
 }
