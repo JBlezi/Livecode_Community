@@ -1,6 +1,6 @@
 <div class="container"><h1>Messages</h1>
 <br>
-  <% @messages.reverse_each do |message| %>
+  <% @messages.last(10).reverse_each do |message| %>
     <% if message.user != current_user %>
       <div class="message-container">
         <div class="d-flex justify-content-between">
@@ -19,7 +19,7 @@
             <%= image_tag(src="https://www.aljazeera.com/wp-content/uploads/2017/11/adec9c20bb774260ac8d667ca8703617_18.jpeg?fit=1000%2C559", class: "avatar-message") %>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   <% end %>
 </div>

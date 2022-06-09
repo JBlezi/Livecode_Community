@@ -68,6 +68,9 @@
   &:hover {
       transition: 300ms;
       box-shadow: 8px 8px $font;
+      transition: 300ms;
+      transform: scale(0.99);
+      background-color: $first;
   }
 }
 
