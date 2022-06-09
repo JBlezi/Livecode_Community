@@ -32,11 +32,13 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for [ticket, @review] do |f| %>
-          <%= f.input :comment %>
-          <%= f.input :score, collection: (1..5).to_a, label: "Rate your experience" %>
-          <%= f.submit class: "btn outline-button"%>
-        <% end %>
+        <div data-turbo="false">
+          <%= simple_form_for [ticket, @review] do |f| %>
+            <%= f.input :comment %>
+            <%= f.input :score, collection: (1..5).to_a, label: "Rate your experience" %>
+            <%= f.submit class: "btn outline-button"%>
+          <% end %>
+        </div>
       </div>
       <div class="modal-footer">
 
