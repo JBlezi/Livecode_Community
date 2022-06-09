@@ -13,13 +13,12 @@
             <li><strong>Language: </strong><%= ticket.language %></li>
             <li><p><strong>User: </strong><%= ticket.user.user_information.first_name %> <%= ticket.user.user_information.last_name %></p></li>
             <li><strong>Email: </strong><%= ticket.user.email %></li>
-            <li><strong>Status: </strong><%= ticket.status %></li>
             <br>
             <li><strong>Description:</strong></li>
             <div><p><%= ticket.content %></p></div>
+            <p>Created by: <a href=<%= user_information_path(ticket.user_id) %>  role="none" class="popover-test text-decoration-none" title="Visit profile" data-bs-content="Popover body content is set in this attribute."><%= ticket.user.user_information.first_name %> <%= ticket.user.user_information.last_name %></a></p>
           </ul>
           <br>
-          <p>Created by: <a href=<%= user_information_path(ticket.user_id) %>  role="none" class="popover-test" title="Visit profile" data-bs-content="Popover body content is set in this attribute."><%= ticket.user.user_information.first_name %> <%= ticket.user.user_information.last_name %></a></p>
           </div>
       </div>
                   <%#***************************** FOOTER **************************************** %>
@@ -27,7 +26,7 @@
                                                                    <%#***************************** BUTTONS ************************************** %>
           <div>
           <% if ticket.status == "open" && current_user != ticket.user %>
-            <%= button_to "Accept this ticket", chats_path(ticket_id: ticket.id), class:"btn outline-button m-1", method: :post %>
+            <%= button_to "Accept Ticket", chats_path(ticket_id: ticket.id), class:"btn standart-button m-1", method: :post %>
           <% end %>
 
           <% if ticket.status == "in_progress" && current_user == ticket.user %>
