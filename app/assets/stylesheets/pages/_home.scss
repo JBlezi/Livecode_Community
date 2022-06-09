@@ -2,11 +2,29 @@
 
 .home-container {
   display: flex;
-  flex-direction: column;
-  align-content: center;
   overflow: hidden;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  height: 100%;
+}
+
+.colum-left {
+  display: flex;
+}
+
+.colum-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  p {
+    font-style: italic;
+  }
+}
+
+
+.text-bottom {
+  justify-content: end;
 }
 
 h1 {
@@ -14,7 +32,7 @@ h1 {
   // border-right: solid 3px $third;
   white-space: nowrap;
   overflow: hidden;
-  color: $font;
+  color: $third;
 }
 
 .home-container > .home-img > img {
@@ -25,6 +43,26 @@ h1 {
   height: 400px;
 }
 
+.home-bottom {
+  display: flex;
+  align-content: center;
+  align-items: first baseline;
+
+  p {
+    margin-left: 20px;
+    color: $font-contrast;
+  }
+}
+
+.home-avatar {
+  width: 60px;
+  height: 60px;
+  margin-left: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 5px;
+}
+
 /* Animation */
 #home-title > h1 {
   animation: animated-text 4s steps(28,end) 1s 1 normal both,
@@ -32,7 +70,6 @@ h1 {
   font-family: 'JetBrains Mono', monospace;
   font-size: 32px;
 }
-
 
 /* text animation */
 @keyframes animated-text{
@@ -54,6 +91,8 @@ h1 {
 
 #home-button {
   margin-bottom: 24px;
+  max-width: 180px;
+  margin-left: 30px;
 }
 
 #home-button:hover {
