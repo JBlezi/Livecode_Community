@@ -16,38 +16,45 @@
         <p><%= @user_information.bio %></p>
       </div>
     
-      <% if @review %>
-        <br>
-        <h3>My Reviews</h3>
-        <div class="review-container">
-          <div class="review">
-            <% @tickets.each do |ticket| %>
-              <% @review = Review.find_by(ticket_id: ticket) %>
-              <% unless @review.nil? %>
-                <div class="rating">
-                  <% if @review.score == 1 %>
-                    <p><i class="fa-solid fa-star"></i></p> 
-                  <% elsif @review.score == 2 %>
-                    <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
-                  <% elsif @review.score == 3 %>
-                    <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
-                  <% elsif @review.score == 4 %>
-                    <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
-                  <% elsif @review.score == 5 %>
-                    <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
-                  <% end %>
-                </div>
-                <div class="comment">
-                  <p><%= @review.comment.capitalize %></p>
-                </div>
-              <% end %>
-            <% end %>
-            
+
+      <br>
+      <h3>My Reviews</h3>
+      <div class="review-container">
+        <% @tickets.each do |ticket| %>
+          <% @review = Review.find_by(ticket_id: ticket) %>
+          <% if @review != nil %>
+            <div class="review">
+              <div class="rating">
+                <% if @review.score == 1 %>
+                  <p><i class="fa-solid fa-star"></i></p> 
+                <% elsif @review.score == 2 %>
+                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
+                <% elsif @review.score == 3 %>
+                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
+                <% elsif @review.score == 4 %>
+                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
+                <% elsif @review.score == 5 %>
+                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
+                <% end %>
+              </div>
+              
+              <div class="comment">
+                <p><%= @review.comment.capitalize %></p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+
+        <% review = Review.find_by(ticket_id: @ticket) %>
+        <% if review.nil? %>
+          <div >
+            <p>are empty..</p>
+            <img class="avatar" src="https://i.ytimg.com/vi/NJkrzKpwJaw/maxresdefault.jpg" alt="not found">
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     
-    </div>
+    </div> <%# end of div text-part %>
 
 
     <div class="image-part">
