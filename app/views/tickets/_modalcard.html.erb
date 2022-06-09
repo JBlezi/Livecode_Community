@@ -11,9 +11,11 @@
         <h3 class="modal-title modalcard-element-size" id="exampleModalLabel"><%= ticket.title %></h3>
 
       </div>
+      <%= link_to user_information_path(ticket.user_id), class: "text-decoration-none white-link" do%>
       <div class="px-4">
         <p>Created by: <span class="tital-modal-creator"><%= ticket.user.user_information.first_name %> <%= ticket.user.user_information.last_name %></span></p>
       </div>
+      <% end %>
                  <%#************************* TICKET INFORMATIUON ***************************** %>
       <div class="modal-body link-decoration-modal modalcard-element-size h-70">
         <div>
@@ -29,7 +31,6 @@
             <br>
             <li><strong>Description:</strong></li>
             <div><p><%= ticket.content %></p></div>
-            <p>Created by: <a href=<%= user_information_path(ticket.user_id) %>  role="none" class="popover-test text-decoration-none" title="Visit profile" data-bs-content="Popover body content is set in this attribute."><%= ticket.user.user_information.first_name %> <%= ticket.user.user_information.last_name %></a></p>
           </ul>
           <br>
           </div>
@@ -49,7 +50,8 @@
           <% end %>
           </div>
           <div>
-          <%= button_to "Destroy", ticket, class:"btn outline-button m-1", style:"float: right;", method: :delete if policy(ticket).destroy?%>
+
+          <%= button_to "Delete ticket", ticket, class:"btn outline-button m-1", style:"float: right;", method: :delete if policy(ticket).destroy?%>
 
           <% if current_user != ticket.user %>
           <%#= link_to "Visit #{ticket.user.user_information.first_name} profile", user_information_path(ticket.user_id), class:"btn outline-button m-1", style:"float: right;" %>

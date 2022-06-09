@@ -1,6 +1,3 @@
-.form-container {
-  max-width: 900px;
-}
 
 .index-container {
   display: flex;
@@ -36,6 +33,7 @@
 #chat-title {
   padding-bottom: 16px;
   margin-top: initial;
+  padding-bottom: 40px;
 }
 
 .chatroom {
@@ -44,9 +42,25 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border: solid;
+  border-radius: 4px;
+  border-width: thin;
+  padding: 32px;
+  margin: 16px;
+  border-color: $second;
 }
 .video-call {
   flex: 1;
+  border: solid;
+  border-radius: 4px;
+  border-width: thin;
+  padding: 32px;
+  margin: 16px;
+  border-color: $second;
+}
+
+.message-field {
+  overflow-y: scroll;
 }
 
 .message-container {
@@ -56,9 +70,13 @@
   padding: 20px 20px 10px 0;
   margin-bottom: 30px;
 
+
   &:hover {
       transition: 300ms;
       box-shadow: 8px 8px $font;
+      transition: 300ms;
+      transform: scale(0.99);
+      background-color: $first;
   }
 }
 

@@ -4,6 +4,8 @@ class UserInformationsController < ApplicationController
         @user_information = UserInformation.find(params[:id])
         authorize @user_information
         @tickets = Ticket.where(user_id: @user_information.user_id)
+        @ticket_ids = @tickets.map(&:id)
+        @reviews = Review.select { |r| @ticket_ids.include?(r.ticket_id)}
     end
 
     def edit

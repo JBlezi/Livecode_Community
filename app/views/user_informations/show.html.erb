@@ -16,49 +16,55 @@
         <p><%= @user_information.bio %></p>
       </div>
     
-      <% if @review %>
-        <br>
-        <h3>My Reviews</h3>
-        <div class="review-container">
-          <div class="review">
-            <% @tickets.each do |ticket| %>
-              <% @review = Review.find_by(ticket_id: ticket) %>
-              <% unless @review.nil? %>
-                <div class="rating">
-                  <% if @review.score == 1 %>
-                    <p><i class="fa-solid fa-star"></i></p> 
-                  <% elsif @review.score == 2 %>
-                    <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
-                  <% elsif @review.score == 3 %>
-                    <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
-                  <% elsif @review.score == 4 %>
-                    <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
-                  <% elsif @review.score == 5 %>
-                    <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
-                  <% end %>
-                </div>
-                <div class="comment">
-                  <p><%= @review.comment.capitalize %></p>
-                </div>
-              <% end %>
-            <% end %>
-            
-          </div>
-        </div>
-      <% end %>
+
+      <br>
+      <h3>My Reviews</h3>
+      <div class="review-container">
+        <% if @reviews.empty? %>
+            <div >
+              <p>are empty..</p>
+              <img class="avatar" src="https://i.ytimg.com/vi/NJkrzKpwJaw/maxresdefault.jpg" alt="not found">
+            </div>
+        <% else %>
+          <% @reviews.each do |review| %>
+  
+            <div class="review">
+              <div class="rating">
+                <% if review.score == 1 %>
+                  <p><i class="fa-solid fa-star"></i></p> 
+                <% elsif review.score == 2 %>
+                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
+                <% elsif review.score == 3 %>
+                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
+                <% elsif review.score == 4 %>
+                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
+                <% elsif review.score == 5 %>
+                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
+                <% end %>
+              </div>
+              
+              <div class="comment">
+                <p><%= review.comment.capitalize %></p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+
+      </div>
     
-    </div>
+    </div> <%# end of div text-part %>
 
 
     <div class="image-part">
       <%= image_tag "https://www.aljazeera.com/wp-content/uploads/2017/11/adec9c20bb774260ac8d667ca8703617_18.jpeg?fit=1000%2C559", style: "float", class: "avatar-extra-large" %>
       
       <%# EDITBUTTON + MODAL START %>
-      <div>
+      <div class="d-flex justify-content-end">
         <% if current_user == @user_information.user %>
           <button class="btn nav-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Edit my Profile <i class="fa-solid fa-pen-to-square"></i>
           </button>
+      </div>
 
 
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -78,7 +84,6 @@
             </div>
           </div>
         <% end %>
-      </div>
       <%# EDITBUTTON + MODAL END %>
     </div>
     
