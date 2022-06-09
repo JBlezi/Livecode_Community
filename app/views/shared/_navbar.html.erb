@@ -25,7 +25,17 @@
             <%#= link_to "Nickname", "#", class: "btn nav-button" %>
           <%# </li> %>
           <li class="nav-item dropdown">
-            <%= image_tag "https://www.aljazeera.com/wp-content/uploads/2017/11/adec9c20bb774260ac8d667ca8703617_18.jpeg?fit=1000%2C559", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
+            <% if current_user.email == "chloe@mail.com" %>
+              <%= image_tag "https://avatars.githubusercontent.com/u/101401180?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% elsif current_user.email == "luciano@mail.com" %>
+              <%= image_tag "https://avatars.githubusercontent.com/u/99960138?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% elsif current_user.email == "julius@mail.com" %>
+              <%= image_tag "https://avatars.githubusercontent.com/u/101468948?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+                <%= image_tag "https://www.aljazeera.com/wp-content/uploads/2017/11/adec9c20bb774260ac8d667ca8703617_18.jpeg?fit=1000%2C559", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Profile", user_information_path(current_user.id), class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
