@@ -1,12 +1,14 @@
 .form-container {
   flex: 1;
   min-height: 300px;
+  max-width: 900px;
   padding: 32px;
-  background-color: $first;
-  border-radius: 4px;
   max-width: 420px;
   margin: 0 auto;
-  box-shadow: 0 0 18px 2px black;
+  border-color: $green;
+  background-color: $first;
+  border: 1px solid $green;
+  border-radius: 10px;
 }
 
 .container-form {
