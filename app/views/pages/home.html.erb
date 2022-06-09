@@ -3,9 +3,15 @@
     <h1>LIVECODE - fix your problem!</h1>
   </div>
 
+  <div class="text-area">
+    <p>Stuck on a coding problem? Stack overflow didn't fix it?</p>
+    <p>you are just one videocall away from simple, nice, clean code..</p>
+    <p>                give coding a chance - with LIVECODE Community!</p>
+  </div>
+
   <div id="home-button">
     <% if user_signed_in? %>
-      <%= link_to "Show Tickets", tickets_path, class: "btn outline-button", id: "btn1" %>
+      <%= link_to "Enter", tickets_path, class: "btn outline-button", id: "btn1" %>
     <% else %>
       <%= link_to "Login", new_user_session_path, class: "btn outline-button" %>
       <%= link_to "Sign Up", new_user_registration_path, class: "btn outline-button", id: "btn2" %>
