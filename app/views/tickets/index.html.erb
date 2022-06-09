@@ -2,7 +2,6 @@
 
   <div>
     <h1>Raise a ticket and find your personal Livecoder</h1>
-    <%# <h3>Raise a ticket and find your personal Livecoder</h3> %>
     <br>
   </div>
 
@@ -16,7 +15,7 @@
             class: "form-control",
             placeholder: "Search Tickets"
           %>
-          <%= submit_tag "Search", class: "btn search-button"%>
+          <%= submit_tag "Search", class: "btn outline-button search-button"%>
         <% end %>
         <br>
       </div>
@@ -31,16 +30,12 @@
   <div class="index-container">
 
     <% @tickets.reverse_each do |ticket| %>
-
       <% if ticket.status == "open" %>
-        <%= render 'modalcard', ticket: ticket %>
 
         <div class="ticket-link-open ticket-link" id="open">
           <div class="ticket">
-            <div class="top-area">
-              <a style="float: right;" data-bs-toggle="modal" data-bs-target="#ticket-modal-<%=ticket.id%>">
-
-              <%#= link_to ticket_path(ticket), style: "text-decoration: none;" do %>
+            
+              <a class="top-area" data-bs-toggle="modal" data-bs-target="#ticket-modal-<%=ticket.id%>">
 
                 <div class="d-flex justify-content-between ticket-status">
                   <p id="username-index"><%= ticket.user.user_information.first_name %></p>
@@ -50,17 +45,14 @@
                 <h2><%= ticket.title %></h2>
 
               </a>
-            </div>
+       
 
             <div class="bottom-area">
 
               <div class="bottom-left">
                 <% if policy(ticket).edit? %>
-                  <%= render 'modal', ticket: ticket %>
-                  <a style="float: right;" class="btn tiny-button" data-bs-toggle="modal" data-bs-target="#ticket-modal-edit-<%=ticket.id%>"><i class="fa-solid fa-pen-to-square"></i></a>
-                  <%# <%= link_to "Edit this ticket", edit_ticket_path(ticket), class: "btn  outline-button" %>
+                  <a class="btn tiny-button" data-bs-toggle="modal" data-bs-target="#ticket-modal-edit-<%=ticket.id%>"><i class="fa-solid fa-pen-to-square"></i></a>
                 <% end %>
-
                 <% if policy(ticket).destroy? %>
                   <%= link_to ticket_path(ticket), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn tiny-button" do %>
                     <i class="fa-solid fa-trash"></i>
@@ -77,24 +69,16 @@
         </div>
 
       <% elsif ticket.status == "in_progress" %>
-        <%= render 'modalcard', ticket: ticket %>
         <div class="ticket-link ticket-link-in_progress" id="in_progress">
           <div class="ticket">
-            <div class="top-area">
+            <a class="top-area" data-bs-toggle="modal" data-bs-target="#ticket-modal-<%=ticket.id%>">
+              <div class="d-flex justify-content-between ticket-status">
+                <p id="username-index"><%= ticket.user.user_information.first_name %></p>
+                <p class="status-in_progress-alignment">in progress<strong class="status-dot">&#8226;</strong></p>
+              </div>
 
-
-              <a style="float: right;" data-bs-toggle="modal" data-bs-target="#ticket-modal-<%=ticket.id%>">
-
-              <%#= link_to ticket_path(ticket), style: "text-decoration: none;" do %>
-
-                <div class="d-flex justify-content-between ticket-status">
-                  <p id="username-index"><%= ticket.user.user_information.first_name %></p>
-                  <p class="status-in_progress-alignment">in progress<strong class="status-dot">&#8226;</strong></p>
-                </div>
-
-                <h2><%= ticket.title %></h2>
-              </a>
-            </div>
+              <h2><%= ticket.title %></h2>
+            </a>
 
             <div class="bottom-area">
 
@@ -104,8 +88,7 @@
                 <% end %>
 
                 <% if policy(ticket).edit? %>
-                  <%= render 'modal', ticket: ticket %>
-                  <a style="float: right;" class="btn tiny-button" data-bs-toggle="modal" data-bs-target="#ticket-modal-edit-<%=ticket.id%>"><i class="fa-solid fa-pen-to-square"></i></a>
+                  <a class="btn tiny-button" data-bs-toggle="modal" data-bs-target="#ticket-modal-edit-<%=ticket.id%>"><i class="fa-solid fa-pen-to-square"></i></a>
                   <%# <%= link_to "Edit this ticket", edit_ticket_path(ticket), class: "btn  outline-button" %>
                 <% end %>
 
@@ -126,16 +109,9 @@
 
       <% else %>
 
-        <%= render 'modalcard', ticket: ticket %>
         <div class="ticket-link ticket-link-closed" id="closed">
-
           <div class="ticket">
-            <div class="top-area">
-
-
-              <a style="float: right;" data-bs-toggle="modal" data-bs-target="#ticket-modal-<%=ticket.id%>">
-
-              <%#= link_to ticket_path(ticket), style: "text-decoration: none;" do %>
+              <a class="top-area" data-bs-toggle="modal" data-bs-target="#ticket-modal-<%=ticket.id%>">
 
                 <div class="d-flex justify-content-between ticket-status">
                   <p id="username-index"><%= ticket.user.user_information.first_name %></p>
@@ -145,14 +121,12 @@
                 <h2><%= ticket.title %></h2>
               </a>
 
-            </div>
 
             <div class="bottom-area">
 
               <div class="bottom-left">
                 <% if policy(ticket).edit? %>
-                  <%= render 'modal', ticket: ticket %>
-                  <a style="float: right;" class="btn tiny-button" data-bs-toggle="modal" data-bs-target="#ticket-modal-edit-<%=ticket.id%>"><i class="fa-solid fa-pen-to-square"></i></a>
+                  <a class="btn tiny-button" data-bs-toggle="modal" data-bs-target="#ticket-modal-edit-<%=ticket.id%>"><i class="fa-solid fa-pen-to-square"></i></a>
                   <%# <%= link_to "Edit this ticket", edit_ticket_path(ticket), class: "btn  outline-button" %>
                 <% end %>
 
@@ -168,11 +142,12 @@
               </div>
 
             </div>
-
           </div>
         </div>
 
       <% end %>
+      <%= render 'modalcard', ticket: ticket %>
+      <%= render 'modal', ticket: ticket %>
     <% end %>
   </div>
 </div>

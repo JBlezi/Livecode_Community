@@ -4,9 +4,9 @@ class TicketsController < ApplicationController
   def index
     if params[:query].present?
       @tickets = policy_scope(Ticket)
-      @tickets = Ticket.search_by_everything(params[:query])
+      @tickets = Ticket.search_by_everything(params[:query]).sort
     else
-      @tickets = policy_scope(Ticket)
+      @tickets = policy_scope(Ticket).sort
     end
   end
 
@@ -32,7 +32,7 @@ class TicketsController < ApplicationController
     authorize @ticket
     @ticket.user = current_user
     @ticket.save!
-    redirect_to ticket_path(@ticket)
+    redirect_to tickets_path
   end
 
   def edit
