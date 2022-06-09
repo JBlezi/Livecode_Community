@@ -26,9 +26,9 @@
               <img class="avatar" src="https://i.ytimg.com/vi/NJkrzKpwJaw/maxresdefault.jpg" alt="not found">
             </div>
         <% else %>
-          <% @reviews.each do |review| %>
+          <% @reviews.last(5).each do |review| %>
 
-            <div class="review">
+            <div class="review mx-1">
               <div class="rating">
                 <% if review.score == 1 %>
                   <p><i class="fa-solid fa-star"></i></p>
