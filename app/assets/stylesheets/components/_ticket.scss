@@ -130,7 +130,7 @@
 .modalcard-edit-open {
   height: 600px;
   width: 1400px ;
-  background-color: $gray;
+  background-color: $first;
   // opacity: 80% !important;
   border: 1px solid $green;
   border-radius: 10px;
@@ -139,7 +139,7 @@
 .modalcard-edit-in_progress {
   height: 600px;
   width: 1400px ;
-  background-color: $gray;
+  background-color: $first;
   // opacity: 80% !important;
   border: 1px solid $orange;
   border-radius: 10px;
@@ -148,7 +148,7 @@
 .modalcard-edit-closed {
   height: 600px;
   width: 1400px ;
-  background-color: $gray;
+  background-color: $first;
   // opacity: 80% !important;
   border: 1px solid $font;
   border-radius: 10px;
