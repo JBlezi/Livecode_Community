@@ -81,12 +81,32 @@
   top: 170px;
 }
 
+.modal-content-status {
+  position: absolute;
+  left: 0;
+  top: 170px;
+  border: 1px solid $orange;
+  background-color: $gray;
+}
+
+.modal-content-status-closed {
+  position: absolute;
+  left: 0;
+  top: 170px;
+  border: 1px solid $font;
+  background-color: $gray;
+}
+
 .modal-title {
   font-size: 24px;
   margin: 8px;
   color: $font;
   font-weight: 500;
   font-size: 1.5em;
+}
+
+.modal-review-title {
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .modal-dialog {
