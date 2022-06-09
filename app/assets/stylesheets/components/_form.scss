@@ -75,7 +75,10 @@
   background-color: $first;
   border-radius: 4px;
   max-width: 420px;
-  margin: 0 auto;
+
+  position: absolute;
+  left: -80%;
+  top: 170px;
 }
 
 .modal-title {
@@ -84,4 +87,8 @@
   color: $font;
   font-weight: 500;
   font-size: 1.5em;
+}
+
+.modal-dialog {
+  position: relative;
 }
