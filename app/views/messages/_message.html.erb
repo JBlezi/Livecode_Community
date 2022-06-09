@@ -1,5 +1,5 @@
 <% if message.user == current_user %>
-  <div class="message-individual">
+  <div class="message-individual" data-user='<%= message.user.id %>'>
     <small>
       <strong><%= message.user.user_information.first_name %></strong><br>
       <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>

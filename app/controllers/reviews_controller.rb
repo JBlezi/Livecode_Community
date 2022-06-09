@@ -8,14 +8,14 @@ class ReviewsController < ApplicationController
 
   def show
   end
-    
+
   def create
     @review = Review.new(review_params)
     @review.ticket = Ticket.find(params[:ticket_id])
     @review.ticket.user = current_user
     authorize @review
     if @review.save
-      redirect_to ticket_path(@review.ticket)
+      redirect_to tickets_path
     else
       flash[:alert] = "Something went wrong."
       render :new, status: :unprocessable_entity ### remember the new!!!!!

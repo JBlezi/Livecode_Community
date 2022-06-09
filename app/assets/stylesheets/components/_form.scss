@@ -1,12 +1,14 @@
 .form-container {
   flex: 1;
   min-height: 300px;
+  max-width: 900px;
   padding: 32px;
-  background-color: $first;
-  border-radius: 4px;
   max-width: 420px;
   margin: 0 auto;
-  box-shadow: 0 0 18px 2px black;
+  border-color: $green;
+  background-color: $first;
+  border: 1px solid $green;
+  border-radius: 10px;
 }
 
 .container-form {
@@ -75,10 +77,25 @@
   background-color: $first;
   border-radius: 4px;
   max-width: 420px;
-
   position: absolute;
-  left: -80%; //whyyyyyy
+  left: -70%;
+  top: 130px;
+}
+
+.modal-content-status {
+  position: absolute;
+  left: 0;
   top: 170px;
+  border: 1px solid $orange;
+  background-color: $first;
+}
+
+.modal-content-status-closed {
+  position: absolute;
+  left: 0;
+  top: 170px;
+  border: 1px solid $font;
+  background-color: $first;
 }
 
 .modal-title {
@@ -87,6 +104,10 @@
   color: $font;
   font-weight: 500;
   font-size: 1.5em;
+}
+
+.modal-review-title {
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .modal-dialog {

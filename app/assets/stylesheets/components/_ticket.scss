@@ -42,18 +42,21 @@
   transition: 300ms;
   box-shadow: 8px 8px $green;
   transform: scale(0.98);
+  background-color: $first;
 }
 
 .ticket-link-in_progress:hover {
   transition: 300ms;
   box-shadow: 8px 8px $orange;
   transform: scale(0.98);
+  background-color: $first;
 }
 
 .ticket-link-closed:hover {
   transition: 300ms;
   box-shadow: 8px 8px $font;
   transform: scale(0.98);
+  background-color: $first;
 }
 
 .ticket-link h2 {
@@ -133,7 +136,7 @@
 .modalcard-edit-open {
   height: 600px;
   width: 1400px ;
-  background-color: $gray;
+  background-color: $first;
   // opacity: 80% !important;
   border: 1px solid $green;
   border-radius: 10px;
@@ -142,7 +145,7 @@
 .modalcard-edit-in_progress {
   height: 600px;
   width: 1400px ;
-  background-color: $gray;
+  background-color: $first;
   // opacity: 80% !important;
   border: 1px solid $orange;
   border-radius: 10px;
@@ -151,7 +154,7 @@
 .modalcard-edit-closed {
   height: 600px;
   width: 1400px ;
-  background-color: $gray;
+  background-color: $first;
   // opacity: 80% !important;
   border: 1px solid $font;
   border-radius: 10px;
@@ -162,7 +165,7 @@
 }
 
 .modal-content{
-  max-width: 84vw;
+  max-width: 70vw;
   max-height: 60vh;
   overflow-y: scroll;
 }
