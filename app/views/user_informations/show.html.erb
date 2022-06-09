@@ -2,7 +2,7 @@
   <div class="profile-container">
     <div class="text-part">
       <div class="profile-title">
-        <h1>Profile of <%= @user_information.first_name %> <%= @user_information.last_name %></h1>
+        <h1><%= @user_information.first_name %> <%= @user_information.last_name %></h1>
         <p><%= @user_information.user.email %></p>
       </div>
 
@@ -11,12 +11,12 @@
       <a type="button" class="btn btn-outline-secondary" target="_blank" href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
       <a type="button" class="btn btn-outline-secondary" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
       <a type="button" class="btn btn-outline-secondary" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i></a>
-      
+
       <div class="my-3">
         <p><%= @user_information.bio %></p>
       </div>
-    
-      
+
+
       <br>
       <h3>My Reviews</h3>
       <div class="review-container">
@@ -26,15 +26,15 @@
             <% unless @review.nil? %>
               <div class="rating">
                 <% if @review.score == 1 %>
-                  <p><i class="fa-solid fa-star"></i></p> 
+                  <p><i class="fa-solid fa-star"></i></p>
                 <% elsif @review.score == 2 %>
-                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
+                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
                 <% elsif @review.score == 3 %>
-                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
+                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
                 <% elsif @review.score == 4 %>
-                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
+                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
                 <% elsif @review.score == 5 %>
-                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> 
+                  <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
                 <% end %>
               </div>
               <div class="comment">
@@ -42,7 +42,7 @@
               </div>
             <% end %>
           <% end %>
-          
+
         </div>
       </div>
     </div>
@@ -78,8 +78,6 @@
       </div>
       <%# EDITBUTTON + MODAL END %>
     </div>
-    
+
   </div>
 </div>
-
-   
