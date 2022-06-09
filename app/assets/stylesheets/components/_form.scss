@@ -77,8 +77,24 @@
   max-width: 420px;
 
   position: absolute;
-  left: -80%;
+  left: -70%;
+  top: 130px;
+}
+
+.modal-content-status {
+  position: absolute;
+  left: 0;
   top: 170px;
+  border: 1px solid $orange;
+  background-color: $gray;
+}
+
+.modal-content-status-closed {
+  position: absolute;
+  left: 0;
+  top: 170px;
+  border: 1px solid $font;
+  background-color: $gray;
 }
 
 .modal-title {
@@ -87,6 +103,10 @@
   color: $font;
   font-weight: 500;
   font-size: 1.5em;
+}
+
+.modal-review-title {
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .modal-dialog {
