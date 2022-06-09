@@ -42,18 +42,21 @@
   transition: 300ms;
   box-shadow: 8px 8px $green;
   transform: scale(0.98);
+  background-color: $first;
 }
 
 .ticket-link-in_progress:hover {
   transition: 300ms;
   box-shadow: 8px 8px $orange;
   transform: scale(0.98);
+  background-color: $first;
 }
 
 .ticket-link-closed:hover {
   transition: 300ms;
   box-shadow: 8px 8px $font;
   transform: scale(0.98);
+  background-color: $first;
 }
 
 .ticket-link h2 {
