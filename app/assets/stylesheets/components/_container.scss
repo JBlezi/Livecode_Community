@@ -53,9 +53,21 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border: solid;
+  border-radius: 4px;
+  border-width: thin;
+  padding: 32px;
+  margin: 16px;
+  border-color: $second;
 }
 .video-call {
   flex: 1;
+  border: solid;
+  border-radius: 4px;
+  border-width: thin;
+  padding: 32px;
+  margin: 16px;
+  border-color: $second;
 }
 
 .message-container {

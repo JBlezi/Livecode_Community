@@ -3,7 +3,7 @@
   border-radius: 4px;
   padding: 14px;
   min-height: 30px;
-  min-width: 130px;
+  min-width: 170px;
 
   // text-decoration: none;
   color: $font-contrast;
@@ -42,7 +42,7 @@
   border-radius: 4px;
   padding: 14px;
   min-height: 30px;
-  min-width: 130px;
+  min-width: 180px;
   text-decoration: none;
   color: $font;
   border: 2px solid  $second;
@@ -133,13 +133,27 @@
 }
 
 .search-button {
-  
+
 }
 
 .chat-button {
   margin-left: 8px;
 }
 
-#chat-standard-button {
+.chat-standard-button {
   margin-bottom: 24px;
+  margin-left:auto;
+  margin-right:0;
+}
+
+.btn-call-start {
+  border-color: $green;
+}
+
+.btn-call-end {
+  border-color: $orange;
+}
+
+.btn-call-share {
+  border-color: $fourth;
 }
