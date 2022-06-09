@@ -44,3 +44,11 @@ $TypeScript: #3e676d;
 $CSS: #4d446d;
 $C: #555555;
 $Vue: #39383b;
+
+.white-link {
+  color: $font;
+
+  &:hover {
+    color: $font;
+  }
+}
