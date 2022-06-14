@@ -1,1 +1,5 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+Rails app created during Le Wagon bootcamp.
+
+Livecode is a Web App that connects developers to resolve coding problems instantly via chat,  live calls and screen-sharing. 
+
+Website deployed at livecode-community.com
